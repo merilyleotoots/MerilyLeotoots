@@ -48,7 +48,13 @@ header {
   justify-content: space-between;
 }
 
-.nav-left img { height: 42px; }
+.nav-left img {
+  height: 60px;          /* suurem */
+  width: auto;
+  position: relative;
+  left: -10px;           /* surub täiesti vasakusse äärde */
+}
+
 
 .nav-center {
   display: flex;
@@ -98,7 +104,11 @@ section {
   align-items: center;
   text-align: center;
 }
-.hero-logo img { width: 140px; margin-bottom: 2rem; }
+.hero-logo img {
+  width: 140px;
+  margin-bottom: 2rem;
+  margin-top: 18px;    /* ~0.5 cm ekraanil */
+}
 
 .hero-name {
   font-family: Cinzel, serif;
