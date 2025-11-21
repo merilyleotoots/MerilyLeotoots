@@ -49,12 +49,11 @@ header {
 }
 
 .nav-left img {
-  height: 60px;          /* suurem */
+  height: 60px;
   width: auto;
   position: relative;
-  left: -20px;           /* surub täiesti vasakusse äärde */
+  left: -20px;  /* veel rohkem vasakule */
 }
-
 
 .nav-center {
   display: flex;
@@ -106,10 +105,9 @@ section {
 }
 .hero-logo img {
   width: 140px;
+  margin-top: 18px;   /* logo veidi allapoole */
   margin-bottom: 2rem;
-  margin-top: 18px;    /* ~0.5 cm ekraanil */
 }
-
 .hero-name {
   font-family: Cinzel, serif;
   font-size: 3rem;
@@ -175,26 +173,43 @@ section {
 }
 
 /* CONTACT */
-.contact-grid {
+.contact-wrapper {
   display: grid;
-  grid-template-columns: minmax(0,1.6fr) minmax(0,1.4fr);
-  gap: 2.5rem;
-  margin-bottom: 3rem;
+  grid-template-columns: minmax(0,1.4fr) minmax(0,1.6fr);
+  gap: 3rem;
+  align-items: flex-start;
+  padding-top: 2rem;
 }
 
-.contact-lines { font-size: 1.1rem; line-height: 1.9; }
-
-.contact-photo {
+.contact-left img {
+  width: 100%;
   border-radius: 4px;
-  overflow: hidden;
 }
 
-form { max-width: 680px; margin: 0 auto; }
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contact-lines {
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+form { width: 100%; margin-top: 1.5rem; }
+
 .form-row {
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 label {
@@ -223,13 +238,17 @@ textarea {
   margin-top: 1.5rem;
   text-align: center;
 }
+
 .send button {
   background: none;
   border: none;
   cursor: pointer;
 }
+
 .send button img {
   height: 60px;
+  width: auto;
+  margin: 0 auto;
 }
 
 /* FOOTER */
@@ -244,15 +263,17 @@ footer {
 }
 
 .footer-name {
-  margin-bottom: 0.3rem;
   text-transform: uppercase;
   font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  text-decoration: underline;
 }
 
 .footer-copy {
   font-family: Cormorant Garamond, serif;
   font-size: 0.85rem;
   color: var(--light);
+  text-align: center;
 }
 
 /* MOBILE */
@@ -260,7 +281,7 @@ footer {
   .nav-center { display: none; }
 
   #biography,
-  .contact-grid {
+  .contact-wrapper {
     grid-template-columns: 1fr;
   }
 
@@ -301,10 +322,10 @@ footer {
       <!-- Instagram -->
       <a href="#" target="_blank" class="icon">
         <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"/>
-          <rect x="8" y="8" width="8" height="8" rx="2"/>
-          <circle cx="12" cy="12" r="2"/>
-          <circle cx="15.5" cy="8.5" r="0.8"/>
+          <circle cx="12" cy="12" r="10"></circle>
+          <rect x="8" y="8" width="8" height="8" rx="2"></rect>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="15.5" cy="8.5" r="0.8"></circle>
         </svg>
       </a>
 
@@ -348,7 +369,7 @@ footer {
   <div class="title">Gallery</div>
 
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="Merily.jpg"></div>
+    <div class="gallery-item"><img src="Merily.jpg" alt=""></div>
   </div>
 </section>
 
@@ -375,12 +396,10 @@ footer {
 <section id="contact">
   <div class="contact-wrapper">
 
-    <!-- vasak: foto -->
     <div class="contact-left">
       <img src="MerilyC.jpg" alt="">
     </div>
 
-    <!-- parem: kontakt + vorm -->
     <div class="contact-right">
 
       <div class="title" style="margin-bottom:1.5rem;">Contact</div>
@@ -393,13 +412,12 @@ footer {
       <div class="title" style="font-size:1.3rem;margin-bottom:1rem;">Contact me:</div>
 
       <form>
-
         <div class="form-row">
-          <div>
+          <div class="form-group">
             <label>First Name:</label>
             <input type="text">
           </div>
-          <div>
+          <div class="form-group">
             <label>Last Name:</label>
             <input type="text">
           </div>
@@ -430,6 +448,7 @@ footer {
 
   </div>
 </section>
+
 
 <footer>
   <div class="footer-name">Merily Leotoots</div>
