@@ -40,9 +40,8 @@ header {
   backdrop-filter: blur(6px);
 }
 .nav {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0.7rem 1.4rem 0.7rem 0;  /* vasak padding 0, et home läheks äärele */
+  width: 100%;                            /* kogu laiuse ulatuses */
+  padding: 0.7rem 1.4rem 0.7rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,8 +50,7 @@ header {
 .nav-left img {
   height: 60px;
   width: auto;
-  position: relative;
-  left: 0;   /* enam ei nihuta negatiivselt */
+  margin-left: 0;                         /* täiesti vasakul */
 }
 
 .nav-center {
@@ -148,7 +146,7 @@ section {
   overflow: hidden;
 }
 
-/* GALLERY */
+/* MEDIA */
 
 .gallery-photos,
 .gallery-videos {
@@ -269,8 +267,7 @@ textarea {
 
 /* FOOTER */
 footer {
-  max-width: var(--max);
-  margin: 0 auto;
+  width: 100%;                       /* enam mitte max-width keskel */
   padding: 2rem 1.5rem 3rem;
   font-family: Cinzel, serif;
   font-size: 0.95rem;
@@ -283,6 +280,7 @@ footer {
   font-size: 1.4rem;
   margin-bottom: 0.3rem;
   text-decoration: underline;
+  text-align: left;                  /* täielikult vasakul */
 }
 
 .footer-copy {
@@ -543,5 +541,3 @@ function sendMessage() {
 
 </body>
 </html>
-
-
