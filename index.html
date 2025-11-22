@@ -42,7 +42,7 @@ header {
 .nav {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0.7rem 1.4rem;
+  padding: 0.7rem 1.4rem 0.7rem 0;  /* vasak padding 0, et home läheks äärele */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,7 +52,7 @@ header {
   height: 60px;
   width: auto;
   position: relative;
-  left: -20px;
+  left: 0;   /* enam ei nihuta negatiivselt */
 }
 
 .nav-center {
@@ -543,4 +543,5 @@ function sendMessage() {
 
 </body>
 </html>
+
 
