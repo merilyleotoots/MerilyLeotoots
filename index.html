@@ -260,6 +260,13 @@ textarea {
   margin: 0 auto;
 }
 
+#form-status {
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--gold);
+}
+
 /* FOOTER */
 footer {
   max-width: var(--max);
@@ -428,7 +435,7 @@ footer {
 
     <div class="concert">
       <div class="concert-title">Postimees concert</div>
-      <div class="concert-meta">10 March 2026 · Postimees, Tallinn</div>
+      <div class="concert-meta">10 March 2026 · Postimees,Tallinn</div>
       <div>Works by Mozart and Clara Schumann.</div>
     </div>
   </div>
@@ -453,36 +460,40 @@ footer {
 
       <div class="title" style="font-size:1.3rem;margin-bottom:1rem;">Contact me:</div>
 
-      <form>
+      <form onsubmit="return false;">
         <div class="form-row">
           <div class="form-group">
-            <label>First Name:</label>
-            <input type="text">
+            <label for="first-name">First Name:</label>
+            <input id="first-name" type="text">
           </div>
           <div class="form-group">
-            <label>Last Name:</label>
-            <input type="text">
+            <label for="last-name">Last Name:</label>
+            <input id="last-name" type="text">
           </div>
         </div>
 
         <div class="form-group" style="margin-bottom:1rem;">
-          <label>Email:</label>
-          <input type="email">
+          <label for="email">Email:</label>
+          <input id="email" type="email">
         </div>
 
         <div class="form-group" style="margin-bottom:1rem;">
-          <label>Phone:</label>
-          <input type="text">
+          <label for="phone">Phone:</label>
+          <input id="phone" type="text">
         </div>
 
         <div class="form-group">
-          <label>Message:</label>
-          <textarea></textarea>
+          <label for="message">Message:</label>
+          <textarea id="message"></textarea>
         </div>
 
         <div class="send">
-          <button type="button"><img src="Send.png" alt=""></button>
+          <button type="button" onclick="sendMessage()">
+            <img src="Send.png" alt="Send">
+          </button>
         </div>
+
+        <div id="form-status"></div>
 
       </form>
 
@@ -497,5 +508,39 @@ footer {
   <div class="footer-copy">© 2025 Merily Leotoots — All rights reserved.</div>
 </footer>
 
+<script>
+function sendMessage() {
+  var first = document.getElementById('first-name').value.trim();
+  var last = document.getElementById('last-name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var message = document.getElementById('message').value.trim();
+
+  var subject = 'Website message';
+  var bodyParts = [];
+
+  if (first || last) bodyParts.push('Name: ' + first + ' ' + last);
+  if (email) bodyParts.push('Email: ' + email);
+  if (phone) bodyParts.push('Phone: ' + phone);
+  if (message) {
+    bodyParts.push('');
+    bodyParts.push('Message:');
+    bodyParts.push(message);
+  }
+
+  var body = encodeURIComponent(bodyParts.join('\n'));
+
+  window.location.href = 'mailto:merilyleotoots@gmail.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + body;
+
+  var status = document.getElementById('form-status');
+  if (status) {
+    status.textContent = 'Message sent';
+  }
+}
+</script>
+
 </body>
 </html>
+
