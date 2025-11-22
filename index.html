@@ -24,7 +24,7 @@ body {
   font-family: "Cormorant Garamond", serif;
 }
 
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 
 a { color: var(--gold); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -52,7 +52,7 @@ header {
   height: 60px;
   width: auto;
   position: relative;
-  left: -20px;  /* rohkem vasakule */
+  left: -20px;
 }
 
 .nav-center {
@@ -105,7 +105,7 @@ section {
 }
 .hero-logo img {
   width: 140px;
-  margin-top: 18px;   /* logo veidi allapoole */
+  margin-top: 18px;
   margin-bottom: 2rem;
 }
 .hero-name {
@@ -149,10 +149,11 @@ section {
 }
 
 /* GALLERY */
+
 .gallery-photos,
 .gallery-videos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 tk reas */
   gap: 1.4rem;
   margin-bottom: 2rem;
 }
@@ -166,7 +167,6 @@ section {
   width: 100%;
   height: 180px;
 }
-
 
 /* EVENTS */
 .concert-list { display: grid; gap: 1.2rem; }
@@ -299,6 +299,11 @@ footer {
   }
 
   .hero-name { font-size: 2.3rem; }
+
+  .gallery-photos,
+  .gallery-videos {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -377,14 +382,15 @@ footer {
 <section id="gallery">
   <div class="title">Gallery</div>
 
-  <div class="gallery-grid">
-    <!-- 3 fotot -->
+  <div class="gallery-photos">
+    <!-- 3 fotot ülemises reas -->
     <div class="gallery-item"><img src="Merily.jpg" alt=""></div>
-    <div class="gallery-item"><img src="MerilyC.jpg" alt=""></div>
     <div class="gallery-item"><img src="Merily2.jpg" alt=""></div>
+    <div class="gallery-item"><img src="MerilyC.jpg" alt=""></div>
+  </div>
 
-
-    <!-- 3 videot – vaheta src omadeks YouTube linkideks -->
+  <div class="gallery-videos">
+    <!-- 3 videot teises reas – vaheta src omadeks YouTube videodeks -->
     <div class="gallery-item">
       <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX" title="Video 1" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -422,7 +428,7 @@ footer {
 
     <div class="concert">
       <div class="concert-title">Postimees concert</div>
-      <div class="concert-meta">10 March 2026 · Postimees, Tallinn </div>
+      <div class="concert-meta">10 March 2026 · Postimees, Tallinn</div>
       <div>Works by Mozart and Clara Schumann.</div>
     </div>
   </div>
