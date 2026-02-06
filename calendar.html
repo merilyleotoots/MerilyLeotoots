@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calendar – Merily Leotoots</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- FAVICONS (GitHub Pages repo-safe: relative paths) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <style>
+    :root{
+      --bg:#003b32;
+      --gold:#c7a96b;
+      --light:#f4f1e8;
+      --max:1200px;
+      --header-h:84px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
+    body{
+      background:var(--bg);
+      color:var(--light);
+      font-family:"Cormorant Garamond",serif;
+    }
+
+    img{display:block;max-width:100%;height:auto;}
+    a{color:var(--gold);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    /* NAV */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      height:var(--header-h);
+      z-index:999;
+      background:rgba(0,59,50,0.96);
+      backdrop-filter:blur(6px);
+    }
+
+    .nav{
+      width:100%;
+      height:var(--header-h);
+      padding:0.7rem 1.4rem 0.7rem 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .nav-left img{
+      height:60px;
+      width:auto;
+      margin-left:12px;
+    }
+
+    .nav-center{
+      display:flex;
+      gap:2.2rem;
+      font-family:Cinzel,serif;
+      font-size:0.95rem;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+    }
+
+    .nav-center a{color:var(--light);}
+    .nav-center a:hover{color:var(--gold);text-decoration:none;}
+
+    .nav-right{display:flex;gap:1rem;}
+
+    /* Icons (unified) */
+    .icon{
+      width:40px;height:40px;
+      border:1.5px solid var(--gold);
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .icon svg{
+      width:22px;height:22px;
+      stroke:var(--gold);
+      stroke-width:1.4;
+      fill:none;
+    }
+
+    .icon svg path,
+    .icon svg rect,
+    .icon svg circle{stroke:var(--gold);}
+
+    /* SECTION WRAPPER */
+    section{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:7rem 1.5rem 5rem;
+      scroll-margin-top:calc(var(--header-h) + 18px);
+    }
+
+    .title{
+      font-family:Cinzel,serif;
+      font-size:1.6rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:1.6rem;
+    }
+
+    /* CALENDAR */
+    .calendar-wrap{
+      max-width:72ch;
+    }
+
+    .calendar-note{
+      opacity:0.92;
+      line-height:1.75;
+      margin-bottom:2.2rem;
+      max-width:62ch;
+    }
+
+    .calendar-block{
+      margin-top:2.4rem;
+    }
+    .calendar-block:first-of-type{margin-top:0;}
+
+    .calendar-subtitle{
+      font-family:Cinzel,serif;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:var(--gold);
+      font-size:1.05rem;
+      margin-bottom:1.1rem;
+    }
+
+    .concert{
+      border:none;
+      padding:0;
+      margin-top:2rem;
+    }
+    .concert:first-child{margin-top:0;}
+
+    .concert-title{
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      color:var(--gold);
+      margin-bottom:0.35rem;
+    }
+
+    .concert-meta{
+      opacity:0.92;
+      margin-bottom:0.15rem;
+    }
+
+    .concert-links{
+      margin-top:0.35rem;
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+      font-size:0.98rem;
+    }
+
+    .concert-links a{
+      text-decoration:underline;
+    }
+
+    /* FOOTER */
+    footer{
+      width:100%;
+      padding:2rem 1.5rem 3rem;
+      font-family:Cinzel,serif;
+      font-size:0.95rem;
+      letter-spacing:0.14em;
+      color:var(--gold);
+    }
+
+    .footer-name{
+      text-transform:uppercase;
+      font-size:1.4rem;
+      margin-bottom:0.3rem;
+      text-decoration:underline;
+      text-align:left;
+    }
+
+    .footer-copy{
+      font-family:"Cormorant Garamond",serif;
+      font-size:0.85rem;
+      color:var(--light);
+      text-align:center;
+    }
+
+    /* MOBILE */
+    @media (max-width:900px){
+      .nav-center{display:none;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <a href="index.html" aria-label="Home">
+          <img src="Home.png" alt="Home">
+        </a>
+      </div>
+
+      <nav class="nav-center" aria-label="Main navigation">
+        <a href="index.html#biography">Biography</a>
+        <a href="media.html">Media</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" class="icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M10 8 L16 12 L10 16 Z"></path>
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/merily_leotoots/" target="_blank" rel="noopener" class="icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <rect x="8" y="8" width="8" height="8" rx="2"></rect>
+            <circle cx="12" cy="12" r="2"></circle>
+            <circle cx="15.5" cy="8.5" r="0.8"></circle>
+          </svg>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@merily_leotoots" target="_blank" rel="noopener" class="icon" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
+                  transform="translate(2 2) scale(1.25)"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="calendar" aria-label="Calendar">
+    <div class="title">Calendar</div>
+
+    <div class="calendar-wrap">
+
+      <div class="calendar-note">
+        Upcoming performances and appearances. Programme details may change.
+      </div>
+
+      <div class="calendar-block">
+        <div class="calendar-subtitle">Upcoming</div>
+
+        <div class="concert">
+          <div class="concert-title">Advent concert</div>
+          <div class="concert-meta">19 December 2025 · 16:00 · Tartu Jaani Church</div>
+          <div>Mozart, Clara Schumann, Estonian repertoire.</div>
+        </div>
+
+        <div class="concert">
+          <div class="concert-title">Chamber music afternoon</div>
+          <div class="concert-meta">20 December 2025 · 15:00 · Tallinn Central Library</div>
+          <div>Trio Callistó – piano trio programme.</div>
+        </div>
+
+        <div class="concert">
+          <div class="concert-title">Postimees concert</div>
+          <div class="concert-meta">11 March 2026 · Postimees, Tallinn</div>
+          <div>Works by Schubert and Kaumann.</div>
+        </div>
+
+        <div class="concert">
+          <div class="concert-title">Trio Callistó | Viini varjud ja valgus</div>
+          <div class="concert-meta">13 March 2026 · Rootsi-Mihkli Church, Tallinn</div>
+          <div>Works by Mozart and Schubert.</div>
+        </div>
+      </div>
+
+      <!-- Optional: add a Past section later -->
+      <!--
+      <div class="calendar-block">
+        <div class="calendar-subtitle">Past</div>
+        <div class="concert">
+          <div class="concert-title">Example past event</div>
+          <div class="concert-meta">10 October 2025 · Tallinn</div>
+          <div>Programme.</div>
+        </div>
+      </div>
+      -->
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-name">Merily Leotoots</div>
+    <div class="footer-copy">© 2025 Merily Leotoots — All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
 
