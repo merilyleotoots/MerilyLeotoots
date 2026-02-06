@@ -201,10 +201,16 @@ section {
 /* EVENTS */
 .concert-list { display: grid; gap: 1.2rem; }
 .concert{
-  border: none;
-  padding: 0;
+  border:none;
+  padding:0;
+  margin-top:2rem;
 }
 
+.concert:first-child{
+  margin-top:0;
+}
+
+  
 .concert + .concert{
   margin-top: 1.8rem;   /* vahe eventide vahel */
 }
