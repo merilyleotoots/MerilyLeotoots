@@ -257,6 +257,39 @@ section {
   text-decoration: none;
 }
 
+  .contact-actions{
+  display:flex;
+  flex-direction:column;
+  gap:0.9rem;
+  margin-top:1.6rem;
+}
+
+.contact-action{
+  display:inline-flex;
+  align-items:center;
+  gap:0.8rem;
+  font-family:Cinzel, serif;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-size:1.05rem;
+}
+
+.contact-action::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  display:inline-block;
+  flex:0 0 auto;
+}
+
+.contact-action:hover{
+  text-decoration:underline;
+}
+
+
 /* FOOTER */
 footer {
   width: 100%;
@@ -459,13 +492,23 @@ footer {
         <div>Phone: +372 56944159</div>
       </div>
 
-      <!-- FORM REMOVED. NEW BUTTON ADDED -->
-      <div class="send">
-        <a class="send-mail"
-           href="mailto:merilyleotoots@gmail.com?subject=Booking%20enquiry">
-          Send message
-        </a>
-      </div>
+<div class="contact-actions">
+  <a class="contact-action"
+     href="mailto:merilyleotoots@gmail.com?subject=Booking%20Enquiry">
+    Booking Enquiry
+  </a>
+
+  <a class="contact-action"
+     href="mailto:merilyleotoots@gmail.com?subject=Chamber%20Music%20Collaboration">
+    Chamber Music Collaboration
+  </a>
+
+  <a class="contact-action"
+     href="mailto:merilyleotoots@gmail.com?subject=Masterclass%20or%20Project%20Invitation">
+    Masterclass or Project Invitation
+  </a>
+</div>
+
 
     </div>
 
