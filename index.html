@@ -1,348 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Merily Leotoots – Violinist</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>Merily Leotoots – Violinist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="Merily Leotoots is a violinist focused on chamber music, performing across Estonia and Europe. Duo EnPassant, Trio Callistó, Quattuor Artium." />
+  <meta property="og:title" content="Merily Leotoots – Violinist" />
+  <meta property="og:description" content="Chamber musician performing across Estonia and Europe." />
+  <meta property="og:image" content="MerilyC.jpg" />
+  <meta property="og:type" content="website" />
+  <!-- Set your real domain URL here -->
+  <meta property="og:url" content="https://YOURDOMAIN/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<!-- FAVICONID -->
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="Favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --bg: #003b32;
-  --gold: #c7a96b;
-  --light: #f4f1e8;
-  --max: 1200px;
-}
+  <!-- FAVICONS -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+  <style>
+    :root {
+      --bg: #003b32;
+      --gold: #c7a96b;
+      --light: #f4f1e8;
+      --max: 1200px;
+      --header-h: 84px;
+    }
 
-body {
-  background: var(--bg);
-  color: var(--light);
-  font-family: "Cormorant Garamond", serif;
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--light);
+      font-family: "Cormorant Garamond", serif;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-img { display: block; max-width: 100%; height: auto; }
+    /* NAV */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: rgba(0,59,50,0.96);
+      backdrop-filter: blur(6px);
+    }
+    .nav {
+      width: 100%;
+      padding: 0.7rem 1.4rem 0.7rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: var(--header-h);
+    }
 
-a { color: var(--gold); text-decoration: none; }
-a:hover { text-decoration: underline; }
+    .nav-left img {
+      height: 60px;
+      width: auto;
+      margin-left: 12px;
+    }
 
-/* NAV */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: rgba(0,59,50,0.96);
-  backdrop-filter: blur(6px);
-}
-.nav {
-  width: 100%;
-  padding: 0.7rem 1.4rem 0.7rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    .nav-center {
+      display: flex;
+      gap: 2.2rem;
+      font-family: Cinzel, serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .nav-center a { color: var(--light); }
+    .nav-center a:hover { color: var(--gold); }
 
-.nav-left img {
-  height: 60px;
-  width: auto;
-  margin-left: 12px;
-}
+    .nav-right { display: flex; gap: 1rem; align-items: center; }
 
-.nav-center {
-  display: flex;
-  gap: 2.2rem;
-  font-family: Cinzel, serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
+    .icon {
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--gold);
+      stroke-width: 1.3;
+      fill: none;
+    }
+    .icon svg path { fill: var(--gold); stroke: none; }
 
-.nav-center a { color: var(--light); }
-.nav-center a:hover { color: var(--gold); }
+    /* Mobile menu button */
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--gold);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-btn span {
+      width: 18px;
+      height: 2px;
+      background: var(--gold);
+      display: block;
+      position: relative;
+    }
+    .menu-btn span::before,
+    .menu-btn span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .menu-btn span::before { top: -6px; }
+    .menu-btn span::after { top: 6px; }
 
-.nav-right { display: flex; gap: 1rem; }
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid rgba(199,169,107,0.35);
+      padding: 0.8rem 1.4rem 1rem;
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 0.65rem 0;
+      font-family: Cinzel, serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .mobile-menu a:hover { color: var(--gold); }
 
-.icon {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--gold);
-  stroke-width: 1.3;
-  fill: none;
-}
-.icon svg path { fill: var(--gold); stroke: none; }
+    /* SECTION WRAPPER */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 6rem 1.5rem 4rem;
+      scroll-margin-top: calc(var(--header-h) + 12px);
+    }
 
-/* SECTION WRAPPER */
-section {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 6rem 1.5rem 4rem;
-}
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: calc(var(--header-h) + 2rem);
+    }
+    .hero-logo img {
+      width: 140px;
+      margin-top: 18px;
+      margin-bottom: 2rem;
+    }
+    .hero-name {
+      font-family: Cinzel, serif;
+      font-size: 3rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
 
-/* HERO */
-#hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.hero-logo img {
-  width: 140px;
-  margin-top: 18px;
-  margin-bottom: 2rem;
-}
-.hero-name {
-  font-family: Cinzel, serif;
-  font-size: 3rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
+    /* BIO */
+    #biography {
+      display: grid;
+      grid-template-columns: minmax(0,3fr) minmax(0,2fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
 
-/* BIO */
-#biography {
-  display: grid;
-  grid-template-columns: minmax(0,3fr) minmax(0,2fr);
-  gap: 2.5rem;
-  align-items: flex-start;
-}
+    .title {
+      font-family: Cinzel, serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+    }
 
-.title {
-  font-family: Cinzel, serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.6rem;
-}
+    .bio-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    .bio-text p + p { margin-top: 1rem; }
 
-.bio-text {
-  font-size: 1.05rem;
-  line-height: 1.75;
-}
-.bio-text p + p { margin-top: 1rem; }
+    .cv-link { margin-top: 1.6rem; font-size: 1rem; }
 
-.cv-link { margin-top: 1.6rem; font-size: 1rem; }
+    .bio-photo {
+      max-width: 420px;
+      margin-left: auto;
+      border-radius: 4px;
+      overflow: hidden;
+    }
 
-.bio-photo {
-  max-width: 420px;
-  margin-left: auto;
-  border-radius: 4px;
-  overflow: hidden;
-}
+    /* MEDIA */
+    .gallery-photos,
+    .gallery-videos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 2rem;
+    }
 
-/* MEDIA */
+    .gallery-item {
+      border: 1px solid var(--gold);
+      padding: 0.4rem;
+    }
 
-.gallery-photos,
-.gallery-videos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
-  margin-bottom: 2rem;
-}
+    .gallery-item iframe {
+      width: 100%;
+      height: 180px;
+      border: 0;
+    }
 
-.gallery-item {
-  border: 1px solid var(--gold);
-  padding: 0.4rem;
-}
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999999;
+      flex-direction: column;
+      padding: 20px;
+    }
 
-.gallery-item iframe {
-  width: 100%;
-  height: 180px;
-}
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      margin-bottom: 1rem;
+      border: 2px solid var(--gold);
+    }
 
-/* Lightbox */
-#lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999999;
-  flex-direction: column;
-  padding: 20px;
-}
+    #lightbox-download {
+      color: var(--gold);
+      font-family: Cinzel, serif;
+      font-size: 1.1rem;
+      text-decoration: underline;
+    }
 
-#lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  margin-bottom: 1rem;
-  border: 2px solid var(--gold);
-}
+    /* EVENTS */
+    .concert-list { display: grid; gap: 1.2rem; }
+    .concert {
+      border: 1px solid var(--gold);
+      padding: 0.9rem 1.1rem;
+    }
+    .concert-title {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
 
-#lightbox-download {
-  color: var(--gold);
-  font-family: Cinzel, serif;
-  font-size: 1.1rem;
-  text-decoration: underline;
-}
+    /* CONTACT */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1.6fr);
+      gap: 3rem;
+      align-items: flex-start;
+      padding-top: 2rem;
+    }
 
-/* EVENTS */
-.concert-list { display: grid; gap: 1.2rem; }
-.concert {
-  border: 1px solid var(--gold);
-  padding: 0.9rem 1.1rem;
-}
-.concert-title {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--gold);
-  margin-bottom: 0.4rem;
-}
+    .contact-left img { width: 100%; border-radius: 4px; }
 
-/* CONTACT */
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: minmax(0,1.4fr) minmax(0,1.6fr);
-  gap: 3rem;
-  align-items: flex-start;
-  padding-top: 2rem;
-}
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
 
-.contact-left img {
-  width: 100%;
-  border-radius: 4px;
-}
+    .contact-lines {
+      font-size: 1.1rem;
+      line-height: 1.9;
+    }
 
-.contact-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+    form { width: 100%; margin-top: 1.5rem; }
 
-.contact-lines {
-  font-size: 1.1rem;
-  line-height: 1.9;
-}
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-form { width: 100%; margin-top: 1.5rem; }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
 
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
+    label {
+      color: var(--gold);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
+    input, textarea {
+      background: #0a4b3b;
+      border: 1px solid #0a4b3b;
+      color: var(--light);
+      padding: 0.45rem 0.6rem;
+      font-family: inherit;
+      font-size: 1rem;
+      border-radius: 6px;
+    }
 
-label {
-  color: var(--gold);
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
+    textarea {
+      min-height: 160px;
+      border-radius: 14px;
+      border: 2px solid var(--gold);
+    }
 
-input, textarea {
-  background: #0a4b3b;
-  border: 1px solid #0a4b3b;
-  color: var(--light);
-  padding: 0.45rem 0.6rem;
-  font-family: inherit;
-  font-size: 1rem;
-}
+    .send { margin-top: 1.5rem; text-align: center; }
 
-textarea {
-  min-height: 160px;
-  border-radius: 14px;
-  border: 2px solid var(--gold);
-}
+    .send button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
 
-.send {
-  margin-top: 1.5rem;
-  text-align: center;
-}
+    .send button img {
+      height: 60px;
+      width: auto;
+      margin: 0 auto;
+    }
 
-.send button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+    #form-status {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--gold);
+    }
 
-.send button img {
-  height: 60px;
-  width: auto;
-  margin: 0 auto;
-}
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
 
-#form-status {
-  margin-top: 0.8rem;
-  text-align: center;
-  font-size: 0.95rem;
-  color: var(--gold);
-}
+    /* FOOTER */
+    footer {
+      width: 100%;
+      padding: 2rem 1.5rem 3rem;
+      font-family: Cinzel, serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+    }
 
-/* FOOTER */
-footer {
-  width: 100%;
-  padding: 2rem 1.5rem 3rem;
-  font-family: Cinzel, serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.14em;
-  color: var(--gold);
-}
+    .footer-name {
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      text-decoration: underline;
+      text-align: left;
+    }
 
-.footer-name {
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  margin-bottom: 0.3rem;
-  text-decoration: underline;
-  text-align: left;
-}
+    .footer-copy {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.85rem;
+      color: var(--light);
+      text-align: center;
+    }
 
-.footer-copy {
-  font-family: Cormorant Garamond, serif;
-  font-size: 0.85rem;
-  color: var(--light);
-  text-align: center;
-}
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .nav-center { display: none; }
+      .menu-btn { display: inline-flex; }
+      .mobile-menu { display: none; }
 
-/* MOBILE */
-@media (max-width: 900px) {
-  .nav-center { display: none; }
+      #biography, .contact-wrapper { grid-template-columns: 1fr; }
+      .hero-name { font-size: 2.3rem; }
 
-  #biography,
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  #hero {
-    padding-top: 7rem;
-  }
-
-  .hero-name { font-size: 2.3rem; }
-
-  .gallery-photos,
-  .gallery-videos {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+      .gallery-photos, .gallery-videos { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body id="top">
@@ -353,7 +407,7 @@ footer {
       <a href="#top"><img src="Home.png" alt="Home"></a>
     </div>
 
-    <nav class="nav-center">
+    <nav class="nav-center" aria-label="Primary">
       <a href="#biography">Biography</a>
       <a href="#media">Media</a>
       <a href="#events">Events</a>
@@ -361,35 +415,44 @@ footer {
     </nav>
 
     <div class="nav-right">
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">
+        <span></span>
+      </button>
 
       <!-- YouTube -->
-      <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" class="icon">
-        <svg viewBox="0 0 24 24">
+      <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" class="icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="10"></circle>
           <path d="M10 8 L16 12 L10 16 Z"></path>
         </svg>
       </a>
 
       <!-- Instagram -->
-      <a href="https://www.instagram.com/merilyleotoots/" target="_blank" class="icon">
-        <svg viewBox="0 0 24 24">
+      <a href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" class="icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="10"></circle>
           <rect x="8" y="8" width="8" height="8" rx="2"></rect>
           <circle cx="12" cy="12" r="2"></circle>
           <circle cx="15.5" cy="8.5" r="0.8"></circle>
         </svg>
       </a>
-
     </div>
   </div>
+
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
+    <a href="#biography" onclick="closeMenu()">Biography</a>
+    <a href="#media" onclick="closeMenu()">Media</a>
+    <a href="#events" onclick="closeMenu()">Events</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </nav>
 </header>
 
-
 <section id="hero">
-  <div class="hero-logo"><img src="Logo.png" alt="Logo"></div>
+  <div class="hero-logo">
+    <img src="Logo.png" alt="Merily Leotoots logo">
+  </div>
   <div class="hero-name">Merily Leotoots</div>
 </section>
-
 
 <section id="biography">
   <div>
@@ -406,44 +469,57 @@ footer {
     </div>
 
     <div class="cv-link">
-      <a href="CV.pdf" target="_blank">Download full CV (PDF)</a>
+      <a href="CV.pdf" target="_blank" rel="noopener">Download full CV (PDF)</a>
     </div>
   </div>
 
   <div class="bio-photo">
-    <img src="Merily.jpg" alt="">
+    <img src="Merily.jpg" alt="Merily Leotoots – portrait" loading="lazy">
   </div>
 </section>
-
 
 <section id="media">
   <div class="title">Media</div>
 
   <div class="gallery-photos">
     <div class="gallery-item">
-      <img src="Merily.jpg" alt="" onclick="openLightbox('Merily.jpg')">
+      <img src="Merily.jpg" alt="Merily Leotoots – photo 1" loading="lazy" onclick="openLightbox('Merily.jpg')">
     </div>
     <div class="gallery-item">
-      <img src="Merily2.jpg" alt="" onclick="openLightbox('Merily2.jpg')">
+      <img src="Merily2.jpg" alt="Merily Leotoots – photo 2" loading="lazy" onclick="openLightbox('Merily2.jpg')">
     </div>
     <div class="gallery-item">
-      <img src="MerilyC.jpg" alt="" onclick="openLightbox('MerilyC.jpg')">
+      <img src="MerilyC.jpg" alt="Merily Leotoots – photo 3" loading="lazy" onclick="openLightbox('MerilyC.jpg')">
     </div>
   </div>
 
   <div class="gallery-videos">
     <div class="gallery-item">
-      <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX" title="Video 1" frameborder="0" allowfullscreen></iframe>
+      <iframe
+        loading="lazy"
+        src="https://www.youtube.com/embed/XXXXXXXXXXX"
+        title="Video 1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
     <div class="gallery-item">
-      <iframe src="https://www.youtube.com/embed/YYYYYYYYYYY" title="Video 2" frameborder="0" allowfullscreen></iframe>
+      <iframe
+        loading="lazy"
+        src="https://www.youtube.com/embed/YYYYYYYYYYY"
+        title="Video 2"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
     <div class="gallery-item">
-      <iframe src="https://www.youtube.com/embed/ZZZZZZZZZZZ" title="Video 3" frameborder="0" allowfullscreen></iframe>
+      <iframe
+        loading="lazy"
+        src="https://www.youtube.com/embed/ZZZZZZZZZZZ"
+        title="Video 3"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
   </div>
 </section>
-
 
 <section id="events">
   <div class="title">Events</div>
@@ -462,29 +538,27 @@ footer {
     </div>
 
     <div class="concert">
+      <div class="concert-title">Postimees concert</div>
+      <div class="concert-meta">10 March 2026 · Postimees, Tallinn</div>
+      <div>Works by Mozart and Clara Schumann.</div>
+    </div>
+
+    <div class="concert">
       <div class="concert-title">Austria tour</div>
       <div class="concert-meta">16–23 April 2026 · Austria</div>
       <div>Tour with chamber music programmes.</div>
     </div>
-
-    <div class="concert">
-      <div class="concert-title">Postimees concert</div>
-      <div class="concert-meta">10 March 2026 · Postimees,Tallinn</div>
-      <div>Works by Mozart and Clara Schumann.</div>
-    </div>
   </div>
 </section>
-
 
 <section id="contact">
   <div class="contact-wrapper">
 
     <div class="contact-left">
-      <img src="MerilyC.jpg" alt="">
+      <img src="MerilyC.jpg" alt="Merily Leotoots – performance photo" loading="lazy">
     </div>
 
     <div class="contact-right">
-
       <div class="title" style="margin-bottom:1.5rem;">Contact</div>
 
       <div class="contact-lines" style="margin-bottom:2rem;">
@@ -494,102 +568,129 @@ footer {
 
       <div class="title" style="font-size:1.3rem;margin-bottom:1rem;">Contact me:</div>
 
-      <form onsubmit="return false;">
+      <form onsubmit="return false;" aria-label="Contact form">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First Name:</label>
-            <input id="first-name" type="text">
+            <input id="first-name" name="first-name" type="text" autocomplete="given-name">
           </div>
           <div class="form-group">
             <label for="last-name">Last Name:</label>
-            <input id="last-name" type="text">
+            <input id="last-name" name="last-name" type="text" autocomplete="family-name">
           </div>
         </div>
 
         <div class="form-group" style="margin-bottom:1rem;">
           <label for="email">Email:</label>
-          <input id="email" type="email">
+          <input id="email" name="email" type="email" autocomplete="email">
         </div>
 
         <div class="form-group" style="margin-bottom:1rem;">
           <label for="phone">Phone:</label>
-          <input id="phone" type="text">
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
         </div>
 
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea id="message"></textarea>
+          <textarea id="message" name="message"></textarea>
         </div>
 
         <div class="send">
           <button type="button" onclick="sendMessage()">
+            <span class="sr-only">Open email draft</span>
             <img src="Send.png" alt="Send">
           </button>
         </div>
 
-        <div id="form-status"></div>
-
+        <div id="form-status" role="status" aria-live="polite"></div>
       </form>
-
     </div>
 
   </div>
 </section>
-
 
 <footer>
   <div class="footer-name">Merily Leotoots</div>
   <div class="footer-copy">© 2025 Merily Leotoots — All rights reserved.</div>
 </footer>
 
-<!-- Lightbox overlay -->
-<div id="lightbox" onclick="closeLightbox()">
+<!-- Lightbox overlay (click outside image to close) -->
+<div id="lightbox" onclick="closeLightbox(event)">
   <img id="lightbox-img" src="" alt="">
-  <a id="lightbox-download" href="" download>Download</a>
+  <a id="lightbox-download" href="" download onclick="event.stopPropagation()">Download</a>
 </div>
 
 <script>
-function sendMessage() {
-  var first = document.getElementById('first-name').value.trim();
-  var last = document.getElementById('last-name').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var phone = document.getElementById('phone').value.trim();
-  var message = document.getElementById('message').value.trim();
+  function sendMessage() {
+    var first = document.getElementById('first-name').value.trim();
+    var last = document.getElementById('last-name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var message = document.getElementById('message').value.trim();
 
-  var subject = 'Website message';
-  var bodyParts = [];
+    var subject = 'Website message';
+    var bodyParts = [];
 
-  if (first || last) bodyParts.push('Name: ' + first + ' ' + last);
-  if (email) bodyParts.push('Email: ' + email);
-  if (phone) bodyParts.push('Phone: ' + phone);
-  if (message) {
-    bodyParts.push('');
-    bodyParts.push('Message:');
-    bodyParts.push(message);
+    if (first || last) bodyParts.push('Name: ' + [first, last].filter(Boolean).join(' '));
+    if (email) bodyParts.push('Email: ' + email);
+    if (phone) bodyParts.push('Phone: ' + phone);
+    if (message) {
+      bodyParts.push('');
+      bodyParts.push('Message:');
+      bodyParts.push(message);
+    }
+
+    var body = encodeURIComponent(bodyParts.join('\n'));
+
+    window.location.href =
+      'mailto:merilyleotoots@gmail.com' +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + body;
+
+    var status = document.getElementById('form-status');
+    if (status) status.textContent = 'Email draft opened';
   }
 
-  var body = encodeURIComponent(bodyParts.join('\n'));
+  function openLightbox(src) {
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    var dl = document.getElementById('lightbox-download');
 
-  window.location.href = 'mailto:merilyleotoots@gmail.com'
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body=' + body;
-
-  var status = document.getElementById('form-status');
-  if (status) {
-    status.textContent = 'Message sent';
+    img.src = src;
+    dl.href = src;
+    lb.style.display = 'flex';
   }
-}
 
-function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox-download').href = src;
-  document.getElementById('lightbox').style.display = 'flex';
-}
+  function closeLightbox(e) {
+    // Close only when clicking the backdrop
+    if (e && e.target && e.target.id !== 'lightbox') return;
+    document.getElementById('lightbox').style.display = 'none';
+    document.getElementById('lightbox-img').src = '';
+  }
 
-function closeLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
-}
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeLightbox({ target: { id: 'lightbox' } });
+    }
+  });
+
+  function toggleMenu() {
+    var menu = document.getElementById('mobile-menu');
+    var btn = document.querySelector('.menu-btn');
+    var isOpen = menu.style.display === 'block';
+
+    menu.style.display = isOpen ? 'none' : 'block';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  }
+
+  function closeMenu() {
+    var menu = document.getElementById('mobile-menu');
+    var btn = document.querySelector('.menu-btn');
+    menu.style.display = 'none';
+    btn.setAttribute('aria-expanded', 'false');
+  }
 </script>
 
 </body>
 </html>
+
