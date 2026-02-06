@@ -47,8 +47,8 @@
 
     .nav{
       width:100%;
-      height:var(--header-h);
-      padding:0.7rem 1.4rem 0.7rem 0;
+      height:100%(--header-h);
+      padding:0.7rem 1.4rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -61,7 +61,10 @@
     }
 
     .nav-center{
-      display:flex;
+     position: absolute;
+      left: 50%
+        transform: translateX(-50%) ;
+      display: flex;
       gap:2.2rem;
       font-family:Cinzel,serif;
       font-size:0.95rem;
