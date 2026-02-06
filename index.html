@@ -200,9 +200,22 @@ section {
 
 /* EVENTS */
 .concert-list { display: grid; gap: 1.2rem; }
-.concert {
-  border: 1px solid var(--gold);
-  padding: 0.9rem 1.1rem;
+.concert{
+  border: none;
+  padding: 0;
+}
+
+.concert + .concert{
+  margin-top: 1.8rem;   /* vahe eventide vahel */
+}
+
+.concert-title{
+  margin-bottom: 0.35rem;
+}
+
+.concert-meta{
+  opacity: 0.95;
+
 }
 .concert-title {
   text-transform: uppercase;
