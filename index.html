@@ -7,7 +7,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- FAVICONS (GitHub Pages repo-safe: relative paths) -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -24,18 +23,11 @@
 
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-
-    body{
-      background:var(--bg);
-      color:var(--light);
-      font-family:"Cormorant Garamond",serif;
-    }
-
+    body{background:var(--bg);color:var(--light);font-family:"Cormorant Garamond",serif;}
     img{display:block;max-width:100%;height:auto;}
     a{color:var(--gold);text-decoration:none;}
     a:hover{text-decoration:underline;}
 
-    /* NAV (robust center: grid) */
     header{
       position:fixed;
       top:0;left:0;right:0;
@@ -66,7 +58,7 @@
     }
 
     .nav-left img{
-      height:60px;        /* prevents huge Home.png */
+      height:60px;
       width:auto;
       display:block;
     }
@@ -92,7 +84,6 @@
       align-items:center;
     }
 
-    /* Icons (unified style) */
     .icon{
       width:40px;
       height:40px;
@@ -117,7 +108,6 @@
       stroke:var(--gold);
     }
 
-    /* SECTION WRAPPER */
     section{
       max-width:var(--max);
       margin:0 auto;
@@ -125,7 +115,6 @@
       scroll-margin-top:calc(var(--header-h) + 18px);
     }
 
-    /* HERO */
     #hero{
       min-height:100vh;
       display:flex;
@@ -149,7 +138,6 @@
       color:var(--gold);
     }
 
-    /* BIO */
     #biography{
       display:grid;
       grid-template-columns:minmax(0,3fr) minmax(0,2fr);
@@ -185,7 +173,6 @@
       overflow:hidden;
     }
 
-    /* CONTACT */
     .contact-wrapper{
       display:grid;
       grid-template-columns:minmax(0,1.4fr) minmax(0,1.6fr);
@@ -232,7 +219,6 @@
 
     .contact-action:hover{text-decoration:underline;}
 
-    /* FOOTER */
     footer{
       width:100%;
       padding:2rem 1.5rem 3rem;
@@ -257,9 +243,83 @@
       text-align:center;
     }
 
-    /* MOBILE */
+    /* HAMBURGER (default hidden on desktop) */
+    .burger{
+      display:none;
+      width:44px;
+      height:44px;
+      border:1.5px solid var(--gold);
+      border-radius:12px;
+      background:transparent;
+      color:var(--light);
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .burger:focus{outline:2px solid var(--gold); outline-offset:2px;}
+
+    .burger-lines{
+      width:20px;
+      height:14px;
+      position:relative;
+    }
+    .burger-lines span{
+      position:absolute;
+      left:0;
+      right:0;
+      height:2px;
+      background:var(--gold);
+      border-radius:2px;
+      transition:transform .2s ease, top .2s ease, opacity .2s ease;
+    }
+    .burger-lines span:nth-child(1){top:0;}
+    .burger-lines span:nth-child(2){top:6px;}
+    .burger-lines span:nth-child(3){top:12px;}
+
+    /* overlay menu (mobile) */
+    .mobile-menu{
+      position:fixed;
+      inset:var(--header-h) 0 0 0;
+      background:rgba(0,59,50,0.98);
+      backdrop-filter:blur(6px);
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .18s ease, transform .18s ease;
+      z-index:998;
+      padding:1.4rem 1.4rem 2rem;
+    }
+    .mobile-menu.open{
+      opacity:1;
+      transform:translateY(0);
+      pointer-events:auto;
+    }
+
+    .mobile-links{
+      display:flex;
+      flex-direction:column;
+      gap:1.1rem;
+      font-family:Cinzel,serif;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      font-size:1.05rem;
+      padding-top:0.6rem;
+    }
+    .mobile-links a{color:var(--light);}
+    .mobile-links a:hover{color:var(--gold);text-decoration:none;}
+
+    .mobile-social{
+      margin-top:1.6rem;
+      display:flex;
+      gap:0.9rem;
+      align-items:center;
+    }
+
+    /* MOBILE BREAKPOINT */
     @media (max-width:900px){
+      .nav{grid-template-columns:auto 1fr auto;}
       .nav-center{display:none;}
+      .burger{display:inline-flex;}
 
       #biography,
       .contact-wrapper{
@@ -290,16 +350,22 @@
       </nav>
 
       <div class="nav-right">
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" class="icon" aria-label="YouTube">
+        <!-- hamburger (mobile) -->
+        <button class="burger" id="burger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+          <span class="burger-lines" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+
+        <!-- desktop social -->
+        <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" class="icon desktop-only" aria-label="YouTube">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M10 8 L16 12 L10 16 Z"></path>
           </svg>
         </a>
 
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" class="icon" aria-label="Instagram">
+        <a href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" class="icon desktop-only" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="10"></circle>
             <rect x="8" y="8" width="8" height="8" rx="2"></rect>
@@ -308,8 +374,7 @@
           </svg>
         </a>
 
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@merily_leotoots" target="_blank" rel="noopener" class="icon" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@merily_leotoots" target="_blank" rel="noopener" class="icon desktop-only" aria-label="TikTok">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
@@ -319,6 +384,42 @@
       </div>
     </div>
   </header>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-links" aria-label="Mobile navigation">
+      <a href="#biography" class="m-link">Biography</a>
+      <a href="media.html" class="m-link">Media</a>
+      <a href="calendar.html" class="m-link">Calendar</a>
+      <a href="#contact" class="m-link">Contact</a>
+    </nav>
+
+    <div class="mobile-social" aria-label="Social links">
+      <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" class="icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M10 8 L16 12 L10 16 Z"></path>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" class="icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <rect x="8" y="8" width="8" height="8" rx="2"></rect>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="15.5" cy="8.5" r="0.8"></circle>
+        </svg>
+      </a>
+
+      <a href="https://www.tiktok.com/@merily_leotoots" target="_blank" rel="noopener" class="icon" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
+                transform="translate(2 2) scale(1.25)"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
 
   <section id="hero" aria-label="Hero">
     <div class="hero-logo"><img src="Logo.png" alt="Logo"></div>
@@ -377,5 +478,54 @@
     <div class="footer-copy">© 2025 Merily Leotoots — All rights reserved.</div>
   </footer>
 
+  <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('mobileMenu');
+
+    function openMenu(){
+      menu.classList.add('open');
+      menu.setAttribute('aria-hidden','false');
+      burger.setAttribute('aria-expanded','true');
+      document.body.style.overflow='hidden';
+    }
+
+    function closeMenu(){
+      menu.classList.remove('open');
+      menu.setAttribute('aria-hidden','true');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+    }
+
+    burger.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('open');
+      if(isOpen) closeMenu();
+      else openMenu();
+    });
+
+    // close when tapping a link
+    document.querySelectorAll('.m-link').forEach(a => {
+      a.addEventListener('click', () => closeMenu());
+    });
+
+    // close on Escape
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+    });
+
+    // close when tapping outside links area (background)
+    menu.addEventListener('click', (e) => {
+      if(e.target === menu) closeMenu();
+    });
+  </script>
+
+  <style>
+    /* hide desktop social on mobile, show on desktop */
+    .desktop-only{display:inline-flex;}
+    @media (max-width:900px){
+      .desktop-only{display:none;}
+    }
+  </style>
+
 </body>
 </html>
+
