@@ -1,11 +1,845 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Media and performance videos by violinist Merily Leotoots."><title>Media — Merily Leotoots</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body>
-<header class="site-header"><div class="header-inner"><a class="brand" href="index.html">Merily Leotoots</a><nav><ul class="nav-links"><li><a href="biography.html">Biography</a></li><li><a href="concerts.html">Concerts</a></li><li><a class="active" href="media.html">Media</a></li><li><a href="contact.html">Contact</a></li></ul></nav><div class="header-right"><a class="social-pill" href="https://www.youtube.com/@merilyleotoots2687" target="_blank">Y</a><a class="social-pill" href="https://www.instagram.com/merilyleotoots/" target="_blank">I</a><button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"></button></div></div></header>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true"><a href="index.html">Home</a><a href="biography.html">Biography</a><a href="concerts.html">Concerts</a><a href="media.html">Media</a><a href="contact.html">Contact</a><div class="mobile-socials"><a href="https://www.instagram.com/merilyleotoots/" target="_blank">Instagram</a><a href="https://www.youtube.com/@merilyleotoots2687" target="_blank">YouTube</a></div></div>
-<main><section class="page-hero"><div class="container page-hero-grid"><div><div class="kicker">Listen & watch</div><div class="gold-rule"></div><h1 class="page-title">Media</h1></div><p class="page-hero-copy">Selected performance films and chamber music recordings.</p></div></section>
-<section class="media-page"><div class="container"><div class="video-grid">
-<article class="video-card"><div class="frame"><div class="placeholder">Add selected performance video</div></div><h3>Solo & Violin–Piano</h3><p>Selected live performance.</p></article>
-<article class="video-card"><div class="frame"><div class="placeholder">Add Trio Callistó video</div></div><h3>Trio Callistó</h3><p>Chamber music performance.</p></article>
-<article class="video-card"><div class="frame"><div class="placeholder">Add Summa Quartet video</div></div><h3>Summa Quartet</h3><p>String quartet performance.</p></article>
-<article class="video-card"><div class="frame"><div class="placeholder">Add Duo EnPassant video</div></div><h3>Duo EnPassant</h3><p>Violin & cello.</p></article>
-</div></div></section></main>
-<footer><div class="container footer-inner"><span>© 2026 Merily Leotoots</span><span>Violinist · Estonia</span></div></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="Official website of Estonian violinist Merily Leotoots." name="description"/>
+  <title>
+   Media — Merily Leotoots
+  </title>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Montserrat:wght@300;400;500;600&display=swap');
+:root {
+  --ink:#07110e;
+  --forest:#062e26;
+  --emerald:#0b4b3e;
+  --emerald2:#0f5a49;
+  --gold:#d3b06a;
+  --gold2:#f0d392;
+  --ivory:#f6f0e5;
+  --muted:#cfc6b6;
+  --line:rgba(211,176,106,.44);
+  --shadow:0 28px 80px rgba(0,0,0,.34);
+  --max:1240px;
+}
+* {
+  box-sizing:border-box
+}
+html {
+  scroll-behavior:smooth
+}
+body {
+  margin:0;
+  background:var(--ink);
+  color:var(--ivory);
+  font-family:Montserrat,Arial,sans-serif;
+  font-weight:300;
+  letter-spacing:.015em
+}
+a {
+  color:inherit;
+  text-decoration:none
+}
+img {
+  display:block;
+  max-width:100%
+}
+.site-header {
+  position:relative;
+  z-index:50;
+  background:linear-gradient(90deg,#041d18 0%,#07392f 48%,#041d18 100%);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 8px 30px rgba(0,0,0,.22)
+}
+.header-inner {
+  max-width:var(--max);
+  height:92px;
+  margin:auto;
+  padding:0 28px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:28px
+}
+.brand {
+  font-family:'Bodoni Moda',serif;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  font-size:20px;
+  color:var(--gold2);
+  white-space:nowrap
+}
+.brand small {
+  display:block;
+  font-family:Montserrat,sans-serif;
+  font-size:8px;
+  letter-spacing:.38em;
+  color:var(--muted);
+  margin-top:4px
+}
+.nav {
+  display:flex;
+  gap:38px;
+  align-items:center
+}
+.nav a {
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  color:#f3eadb;
+  position:relative;
+  padding:35px 0
+}
+.nav a:after {
+  content:'';
+  position:absolute;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold2),transparent);
+  left:50%;
+  right:50%;
+  bottom:24px;
+  transition:.25s
+}
+.nav a:hover:after,.nav a.active:after {
+  left:0;
+  right:0
+}
+.header-right {
+  justify-self:end;
+  display:flex;
+  gap:10px
+}
+.social {
+  width:38px;
+  height:38px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-family:'Bodoni Moda',serif;
+  font-size:13px;
+  transition:.2s
+}
+.social:hover {
+  background:var(--gold);
+  color:#0a241e;
+  transform:translateY(-2px)
+}
+.menu-btn {
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid var(--line);
+  background:transparent;
+  border-radius:50%;
+  position:relative
+}
+.menu-btn:before,.menu-btn:after,.menu-btn span {
+  content:'';
+  position:absolute;
+  left:11px;
+  right:11px;
+  height:1px;
+  background:var(--gold2)
+}
+.menu-btn:before {
+  top:14px
+}
+.menu-btn span {
+  top:21px
+}
+.menu-btn:after {
+  top:28px
+}
+.mobile-menu {
+  display:none
+}
+.hero {
+  position:relative;
+  height:calc(100vh - 92px);
+  min-height:650px;
+  overflow:hidden;
+  background:#080d0b
+}
+.hero-photo {
+  position:absolute;
+  inset:0
+}
+.hero-photo:after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(5,10,8,.04) 0%,rgba(5,10,8,.04) 37%,rgba(5,12,10,.30) 58%,rgba(2,13,10,.82) 100%),linear-gradient(0deg,rgba(0,0,0,.15),transparent 40%)
+}
+.hero-photo img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top
+}
+.hero-inner {
+  position:relative;
+  z-index:2;
+  height:100%;
+  max-width:var(--max);
+  margin:auto;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end
+}
+.hero-copy {
+  width:min(47%,560px);
+  text-align:left;
+  padding-left:24px
+}
+.eyebrow {
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.42em;
+  color:var(--gold2);
+  margin-bottom:18px
+}
+.hero h1 {
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;
+  font-size:clamp(54px,6vw,104px);
+  line-height:.92;
+  letter-spacing:-.025em;
+  margin:0;
+  color:#fff8ed;
+  text-shadow:0 10px 35px rgba(0,0,0,.22)
+}
+.hero-role {
+  margin-top:22px;
+  font-family:'Bodoni Moda',serif;
+  font-size:22px;
+  letter-spacing:.12em;
+  color:var(--gold2);
+  text-transform:uppercase
+}
+.hero-mark {
+  width:110px;
+  height:1px;
+  margin-top:28px;
+  background:linear-gradient(90deg,var(--gold2),transparent)
+}
+.hero-scroll {
+  position:absolute;
+  z-index:3;
+  right:28px;
+  bottom:24px;
+  font-size:9px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--muted);
+  writing-mode:vertical-rl
+}
+.hero-scroll:before {
+  content:'';
+  display:inline-block;
+  width:1px;
+  height:54px;
+  background:var(--gold);
+  margin-bottom:12px
+}
+.section {
+  padding:105px 28px;
+  position:relative
+}
+.container {
+  max-width:var(--max);
+  margin:auto
+}
+.kicker {
+  font-size:10px;
+  letter-spacing:.36em;
+  text-transform:uppercase;
+  color:var(--gold2);
+  margin-bottom:14px
+}
+.title {
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;
+  font-size:clamp(42px,5vw,72px);
+  line-height:1.02;
+  margin:0;
+  color:#fff8ed
+}
+.gold-rule {
+  width:78px;
+  height:1px;
+  background:linear-gradient(90deg,var(--gold2),transparent);
+  margin:20px 0 30px
+}
+.intro {
+  background:radial-gradient(circle at 80% 0%,rgba(29,105,84,.22),transparent 34%),linear-gradient(180deg,#082b23,#061d18);
+  border-top:1px solid rgba(255,255,255,.03);
+  border-bottom:1px solid var(--line)
+}
+.intro-grid {
+  display:grid;
+  grid-template-columns:.72fr 1.28fr;
+  gap:80px;
+  align-items:start
+}
+.intro-copy {
+  font-family:'Bodoni Moda',serif;
+  font-size:clamp(30px,3.4vw,48px);
+  line-height:1.24;
+  margin:0;
+  color:#f8f0e4
+}
+.intro-copy em {
+  color:var(--gold2);
+  font-style:italic
+}
+.text-link {
+  display:inline-block;
+  margin-top:30px;
+  text-transform:uppercase;
+  font-size:10px;
+  letter-spacing:.26em;
+  color:var(--gold2);
+  border-bottom:1px solid var(--gold);
+  padding-bottom:7px
+}
+.text-link:hover {
+  color:#fff
+}
+.home-concerts {
+  background:#0a1713
+}
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:48px
+}
+.concert-list {
+  border-top:1px solid var(--line)
+}
+.concert-row {
+  display:grid;
+  grid-template-columns:220px 1.5fr 1fr 32px;
+  gap:28px;
+  align-items:center;
+  padding:26px 2px;
+  border-bottom:1px solid rgba(211,176,106,.22);
+  transition:.22s
+}
+.concert-row:hover {
+  padding-left:14px;
+  background:linear-gradient(90deg,rgba(211,176,106,.08),transparent)
+}
+.concert-date {
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--gold2)
+}
+.concert-name {
+  font-family:'Bodoni Moda',serif;
+  font-size:25px;
+  color:#fff8ed
+}
+.concert-place {
+  font-size:12px;
+  color:var(--muted)
+}
+.concert-arrow {
+  color:var(--gold2);
+  font-size:20px
+}
+.home-ensembles {
+  background:linear-gradient(145deg,#07352c,#0b4b3e 60%,#083128);
+  overflow:hidden
+}
+.home-ensembles:before {
+  content:'M';
+  position:absolute;
+  right:-35px;
+  top:-90px;
+  font-family:'Bodoni Moda',serif;
+  font-size:430px;
+  color:rgba(211,176,106,.045);
+  line-height:1
+}
+.ensemble-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:44px
+}
+.ensemble-card {
+  min-height:245px;
+  border:1px solid var(--line);
+  padding:32px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  position:relative;
+  background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(0,0,0,.10));
+  transition:.25s;
+  overflow:hidden
+}
+.ensemble-card:before {
+  content:'';
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(211,176,106,.13);
+  pointer-events:none
+}
+.ensemble-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--gold2);
+  box-shadow:var(--shadow)
+}
+.ensemble-type {
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.28em;
+  color:var(--gold2);
+  margin-bottom:12px
+}
+.ensemble-name {
+  font-family:'Bodoni Moda',serif;
+  font-size:32px;
+  color:#fff8ed
+}
+.home-contact {
+  background:#050c09
+}
+.home-contact-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;
+  align-items:end
+}
+.home-contact h2 {
+  font-family:'Bodoni Moda',serif;
+  font-size:clamp(42px,5vw,72px);
+  font-weight:400;
+  line-height:1.08;
+  margin:0
+}
+.email {
+  font-family:'Bodoni Moda',serif;
+  color:var(--gold2);
+  font-size:clamp(22px,3vw,36px)
+}
+footer {
+  border-top:1px solid var(--line);
+  background:#03100c;
+  padding:24px 28px;
+  color:#958c7e;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase
+}
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  gap:20px
+}
+.page-hero {
+  background:radial-gradient(circle at 70% 0%,rgba(25,105,83,.25),transparent 38%),linear-gradient(135deg,#041a15,#0a4337);
+  border-bottom:1px solid var(--line);
+  padding:84px 28px 72px
+}
+.page-hero .title {
+  max-width:780px
+}
+.page-body {
+  background:#f4efe5;
+  color:#18211d;
+  padding:90px 28px
+}
+.page-body .kicker {
+  color:#896b36
+}
+.page-body .title {
+  color:#12372f
+}
+.bio-layout {
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:74px;
+  align-items:start
+}
+.bio-text {
+  font-family:'Bodoni Moda',serif;
+  font-size:21px;
+  line-height:1.72
+}
+.bio-text p {
+  margin:0 0 1.25em
+}
+.bio-aside {
+  position:sticky;
+  top:30px;
+  border-left:1px solid #c8aa70;
+  padding-left:28px
+}
+.bio-aside h3 {
+  font-family:'Bodoni Moda',serif;
+  font-size:28px;
+  font-weight:400;
+  color:#12372f
+}
+.bio-aside a {
+  color:#71592d
+}
+.cv-button {
+  display:inline-flex;
+  margin-top:22px;
+  padding:14px 18px;
+  border:1px solid #9e7f48;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:10px
+}
+.concert-card {
+  display:grid;
+  grid-template-columns:170px 1fr;
+  gap:32px;
+  padding:30px 0;
+  border-bottom:1px solid #cdbf9f
+}
+.concert-card:first-child {
+  border-top:1px solid #cdbf9f
+}
+.concert-card .date {
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:#8a6f3c
+}
+.concert-card h3 {
+  font-family:'Bodoni Moda',serif;
+  font-size:32px;
+  font-weight:400;
+  color:#12372f;
+  margin:0 0 8px
+}
+.concert-card p {
+  margin:4px 0;
+  line-height:1.55
+}
+.media-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px
+}
+.media-card {
+  aspect-ratio:16/10;
+  background:#0a2e26;
+  border:1px solid #b89450;
+  display:grid;
+  place-items:center;
+  color:#e8d09b;
+  position:relative;
+  overflow:hidden
+}
+.media-card span {
+  font-family:'Bodoni Moda',serif;
+  font-size:28px
+}
+.media-note {
+  margin-top:32px;
+  max-width:700px;
+  line-height:1.7
+}
+.contact-page {
+  background:linear-gradient(135deg,#061b16,#0a4337);
+  padding:90px 28px
+}
+.contact-grid {
+  max-width:var(--max);
+  margin:auto;
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:70px;
+  align-items:center
+}
+.contact-image-wrap {
+  border:1px solid var(--line);
+  padding:10px;
+  background:#06100d;
+  box-shadow:var(--shadow)
+}
+.contact-image-wrap img {
+  width:100%;
+  max-height:720px;
+  object-fit:cover;
+  object-position:center
+}
+.contact-copy .title {
+  font-size:clamp(46px,5vw,76px)
+}
+.contact-line {
+  padding:22px 0;
+  border-bottom:1px solid rgba(211,176,106,.24)
+}
+.contact-line .label {
+  display:block;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.26em;
+  color:var(--gold2);
+  margin-bottom:8px
+}
+.contact-line a,.contact-line span {
+  font-family:'Bodoni Moda',serif;
+  font-size:26px;
+  color:#fff8ed
+}
+@media(max-width:900px) {
+  .header-inner {
+    height:76px;
+    grid-template-columns:1fr auto;
+    padding:0 18px
+  }
+  .nav,.header-right .social {
+    display:none
+  }
+  .menu-btn {
+    display:block
+  }
+  .brand {
+    font-size:16px
+  }
+  .mobile-menu {
+    position:fixed;
+    z-index:80;
+    top:76px;
+    left:0;
+    right:0;
+    background:#05251e;
+    border-bottom:1px solid var(--line);
+    padding:22px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    transform:translateY(-120%);
+    transition:.25s
+  }
+  .mobile-menu.open {
+    transform:translateY(0)
+  }
+  .mobile-menu a {
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-size:12px;
+    color:#f5ebdd
+  }
+  .hero {
+    height:calc(100svh - 76px);
+    min-height:570px
+  }
+  .hero-photo img {
+    object-position:32% top
+  }
+  .hero-photo:after {
+    background:linear-gradient(0deg,rgba(2,13,10,.84) 0%,rgba(2,13,10,.15) 55%,rgba(2,13,10,.05) 100%)
+  }
+  .hero-inner {
+    align-items:flex-end;
+    justify-content:flex-start;
+    padding:0 22px 62px
+  }
+  .hero-copy {
+    width:100%;
+    padding:0
+  }
+  .hero h1 {
+    font-size:clamp(46px,15vw,70px)
+  }
+  .hero-role {
+    font-size:17px
+  }
+  .hero-scroll {
+    display:none
+  }
+  .section {
+    padding:76px 20px
+  }
+  .intro-grid,.home-contact-grid,.bio-layout,.contact-grid {
+    grid-template-columns:1fr;
+    gap:40px
+  }
+  .section-head {
+    align-items:flex-start;
+    flex-direction:column
+  }
+  .concert-row {
+    grid-template-columns:1fr 28px;
+    gap:8px 20px
+  }
+  .concert-date,.concert-place {
+    grid-column:1
+  }
+  .concert-name {
+    font-size:22px
+  }
+  .concert-arrow {
+    grid-column:2;
+    grid-row:1/4
+  }
+  .ensemble-grid {
+    grid-template-columns:1fr
+  }
+  .ensemble-card {
+    min-height:180px
+  }
+  .footer-inner {
+    flex-direction:column
+  }
+  .page-hero {
+    padding:64px 20px 54px
+  }
+  .page-body {
+    padding:64px 20px
+  }
+  .bio-aside {
+    position:static
+  }
+  .concert-card {
+    grid-template-columns:1fr;
+    gap:10px
+  }
+  .media-grid {
+    grid-template-columns:1fr
+  }
+  .contact-page {
+    padding:60px 20px
+  }
+  .contact-copy {
+    order:-1
+  }
+  .contact-line a,.contact-line span {
+    font-size:21px
+  }
+}
+  </style>
+ </head>
+ <body>
+  <header class="site-header">
+   <div class="header-inner">
+    <a class="brand" href="index.html">
+     Merily Leotoots
+     <small>
+      Violinist
+     </small>
+    </a>
+    <nav aria-label="Main navigation" class="nav">
+     <a class="" href="biography.html">
+      Biography
+     </a>
+     <a class="" href="concerts.html">
+      Concerts
+     </a>
+     <a class="active" href="media.html">
+      Media
+     </a>
+     <a class="" href="contact.html">
+      Contact
+     </a>
+    </nav>
+    <div class="header-right">
+     <a aria-label="YouTube" class="social" href="https://www.youtube.com/@merilyleotoots2687" rel="noopener" target="_blank">
+      Y
+     </a>
+     <a aria-label="Instagram" class="social" href="https://www.instagram.com/merilyleotoots/" rel="noopener" target="_blank">
+      I
+     </a>
+     <button aria-expanded="false" aria-label="Menu" class="menu-btn" id="menuBtn">
+      <span>
+      </span>
+     </button>
+    </div>
+   </div>
+  </header>
+  <div aria-hidden="true" class="mobile-menu" id="mobileMenu">
+   <a href="index.html">
+    Home
+   </a>
+   <a href="biography.html">
+    Biography
+   </a>
+   <a href="concerts.html">
+    Concerts
+   </a>
+   <a href="media.html">
+    Media
+   </a>
+   <a href="contact.html">
+    Contact
+   </a>
+  </div>
+  <main>
+   <section class="page-hero">
+    <div class="container">
+     <div class="kicker">
+      Watch &amp; Listen
+     </div>
+     <div class="gold-rule">
+     </div>
+     <h1 class="title">
+      Media
+     </h1>
+    </div>
+   </section>
+   <section class="page-body">
+    <div class="container">
+     <div class="media-grid">
+      <a class="media-card" href="https://www.youtube.com/@merilyleotoots2687" rel="noopener" target="_blank">
+       <span>
+        Watch on YouTube ↗
+       </span>
+      </a>
+      <div class="media-card">
+       <span>
+        New recordings coming soon
+       </span>
+      </div>
+     </div>
+     <p class="media-note">
+      Selected performance videos and future professional recordings will be added here. For current videos, visit Merily’s YouTube channel.
+     </p>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="container footer-inner">
+    <span>
+     © 2026 Merily Leotoots
+    </span>
+    <span>
+     Violinist · Estonia
+    </span>
+   </div>
+  </footer>
+  <script>
+   const btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
+
+if(btn&&menu){
+btn.addEventListener('click',()=>{
+const o=menu.classList.toggle('open');
+btn.setAttribute('aria-expanded',o?'true':'false');
+menu.setAttribute('aria-hidden',o?'false':'true');
+
+});
+document.addEventListener('keydown',e=>{
+if(e.key==='Escape'){
+menu.classList.remove('open');
+btn.setAttribute('aria-expanded','false');
+
+}
+})
+}
+  </script>
+ </body>
+</html>
