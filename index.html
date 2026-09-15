@@ -1,531 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Merily Leotoots – Violinist</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-
-  <style>
-    :root{
-      --bg:#003b32;
-      --gold:#c7a96b;
-      --light:#f4f1e8;
-      --max:1200px;
-      --header-h:84px;
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--light);font-family:"Cormorant Garamond",serif;}
-    img{display:block;max-width:100%;height:auto;}
-    a{color:var(--gold);text-decoration:none;}
-    a:hover{text-decoration:underline;}
-
-    header{
-      position:fixed;
-      top:0;left:0;right:0;
-      height:var(--header-h);
-      z-index:999;
-      background:rgba(0,59,50,0.96);
-      backdrop-filter:blur(6px);
-    }
-
-    .nav{
-      width:100%;
-      height:var(--header-h);
-      padding:0.7rem 1.4rem;
-      display:grid;
-      grid-template-columns:1fr auto 1fr; /* left | center | right */
-      align-items:center;
-    }
-
-    .nav-left{
-      justify-self:start;
-      display:flex;
-      align-items:center;
-    }
-
-    .nav-left a{
-      display:inline-flex;
-      align-items:center;
-    }
-
-    .nav-left img{
-      height:60px;
-      width:auto;
-      display:block;
-    }
-
-    .nav-center{
-      justify-self:center;
-      display:flex;
-      gap:2.2rem;
-      font-family:Cinzel,serif;
-      font-size:0.95rem;
-      letter-spacing:0.15em;
-      text-transform:uppercase;
-      white-space:nowrap;
-    }
-
-    .nav-center a{color:var(--light);}
-    .nav-center a:hover{color:var(--gold);text-decoration:none;}
-
-    .nav-right{
-      justify-self:end;
-      display:flex;
-      gap:1rem;
-      align-items:center;
-    }
-
-    .icon{
-      width:40px;
-      height:40px;
-      border:1.5px solid var(--gold);
-      border-radius:50%;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .icon svg{
-      width:22px;
-      height:22px;
-      stroke:var(--gold);
-      stroke-width:1.4;
-      fill:none;
-    }
-
-    .icon svg path,
-    .icon svg rect,
-    .icon svg circle{
-      stroke:var(--gold);
-    }
-
-    section{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:7rem 1.5rem 5rem;
-      scroll-margin-top:calc(var(--header-h) + 18px);
-    }
-
-    #hero{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-    }
-
-    .hero-logo img{
-      width:140px;
-      margin-top:18px;
-      margin-bottom:2rem;
-    }
-
-    .hero-name{
-      font-family:Cinzel,serif;
-      font-size:3rem;
-      letter-spacing:0.22em;
-      text-transform:uppercase;
-      color:var(--gold);
-    }
-
-    #biography{
-      display:grid;
-      grid-template-columns:minmax(0,3fr) minmax(0,2fr);
-      gap:2.5rem;
-      align-items:flex-start;
-    }
-
-    .title{
-      font-family:Cinzel,serif;
-      font-size:1.6rem;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:1.6rem;
-    }
-
-    .bio-text{
-      font-size:1.08rem;
-      line-height:1.85;
-      max-width:62ch;
-    }
-    .bio-text p + p{margin-top:1rem;}
-
-    .cv-link{
-      margin-top:1.6rem;
-      font-size:1rem;
-    }
-
-    .bio-photo{
-      max-width:420px;
-      margin-left:auto;
-      border-radius:6px;
-      overflow:hidden;
-    }
-
-    .contact-wrapper{
-      display:grid;
-      grid-template-columns:minmax(0,1.4fr) minmax(0,1.6fr);
-      gap:3rem;
-      align-items:flex-start;
-      padding-top:2rem;
-    }
-
-    .contact-left img{
-      width:100%;
-      border-radius:6px;
-    }
-
-    .contact-right{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .contact-lines{
-      font-size:1.1rem;
-      line-height:1.9;
-      max-width:62ch;
-    }
-
-    .contact-actions{
-      display:flex;
-      flex-direction:column;
-      gap:0.9rem;
-      margin-top:2.4rem;
-      max-width:62ch;
-    }
-
-    .contact-action{
-      display:inline-flex;
-      align-items:center;
-      font-family:Cinzel,serif;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      color:var(--gold);
-      font-size:1.05rem;
-      padding:0.2rem 0;
-    }
-
-    .contact-action:hover{text-decoration:underline;}
-
-    footer{
-      width:100%;
-      padding:2rem 1.5rem 3rem;
-      font-family:Cinzel,serif;
-      font-size:0.95rem;
-      letter-spacing:0.14em;
-      color:var(--gold);
-    }
-
-    .footer-name{
-      text-transform:uppercase;
-      font-size:1.4rem;
-      margin-bottom:0.3rem;
-      text-decoration:underline;
-      text-align:left;
-    }
-
-    .footer-copy{
-      font-family:"Cormorant Garamond",serif;
-      font-size:0.85rem;
-      color:var(--light);
-      text-align:center;
-    }
-
-    /* HAMBURGER (default hidden on desktop) */
-    .burger{
-      display:none;
-      width:44px;
-      height:44px;
-      border:1.5px solid var(--gold);
-      border-radius:12px;
-      background:transparent;
-      color:var(--light);
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-    }
-    .burger:focus{outline:2px solid var(--gold); outline-offset:2px;}
-
-    .burger-lines{
-      width:20px;
-      height:14px;
-      position:relative;
-    }
-    .burger-lines span{
-      position:absolute;
-      left:0;
-      right:0;
-      height:2px;
-      background:var(--gold);
-      border-radius:2px;
-      transition:transform .2s ease, top .2s ease, opacity .2s ease;
-    }
-    .burger-lines span:nth-child(1){top:0;}
-    .burger-lines span:nth-child(2){top:6px;}
-    .burger-lines span:nth-child(3){top:12px;}
-
-    /* overlay menu (mobile) */
-    .mobile-menu{
-      position:fixed;
-      inset:var(--header-h) 0 0 0;
-      background:rgba(0,59,50,0.98);
-      backdrop-filter:blur(6px);
-      transform:translateY(-8px);
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .18s ease, transform .18s ease;
-      z-index:998;
-      padding:1.4rem 1.4rem 2rem;
-    }
-    .mobile-menu.open{
-      opacity:1;
-      transform:translateY(0);
-      pointer-events:auto;
-    }
-
-    .mobile-links{
-      display:flex;
-      flex-direction:column;
-      gap:1.1rem;
-      font-family:Cinzel,serif;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      font-size:1.05rem;
-      padding-top:0.6rem;
-    }
-    .mobile-links a{color:var(--light);}
-    .mobile-links a:hover{color:var(--gold);text-decoration:none;}
-
-    .mobile-social{
-      margin-top:1.6rem;
-      display:flex;
-      gap:0.9rem;
-      align-items:center;
-    }
-
-    /* MOBILE BREAKPOINT */
-    @media (max-width:900px){
-      .nav{grid-template-columns:auto 1fr auto;}
-      .nav-center{display:none;}
-      .burger{display:inline-flex;}
-
-      #biography,
-      .contact-wrapper{
-        grid-template-columns:1fr;
-      }
-
-      #hero{padding-top:7rem;}
-      .hero-name{font-size:2.3rem;}
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Official website of Estonian violinist Merily Leotoots.">
+  <title>Merily Leotoots — Violinist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
-<body id="top">
-
-  <header>
-    <div class="nav">
-      <div class="nav-left">
-        <a href="index.html" aria-label="Home">
-          <img src="Home.png" alt="Home">
-        </a>
-      </div>
-
-      <nav class="nav-center" aria-label="Main navigation">
-        <a href="#biography">Biography</a>
-        <a href="media.html">Media</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="nav-right">
-        <!-- hamburger (mobile) -->
-        <button class="burger" id="burger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-          <span class="burger-lines" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </span>
-        </button>
-
-        <!-- desktop social -->
-        <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" class="icon desktop-only" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M10 8 L16 12 L10 16 Z"></path>
-          </svg>
-        </a>
-
-        <a href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" class="icon desktop-only" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <rect x="8" y="8" width="8" height="8" rx="2"></rect>
-            <circle cx="12" cy="12" r="2"></circle>
-            <circle cx="15.5" cy="8.5" r="0.8"></circle>
-          </svg>
-        </a>
-
-        <a href="https://www.tiktok.com/@merily_leotoots" target="_blank" rel="noopener" class="icon desktop-only" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
-                  transform="translate(2 2) scale(1.25)"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- MOBILE MENU OVERLAY -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <nav class="mobile-links" aria-label="Mobile navigation">
-      <a href="#biography" class="m-link">Biography</a>
-      <a href="media.html" class="m-link">Media</a>
-      <a href="calendar.html" class="m-link">Calendar</a>
-      <a href="#contact" class="m-link">Contact</a>
-    </nav>
-
-    <div class="mobile-social" aria-label="Social links">
-      <a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" class="icon" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M10 8 L16 12 L10 16 Z"></path>
-        </svg>
-      </a>
-
-      <a href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" class="icon" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"></circle>
-          <rect x="8" y="8" width="8" height="8" rx="2"></rect>
-          <circle cx="12" cy="12" r="2"></circle>
-          <circle cx="15.5" cy="8.5" r="0.8"></circle>
-        </svg>
-      </a>
-
-      <a href="https://www.tiktok.com/@merily_leotoots" target="_blank" rel="noopener" class="icon" aria-label="TikTok">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
-                transform="translate(2 2) scale(1.25)"></path>
-        </svg>
-      </a>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">Merily Leotoots</a>
+    <nav aria-label="Main navigation"><ul class="nav-links">
+      <li><a href="biography.html">Biography</a></li>
+      <li><a href="concerts.html">Concerts</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+    <div class="header-right">
+      <a class="social-pill" href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" aria-label="YouTube">Y</a>
+      <a class="social-pill" href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" aria-label="Instagram">I</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"></button>
     </div>
   </div>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="index.html">Home</a><a href="biography.html">Biography</a><a href="concerts.html">Concerts</a><a href="media.html">Media</a><a href="contact.html">Contact</a>
+  <div class="mobile-socials"><a href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener">YouTube</a></div>
+</div>
 
-  <section id="hero" aria-label="Hero">
-    <div class="hero-logo"><img src="Logo.png" alt="Logo"></div>
-    <div class="hero-name">Merily Leotoots</div>
-  </section>
-
-  <section id="biography" aria-label="Biography">
-    <div>
-      <div class="title">Biography</div>
-
-      <div class="bio-text">
-        <p>Merily Leotoots is a violinist whose work is defined by precision, structural focus, and a direct interpretive voice. Her playing favours clarity of line, disciplined ensemble awareness, and a balanced intensity that avoids excess.</p>
-
-        <p>She studied at the Tallinn Music High School and the Estonian Academy of Music and Theatre with Professor Mari Tampere-Bezrodny and Sigrid Kuulmann, later refining her technique in London, Vienna, and through private studies with Pierre Amoyal. Further development came through masterclasses with leading European violinists and participation in specialised programmes, including the Sarasate Academy.</p>
-
-        <p>Her core field is chamber music. She performs with Duo EnPassant, a long-standing violin–cello partnership; with the piano trio Trio Callistó; and in the piano quartet Quattuor Artium, with whom she appeared at the Wye Valley Chamber Music Festival, giving the world premiere of Artur Lemba’s Piano Quartet. Her approach has been shaped by mentors from both classical and historically-informed traditions.</p>
-
-        <p>Her work extends across Estonia and Europe, including engagements in France, Austria, Germany, the United Kingdom, Greece, Spain, and Ireland. Alongside performance, she develops projects that link narrative and music, drawing on historical, literary, and contemporary material to build programmes with clear conceptual framing.</p>
-      </div>
-
-      <div class="cv-link">
-        <a href="CV.pdf" target="_blank" rel="noopener">Download full CV (PDF)</a>
+<main>
+  <section class="hero" aria-label="Merily Leotoots — Violinist">
+    <div class="hero-photo"><img src="MerilyHero.jpg" alt="Merily Leotoots with violin"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 class="hero-name">Merily<br>Leotoots</h1>
+        <div class="hero-role">Violinist</div>
+        <div class="hero-ornament"><span>◆</span></div>
       </div>
     </div>
+    <a class="hero-scroll" href="#intro">Discover</a>
+  </section>
 
-    <div class="bio-photo">
-      <img src="Merily.jpg" alt="">
+  <section class="intro" id="intro">
+    <div class="container intro-grid">
+      <div class="intro-label"><div class="kicker">Biography</div><div class="gold-rule"></div></div>
+      <div><p class="intro-copy">Estonian violinist Merily Leotoots is active as a soloist and chamber musician, with a repertoire spanning <em>early music to contemporary works.</em></p><a class="text-link" href="biography.html">Read biography</a></div>
     </div>
   </section>
 
-  <section id="contact" aria-label="Contact">
-    <div class="contact-wrapper">
-      <div class="contact-left">
-        <img src="MerilyC.jpg" alt="">
-      </div>
-
-      <div class="contact-right">
-        <div class="title" style="margin-bottom:1.5rem;">Contact</div>
-
-        <div class="contact-lines" style="margin-bottom:2rem;">
-          <div>Email: <a href="mailto:merilyleotoots@gmail.com">merilyleotoots@gmail.com</a></div>
-          <div>Phone: +372 56944159</div>
-        </div>
-
-        <div class="contact-actions">
-          <a class="contact-action" href="mailto:merilyleotoots@gmail.com?subject=Booking%20Enquiry">Booking Enquiry</a>
-          <a class="contact-action" href="mailto:merilyleotoots@gmail.com?subject=Chamber%20Music%20Collaboration">Chamber Music Collaboration</a>
-          <a class="contact-action" href="mailto:merilyleotoots@gmail.com?subject=Masterclass%20or%20Project%20Invitation">Masterclass or Project Invitation</a>
-        </div>
+  <section class="home-concerts">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Upcoming</div><div class="gold-rule"></div><h2 class="section-title">Concerts</h2></div><a class="text-link" href="concerts.html">All concerts</a></div>
+      <div class="concert-list">
+        <a class="concert-row" href="concerts.html"><div class="concert-date">27 Nov 2026 · 19:00</div><div class="concert-name">Violin & Piano</div><div class="concert-place">Kadriorg Palace · Tallinn</div><div class="concert-arrow">↗</div></a>
+        <a class="concert-row" href="concerts.html"><div class="concert-date">December 2026</div><div class="concert-name">Trio Callistó · Christmas Concerts</div><div class="concert-place">Estonia</div><div class="concert-arrow">↗</div></a>
+        <a class="concert-row" href="concerts.html"><div class="concert-date">January 2027</div><div class="concert-name">Trio Callistó · Bratislava Debut</div><div class="concert-place">Dom hudby · Bratislava</div><div class="concert-arrow">↗</div></a>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="footer-name">Merily Leotoots</div>
-    <div class="footer-copy">© 2026 Merily Leotoots — All rights reserved.</div>
-  </footer>
+  <section class="home-ensembles">
+    <div class="container">
+      <div class="kicker">Chamber Music</div><div class="gold-rule"></div><h2 class="section-title">Current ensembles</h2>
+      <div class="ensemble-grid">
+        <a class="ensemble-card" href="https://www.triocallisto.com" target="_blank" rel="noopener"><div class="ensemble-type">Piano Trio</div><div class="ensemble-name">Trio Callistó</div></a>
+        <div class="ensemble-card"><div class="ensemble-type">String Quartet</div><div class="ensemble-name">Summa Quartet</div></div>
+        <a class="ensemble-card" href="https://www.duoenpassant.com" target="_blank" rel="noopener"><div class="ensemble-type">Violin & Cello</div><div class="ensemble-name">Duo EnPassant</div></a>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('mobileMenu');
-
-    function openMenu(){
-      menu.classList.add('open');
-      menu.setAttribute('aria-hidden','false');
-      burger.setAttribute('aria-expanded','true');
-      document.body.style.overflow='hidden';
-    }
-
-    function closeMenu(){
-      menu.classList.remove('open');
-      menu.setAttribute('aria-hidden','true');
-      burger.setAttribute('aria-expanded','false');
-      document.body.style.overflow='';
-    }
-
-    burger.addEventListener('click', () => {
-      const isOpen = menu.classList.contains('open');
-      if(isOpen) closeMenu();
-      else openMenu();
-    });
-
-    // close when tapping a link
-    document.querySelectorAll('.m-link').forEach(a => {
-      a.addEventListener('click', () => closeMenu());
-    });
-
-    // close on Escape
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
-    });
-
-    // close when tapping outside links area (background)
-    menu.addEventListener('click', (e) => {
-      if(e.target === menu) closeMenu();
-    });
-  </script>
-
-  <style>
-    /* hide desktop social on mobile, show on desktop */
-    .desktop-only{display:inline-flex;}
-    @media (max-width:900px){
-      .desktop-only{display:none;}
-    }
-  </style>
-
+  <section class="home-contact">
+    <div class="container home-contact-grid">
+      <div><div class="kicker">Contact</div><div class="gold-rule"></div><h2>Concerts, projects<br>& collaborations.</h2></div>
+      <div><a class="email" href="mailto:merilyleotoots@gmail.com">merilyleotoots@gmail.com</a><br><a class="text-link" href="contact.html">Contact details</a></div>
+    </div>
+  </section>
+</main>
+<footer><div class="container footer-inner"><span>© 2026 Merily Leotoots</span><span>Violinist · Estonia</span></div></footer>
+<script src="script.js"></script>
 </body>
 </html>
-
