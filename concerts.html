@@ -1,895 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <meta content="Official website of Estonian violinist Merily Leotoots." name="description"/>
-  <title>
-   Concerts — Merily Leotoots
-  </title>
-  <style>
-   @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Montserrat:wght@300;400;500;600&display=swap');
-:root {
-  --ink:#07110e;
-  --forest:#062e26;
-  --emerald:#0b4b3e;
-  --emerald2:#0f5a49;
-  --gold:#d3b06a;
-  --gold2:#f0d392;
-  --ivory:#f6f0e5;
-  --muted:#cfc6b6;
-  --line:rgba(211,176,106,.44);
-  --shadow:0 28px 80px rgba(0,0,0,.34);
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Official website of violinist Merily Leotoots."><title>Concerts — Merily Leotoots</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Montserrat:wght@300;400;500&display=swap');
+:root{
+  --black:#050605;
+  --black2:#090b0a;
+  --ink:#101311;
+  --emerald:#0a4b3d;
+  --emerald-bright:#0b755e;
+  --emerald-deep:#052b23;
+  --gold:#c9a85f;
+  --gold-soft:#e2ca8e;
+  --ivory:#f2eee5;
+  --muted:#aaa499;
+  --line:rgba(201,168,95,.28);
+  --green-line:rgba(25,117,94,.32);
   --max:1240px;
 }
-* {
-  box-sizing:border-box
-}
-html {
-  scroll-behavior:smooth
-}
-body {
-  margin:0;
-  background:var(--ink);
-  color:var(--ivory);
-  font-family:Montserrat,Arial,sans-serif;
-  font-weight:300;
-  letter-spacing:.015em
-}
-a {
-  color:inherit;
-  text-decoration:none
-}
-img {
-  display:block;
-  max-width:100%
-}
-.site-header {
-  position:relative;
-  z-index:50;
-  background:linear-gradient(90deg,#041d18 0%,#07392f 48%,#041d18 100%);
-  border-bottom:1px solid var(--line);
-  box-shadow:0 8px 30px rgba(0,0,0,.22)
-}
-.header-inner {
-  max-width:var(--max);
-  height:92px;
-  margin:auto;
-  padding:0 28px;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:28px
-}
-.brand {
-  font-family:'Bodoni Moda',serif;
-  text-transform:uppercase;
-  letter-spacing:.17em;
-  font-size:20px;
-  color:var(--gold2);
-  white-space:nowrap
-}
-.brand small {
-  display:block;
-  font-family:Montserrat,sans-serif;
-  font-size:8px;
-  letter-spacing:.38em;
-  color:var(--muted);
-  margin-top:4px
-}
-.nav {
-  display:flex;
-  gap:38px;
-  align-items:center
-}
-.nav a {
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.24em;
-  color:#f3eadb;
-  position:relative;
-  padding:35px 0
-}
-.nav a:after {
-  content:'';
-  position:absolute;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold2),transparent);
-  left:50%;
-  right:50%;
-  bottom:24px;
-  transition:.25s
-}
-.nav a:hover:after,.nav a.active:after {
-  left:0;
-  right:0
-}
-.header-right {
-  justify-self:end;
-  display:flex;
-  gap:10px
-}
-.social {
-  width:38px;
-  height:38px;
-  border:1px solid var(--line);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:var(--gold2);
-  font-family:'Bodoni Moda',serif;
-  font-size:13px;
-  transition:.2s
-}
-.social:hover {
-  background:var(--gold);
-  color:#0a241e;
-  transform:translateY(-2px)
-}
-.menu-btn {
-  display:none;
-  width:44px;
-  height:44px;
-  border:1px solid var(--line);
-  background:transparent;
-  border-radius:50%;
-  position:relative
-}
-.menu-btn:before,.menu-btn:after,.menu-btn span {
-  content:'';
-  position:absolute;
-  left:11px;
-  right:11px;
-  height:1px;
-  background:var(--gold2)
-}
-.menu-btn:before {
-  top:14px
-}
-.menu-btn span {
-  top:21px
-}
-.menu-btn:after {
-  top:28px
-}
-.mobile-menu {
-  display:none
-}
-.hero {
-  position:relative;
-  height:calc(100vh - 92px);
-  min-height:650px;
-  overflow:hidden;
-  background:#080d0b
-}
-.hero-photo {
-  position:absolute;
-  inset:0
-}
-.hero-photo:after {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,rgba(5,10,8,.04) 0%,rgba(5,10,8,.04) 37%,rgba(5,12,10,.30) 58%,rgba(2,13,10,.82) 100%),linear-gradient(0deg,rgba(0,0,0,.15),transparent 40%)
-}
-.hero-photo img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top
-}
-.hero-inner {
-  position:relative;
-  z-index:2;
-  height:100%;
-  max-width:var(--max);
-  margin:auto;
-  padding:0 28px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end
-}
-.hero-copy {
-  width:min(47%,560px);
-  text-align:left;
-  padding-left:24px
-}
-.eyebrow {
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.42em;
-  color:var(--gold2);
-  margin-bottom:18px
-}
-.hero h1 {
-  font-family:'Bodoni Moda',serif;
-  font-weight:400;
-  font-size:clamp(54px,6vw,104px);
-  line-height:.92;
-  letter-spacing:-.025em;
-  margin:0;
-  color:#fff8ed;
-  text-shadow:0 10px 35px rgba(0,0,0,.22)
-}
-.hero-role {
-  margin-top:22px;
-  font-family:'Bodoni Moda',serif;
-  font-size:22px;
-  letter-spacing:.12em;
-  color:var(--gold2);
-  text-transform:uppercase
-}
-.hero-mark {
-  width:110px;
-  height:1px;
-  margin-top:28px;
-  background:linear-gradient(90deg,var(--gold2),transparent)
-}
-.hero-scroll {
-  position:absolute;
-  z-index:3;
-  right:28px;
-  bottom:24px;
-  font-size:9px;
-  letter-spacing:.32em;
-  text-transform:uppercase;
-  color:var(--muted);
-  writing-mode:vertical-rl
-}
-.hero-scroll:before {
-  content:'';
-  display:inline-block;
-  width:1px;
-  height:54px;
-  background:var(--gold);
-  margin-bottom:12px
-}
-.section {
-  padding:105px 28px;
-  position:relative
-}
-.container {
-  max-width:var(--max);
-  margin:auto
-}
-.kicker {
-  font-size:10px;
-  letter-spacing:.36em;
-  text-transform:uppercase;
-  color:var(--gold2);
-  margin-bottom:14px
-}
-.title {
-  font-family:'Bodoni Moda',serif;
-  font-weight:400;
-  font-size:clamp(42px,5vw,72px);
-  line-height:1.02;
-  margin:0;
-  color:#fff8ed
-}
-.gold-rule {
-  width:78px;
-  height:1px;
-  background:linear-gradient(90deg,var(--gold2),transparent);
-  margin:20px 0 30px
-}
-.intro {
-  background:radial-gradient(circle at 80% 0%,rgba(29,105,84,.22),transparent 34%),linear-gradient(180deg,#082b23,#061d18);
-  border-top:1px solid rgba(255,255,255,.03);
-  border-bottom:1px solid var(--line)
-}
-.intro-grid {
-  display:grid;
-  grid-template-columns:.72fr 1.28fr;
-  gap:80px;
-  align-items:start
-}
-.intro-copy {
-  font-family:'Bodoni Moda',serif;
-  font-size:clamp(30px,3.4vw,48px);
-  line-height:1.24;
-  margin:0;
-  color:#f8f0e4
-}
-.intro-copy em {
-  color:var(--gold2);
-  font-style:italic
-}
-.text-link {
-  display:inline-block;
-  margin-top:30px;
-  text-transform:uppercase;
-  font-size:10px;
-  letter-spacing:.26em;
-  color:var(--gold2);
-  border-bottom:1px solid var(--gold);
-  padding-bottom:7px
-}
-.text-link:hover {
-  color:#fff
-}
-.home-concerts {
-  background:#0a1713
-}
-.section-head {
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:30px;
-  margin-bottom:48px
-}
-.concert-list {
-  border-top:1px solid var(--line)
-}
-.concert-row {
-  display:grid;
-  grid-template-columns:220px 1.5fr 1fr 32px;
-  gap:28px;
-  align-items:center;
-  padding:26px 2px;
-  border-bottom:1px solid rgba(211,176,106,.22);
-  transition:.22s
-}
-.concert-row:hover {
-  padding-left:14px;
-  background:linear-gradient(90deg,rgba(211,176,106,.08),transparent)
-}
-.concert-date {
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  color:var(--gold2)
-}
-.concert-name {
-  font-family:'Bodoni Moda',serif;
-  font-size:25px;
-  color:#fff8ed
-}
-.concert-place {
-  font-size:12px;
-  color:var(--muted)
-}
-.concert-arrow {
-  color:var(--gold2);
-  font-size:20px
-}
-.home-ensembles {
-  background:linear-gradient(145deg,#07352c,#0b4b3e 60%,#083128);
-  overflow:hidden
-}
-.home-ensembles:before {
-  content:'M';
-  position:absolute;
-  right:-35px;
-  top:-90px;
-  font-family:'Bodoni Moda',serif;
-  font-size:430px;
-  color:rgba(211,176,106,.045);
-  line-height:1
-}
-.ensemble-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:44px
-}
-.ensemble-card {
-  min-height:245px;
-  border:1px solid var(--line);
-  padding:32px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  position:relative;
-  background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(0,0,0,.10));
-  transition:.25s;
-  overflow:hidden
-}
-.ensemble-card:before {
-  content:'';
-  position:absolute;
-  inset:14px;
-  border:1px solid rgba(211,176,106,.13);
-  pointer-events:none
-}
-.ensemble-card:hover {
-  transform:translateY(-5px);
-  border-color:var(--gold2);
-  box-shadow:var(--shadow)
-}
-.ensemble-type {
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:.28em;
-  color:var(--gold2);
-  margin-bottom:12px
-}
-.ensemble-name {
-  font-family:'Bodoni Moda',serif;
-  font-size:32px;
-  color:#fff8ed
-}
-.home-contact {
-  background:#050c09
-}
-.home-contact-grid {
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:60px;
-  align-items:end
-}
-.home-contact h2 {
-  font-family:'Bodoni Moda',serif;
-  font-size:clamp(42px,5vw,72px);
-  font-weight:400;
-  line-height:1.08;
-  margin:0
-}
-.email {
-  font-family:'Bodoni Moda',serif;
-  color:var(--gold2);
-  font-size:clamp(22px,3vw,36px)
-}
-footer {
-  border-top:1px solid var(--line);
-  background:#03100c;
-  padding:24px 28px;
-  color:#958c7e;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase
-}
-.footer-inner {
-  display:flex;
-  justify-content:space-between;
-  gap:20px
-}
-.page-hero {
-  background:radial-gradient(circle at 70% 0%,rgba(25,105,83,.25),transparent 38%),linear-gradient(135deg,#041a15,#0a4337);
-  border-bottom:1px solid var(--line);
-  padding:84px 28px 72px
-}
-.page-hero .title {
-  max-width:780px
-}
-.page-body {
-  background:#f4efe5;
-  color:#18211d;
-  padding:90px 28px
-}
-.page-body .kicker {
-  color:#896b36
-}
-.page-body .title {
-  color:#12372f
-}
-.bio-layout {
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:74px;
-  align-items:start
-}
-.bio-text {
-  font-family:'Bodoni Moda',serif;
-  font-size:21px;
-  line-height:1.72
-}
-.bio-text p {
-  margin:0 0 1.25em
-}
-.bio-aside {
-  position:sticky;
-  top:30px;
-  border-left:1px solid #c8aa70;
-  padding-left:28px
-}
-.bio-aside h3 {
-  font-family:'Bodoni Moda',serif;
-  font-size:28px;
-  font-weight:400;
-  color:#12372f
-}
-.bio-aside a {
-  color:#71592d
-}
-.cv-button {
-  display:inline-flex;
-  margin-top:22px;
-  padding:14px 18px;
-  border:1px solid #9e7f48;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:10px
-}
-.concert-card {
-  display:grid;
-  grid-template-columns:170px 1fr;
-  gap:32px;
-  padding:30px 0;
-  border-bottom:1px solid #cdbf9f
-}
-.concert-card:first-child {
-  border-top:1px solid #cdbf9f
-}
-.concert-card .date {
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  color:#8a6f3c
-}
-.concert-card h3 {
-  font-family:'Bodoni Moda',serif;
-  font-size:32px;
-  font-weight:400;
-  color:#12372f;
-  margin:0 0 8px
-}
-.concert-card p {
-  margin:4px 0;
-  line-height:1.55
-}
-.media-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px
-}
-.media-card {
-  aspect-ratio:16/10;
-  background:#0a2e26;
-  border:1px solid #b89450;
-  display:grid;
-  place-items:center;
-  color:#e8d09b;
-  position:relative;
-  overflow:hidden
-}
-.media-card span {
-  font-family:'Bodoni Moda',serif;
-  font-size:28px
-}
-.media-note {
-  margin-top:32px;
-  max-width:700px;
-  line-height:1.7
-}
-.contact-page {
-  background:linear-gradient(135deg,#061b16,#0a4337);
-  padding:90px 28px
-}
-.contact-grid {
-  max-width:var(--max);
-  margin:auto;
-  display:grid;
-  grid-template-columns:.95fr 1.05fr;
-  gap:70px;
-  align-items:center
-}
-.contact-image-wrap {
-  border:1px solid var(--line);
-  padding:10px;
-  background:#06100d;
-  box-shadow:var(--shadow)
-}
-.contact-image-wrap img {
-  width:100%;
-  max-height:720px;
-  object-fit:cover;
-  object-position:center
-}
-.contact-copy .title {
-  font-size:clamp(46px,5vw,76px)
-}
-.contact-line {
-  padding:22px 0;
-  border-bottom:1px solid rgba(211,176,106,.24)
-}
-.contact-line .label {
-  display:block;
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:.26em;
-  color:var(--gold2);
-  margin-bottom:8px
-}
-.contact-line a,.contact-line span {
-  font-family:'Bodoni Moda',serif;
-  font-size:26px;
-  color:#fff8ed
-}
-@media(max-width:900px) {
-  .header-inner {
-    height:76px;
-    grid-template-columns:1fr auto;
-    padding:0 18px
-  }
-  .nav,.header-right .social {
-    display:none
-  }
-  .menu-btn {
-    display:block
-  }
-  .brand {
-    font-size:16px
-  }
-  .mobile-menu {
-    position:fixed;
-    z-index:80;
-    top:76px;
-    left:0;
-    right:0;
-    background:#05251e;
-    border-bottom:1px solid var(--line);
-    padding:22px 18px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    transform:translateY(-120%);
-    transition:.25s
-  }
-  .mobile-menu.open {
-    transform:translateY(0)
-  }
-  .mobile-menu a {
-    text-transform:uppercase;
-    letter-spacing:.2em;
-    font-size:12px;
-    color:#f5ebdd
-  }
-  .hero {
-    height:calc(100svh - 76px);
-    min-height:570px
-  }
-  .hero-photo img {
-    object-position:32% top
-  }
-  .hero-photo:after {
-    background:linear-gradient(0deg,rgba(2,13,10,.84) 0%,rgba(2,13,10,.15) 55%,rgba(2,13,10,.05) 100%)
-  }
-  .hero-inner {
-    align-items:flex-end;
-    justify-content:flex-start;
-    padding:0 22px 62px
-  }
-  .hero-copy {
-    width:100%;
-    padding:0
-  }
-  .hero h1 {
-    font-size:clamp(46px,15vw,70px)
-  }
-  .hero-role {
-    font-size:17px
-  }
-  .hero-scroll {
-    display:none
-  }
-  .section {
-    padding:76px 20px
-  }
-  .intro-grid,.home-contact-grid,.bio-layout,.contact-grid {
-    grid-template-columns:1fr;
-    gap:40px
-  }
-  .section-head {
-    align-items:flex-start;
-    flex-direction:column
-  }
-  .concert-row {
-    grid-template-columns:1fr 28px;
-    gap:8px 20px
-  }
-  .concert-date,.concert-place {
-    grid-column:1
-  }
-  .concert-name {
-    font-size:22px
-  }
-  .concert-arrow {
-    grid-column:2;
-    grid-row:1/4
-  }
-  .ensemble-grid {
-    grid-template-columns:1fr
-  }
-  .ensemble-card {
-    min-height:180px
-  }
-  .footer-inner {
-    flex-direction:column
-  }
-  .page-hero {
-    padding:64px 20px 54px
-  }
-  .page-body {
-    padding:64px 20px
-  }
-  .bio-aside {
-    position:static
-  }
-  .concert-card {
-    grid-template-columns:1fr;
-    gap:10px
-  }
-  .media-grid {
-    grid-template-columns:1fr
-  }
-  .contact-page {
-    padding:60px 20px
-  }
-  .contact-copy {
-    order:-1
-  }
-  .contact-line a,.contact-line span {
-    font-size:21px
-  }
-}
-  </style>
- </head>
- <body>
-  <header class="site-header">
-   <div class="header-inner">
-    <a class="brand" href="index.html">
-     Merily Leotoots
-     <small>
-      Violinist
-     </small>
-    </a>
-    <nav aria-label="Main navigation" class="nav">
-     <a class="" href="biography.html">
-      Biography
-     </a>
-     <a class="active" href="concerts.html">
-      Concerts
-     </a>
-     <a class="" href="media.html">
-      Media
-     </a>
-     <a class="" href="contact.html">
-      Contact
-     </a>
-    </nav>
-    <div class="header-right">
-     <a aria-label="YouTube" class="social" href="https://www.youtube.com/@merilyleotoots2687" rel="noopener" target="_blank">
-      Y
-     </a>
-     <a aria-label="Instagram" class="social" href="https://www.instagram.com/merilyleotoots/" rel="noopener" target="_blank">
-      I
-     </a>
-     <button aria-expanded="false" aria-label="Menu" class="menu-btn" id="menuBtn">
-      <span>
-      </span>
-     </button>
-    </div>
-   </div>
-  </header>
-  <div aria-hidden="true" class="mobile-menu" id="mobileMenu">
-   <a href="index.html">
-    Home
-   </a>
-   <a href="biography.html">
-    Biography
-   </a>
-   <a href="concerts.html">
-    Concerts
-   </a>
-   <a href="media.html">
-    Media
-   </a>
-   <a href="contact.html">
-    Contact
-   </a>
-  </div>
-  <main>
-   <section class="page-hero">
-    <div class="container">
-     <div class="kicker">
-      Live
-     </div>
-     <div class="gold-rule">
-     </div>
-     <h1 class="title">
-      Concerts
-     </h1>
-    </div>
-   </section>
-   <section class="page-body">
-    <div class="container">
-     <div class="concert-card">
-      <div class="date">
-       27 November 2026 · 19:00
-      </div>
-      <div>
-       <h3>
-        Violin &amp; Piano
-       </h3>
-       <p>
-        Kadriorg Palace · Tallinn, Estonia
-       </p>
-      </div>
-     </div>
-     <div class="concert-card">
-      <div class="date">
-       December 2026
-      </div>
-      <div>
-       <h3>
-        Trio Callistó · Christmas Concerts
-       </h3>
-       <p>
-        Estonia
-       </p>
-      </div>
-     </div>
-     <div class="concert-card">
-      <div class="date">
-       January 2027
-      </div>
-      <div>
-       <h3>
-        Trio Callistó · Tõnis Kaumann World Premiere
-       </h3>
-       <p>
-        Estonia
-       </p>
-      </div>
-     </div>
-     <div class="concert-card">
-      <div class="date">
-       January 2027
-      </div>
-      <div>
-       <h3>
-        Trio Callistó · Bratislava Debut
-       </h3>
-       <p>
-        Dom hudby · Bratislava, Slovakia
-       </p>
-      </div>
-     </div>
-     <div class="concert-card">
-      <div class="date">
-       March 2027
-      </div>
-      <div>
-       <h3>
-        Summa Quartet
-       </h3>
-       <p>
-        String quartet concert series · Estonia
-       </p>
-      </div>
-     </div>
-    </div>
-   </section>
-  </main>
-  <footer>
-   <div class="container footer-inner">
-    <span>
-     © 2026 Merily Leotoots
-    </span>
-    <span>
-     Violinist · Estonia
-    </span>
-   </div>
-  </footer>
-  <script>
-   const btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--ivory);font-family:Montserrat,Arial,sans-serif;font-weight:300;letter-spacing:.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(5,6,5,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.header-inner{max-width:var(--max);height:84px;margin:auto;padding:0 28px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px}
+.brand{font-family:'Bodoni Moda',serif;text-transform:uppercase;letter-spacing:.14em;font-size:20px;color:var(--ivory);white-space:nowrap}
+.brand small{display:block;font-family:Montserrat,sans-serif;font-size:8px;letter-spacing:.34em;color:var(--gold-soft);margin-top:3px;font-weight:400}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#ddd7cd;position:relative;padding:31px 0}
+.nav a::after{content:'';position:absolute;left:50%;right:50%;bottom:22px;height:1px;background:linear-gradient(90deg,var(--emerald-bright),var(--gold),var(--emerald-bright));transition:.25s}
+.nav a:hover::after,.nav a.active::after{left:0;right:0}
+.header-right{justify-self:end;display:flex;gap:9px;align-items:center}
+.social{width:35px;height:35px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-family:'Bodoni Moda',serif;font-size:12px;color:var(--gold-soft);transition:.2s}
+.social:hover{border-color:var(--emerald-bright);background:rgba(11,117,94,.12);color:var(--ivory)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);background:transparent;border-radius:50%;position:relative}
+.menu-btn::before,.menu-btn::after,.menu-btn span{content:'';position:absolute;left:11px;right:11px;height:1px;background:var(--gold-soft)}
+.menu-btn::before{top:13px}.menu-btn span{top:20px}.menu-btn::after{top:27px}
+.mobile-menu{display:none}
 
-if(btn&&menu){
-btn.addEventListener('click',()=>{
-const o=menu.classList.toggle('open');
-btn.setAttribute('aria-expanded',o?'true':'false');
-menu.setAttribute('aria-hidden',o?'false':'true');
+/* HERO */
+.hero{position:relative;height:min(780px,calc(100vh - 84px));min-height:610px;overflow:hidden;background:#050605}
+.hero-photo{position:absolute;inset:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.04) 0%,rgba(0,0,0,.02) 38%,rgba(3,7,5,.28) 55%,rgba(3,7,5,.83) 100%),linear-gradient(0deg,rgba(3,6,5,.34),transparent 28%)}
+.hero-inner{position:relative;z-index:2;height:100%;max-width:var(--max);margin:auto;padding:0 28px;display:flex;justify-content:flex-end;align-items:center}
+.hero-copy{width:min(44%,520px);padding-top:24px}
+.hero h1{margin:0;font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(48px,5.4vw,78px);line-height:.98;letter-spacing:-.02em;color:#fffaf2;text-shadow:0 12px 40px rgba(0,0,0,.3)}
+.hero-role{margin-top:19px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft)}
+.hero-accent{width:96px;height:1px;margin-top:24px;background:linear-gradient(90deg,var(--gold),var(--emerald-bright),transparent)}
 
-});
-document.addEventListener('keydown',e=>{
-if(e.key==='Escape'){
-menu.classList.remove('open');
-btn.setAttribute('aria-expanded','false');
+/* GENERAL SECTIONS */
+.section{position:relative;padding:98px 28px;overflow:hidden}
+.container{max-width:var(--max);margin:auto;position:relative;z-index:2}
+.kicker{font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px}
+.title{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(38px,4.4vw,62px);line-height:1.02;margin:0;color:var(--ivory)}
+.rule{width:72px;height:1px;margin:18px 0 30px;background:linear-gradient(90deg,var(--gold),var(--emerald-bright),transparent)}
+.text-link{display:inline-block;margin-top:26px;padding-bottom:6px;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);transition:.2s}
+.text-link:hover{color:#fff;border-color:var(--emerald-bright)}
+.shimmer::before{content:'';position:absolute;inset:-20% -5%;background:radial-gradient(circle at 72% 35%,rgba(10,117,94,.17),transparent 22%),radial-gradient(circle at 25% 75%,rgba(4,75,61,.12),transparent 27%);pointer-events:none}
 
+.intro{background:linear-gradient(180deg,#070908,#050605)}
+.intro-grid{display:grid;grid-template-columns:.56fr 1.44fr;gap:72px;align-items:start}
+.intro-copy{font-family:'Bodoni Moda',serif;font-size:clamp(27px,3vw,42px);line-height:1.3;margin:0;max-width:850px;color:#eee8dd}
+.intro-copy em{font-style:normal;color:var(--gold-soft)}
+
+.home-concerts{background:#050605;border-top:1px solid rgba(255,255,255,.025)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:42px}
+.concert-list{border-top:1px solid var(--line)}
+.concert-row{display:grid;grid-template-columns:200px 1.4fr 1fr 24px;gap:26px;align-items:center;padding:25px 0;border-bottom:1px solid rgba(201,168,95,.2);transition:.2s}
+.concert-row:hover{padding-left:10px;background:linear-gradient(90deg,rgba(10,117,94,.09),transparent 58%)}
+.concert-date{font-size:9px;text-transform:uppercase;letter-spacing:.19em;color:var(--gold-soft)}
+.concert-name{font-family:'Bodoni Moda',serif;font-size:24px;color:#f5efe4}
+.concert-place{font-size:11px;color:var(--muted)}
+.concert-arrow{font-size:16px;color:var(--emerald-bright)}
+
+/* Ensembles: no cards, just continuous editorial list */
+.home-ensembles{background:linear-gradient(180deg,#050605 0%,#07100d 55%,#050605 100%);border-top:1px solid rgba(11,117,94,.14);border-bottom:1px solid rgba(11,117,94,.14)}
+.home-ensembles::after{content:'';position:absolute;left:10%;right:10%;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--emerald-bright),transparent);opacity:.5}
+.ensemble-list{margin-top:42px;border-top:1px solid var(--line)}
+.ensemble-row{display:grid;grid-template-columns:220px 1fr 32px;align-items:center;gap:26px;padding:27px 0;border-bottom:1px solid rgba(201,168,95,.2);transition:.2s}
+.ensemble-row:hover{padding-left:10px}
+.ensemble-type{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-soft)}
+.ensemble-name{font-family:'Bodoni Moda',serif;font-size:clamp(27px,3vw,38px);color:var(--ivory)}
+.ensemble-arrow{color:var(--emerald-bright)}
+
+.home-contact{background:#040504;padding-top:88px;padding-bottom:88px}
+.home-contact-inner{max-width:850px}
+.home-contact h2{font-family:'Bodoni Moda',serif;font-size:clamp(32px,3.6vw,48px);font-weight:400;line-height:1.12;margin:0 0 26px;color:#efe8dd}
+.email{font-family:'Bodoni Moda',serif;color:var(--gold-soft);font-size:clamp(20px,2.2vw,30px)}
+
+footer{border-top:1px solid var(--line);background:#030403;padding:22px 28px;color:#817c73;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+/* INNER PAGES */
+.page-hero{position:relative;background:#050605;padding:78px 28px 62px;border-bottom:1px solid var(--line);overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 20%,rgba(11,117,94,.18),transparent 28%)}
+.page-hero .title{max-width:830px}
+.page-body{position:relative;background:linear-gradient(180deg,#070807,#050605);color:var(--ivory);padding:88px 28px}
+.bio-layout{display:grid;grid-template-columns:1fr 270px;gap:74px;align-items:start}
+.bio-text{font-family:'Bodoni Moda',serif;font-size:20px;line-height:1.72;color:#e9e3d8}
+.bio-text p{margin:0 0 1.25em}
+.bio-aside{border-left:1px solid var(--line);padding-left:28px;color:var(--muted)}
+.bio-aside h3{font-family:'Bodoni Moda',serif;font-size:25px;font-weight:400;color:var(--ivory);margin-top:0}
+.cv-button{display:inline-block;margin-top:18px;padding-bottom:6px;border-bottom:1px solid var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:9px;color:var(--gold-soft)}
+
+.concert-card{display:grid;grid-template-columns:165px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid rgba(201,168,95,.22)}
+.concert-card:first-child{border-top:1px solid var(--line)}
+.concert-card .date{font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-soft)}
+.concert-card h3{font-family:'Bodoni Moda',serif;font-size:30px;font-weight:400;margin:0 0 8px;color:var(--ivory)}
+.concert-card p{margin:0;color:var(--muted);line-height:1.7}
+
+.media-list{border-top:1px solid var(--line)}
+.media-item{display:grid;grid-template-columns:220px 1fr;gap:38px;padding:28px 0;border-bottom:1px solid rgba(201,168,95,.22);align-items:start}
+.media-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+.media-content h3{font-family:'Bodoni Moda',serif;font-size:30px;font-weight:400;margin:0 0 8px}
+.media-content p{color:var(--muted);margin:0 0 18px;line-height:1.7}
+.video-placeholder{aspect-ratio:16/9;background:linear-gradient(135deg,#07100d,#0a211b);border-top:1px solid var(--green-line);border-bottom:1px solid var(--line);display:grid;place-items:center;color:var(--gold-soft);font-size:9px;letter-spacing:.23em;text-transform:uppercase}
+
+.contact-page{background:#050605;padding:88px 28px}
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:center}
+.contact-image-wrap{position:relative;max-width:510px}
+.contact-image-wrap::after{content:'';position:absolute;inset:auto -18px -18px 18px;height:55%;border-right:1px solid var(--line);border-bottom:1px solid var(--line);pointer-events:none}
+.contact-image-wrap img{width:100%;height:auto}
+.contact-copy .title{font-size:clamp(38px,4vw,58px)}
+.contact-line{padding:17px 0;border-bottom:1px solid rgba(201,168,95,.18)}
+.contact-line:first-of-type{border-top:1px solid var(--line)}
+.contact-line .label{font-size:8px;text-transform:uppercase;letter-spacing:.24em;color:var(--gold-soft);margin-bottom:7px}
+.contact-line a,.contact-line span{font-family:'Bodoni Moda',serif;font-size:22px;color:#eee8dd}
+.contact-note{margin-top:28px;color:var(--muted);line-height:1.8;max-width:540px}
+
+@media(max-width:900px){
+ .header-inner{height:74px;grid-template-columns:1fr auto;padding:0 20px}
+ .nav,.header-right .social{display:none}
+ .header-right{display:block}.menu-btn{display:block}
+ .mobile-menu{position:fixed;z-index:95;top:74px;left:0;right:0;background:rgba(5,6,5,.985);border-bottom:1px solid var(--line);padding:18px 20px 24px;flex-direction:column;gap:0}
+ .mobile-menu.open{display:flex}
+ .mobile-menu a{padding:14px 0;border-bottom:1px solid rgba(201,168,95,.14);font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+ .hero{height:auto;min-height:0}
+ .hero-photo{position:relative;height:72vh;min-height:520px}
+ .hero-photo img{object-position:34% top}
+ .hero-photo::after{background:linear-gradient(0deg,rgba(2,5,3,.84) 0%,rgba(2,5,3,.05) 44%)}
+ .hero-inner{position:absolute;inset:0;align-items:flex-end;justify-content:flex-start;padding:0 20px 46px}
+ .hero-copy{width:100%;padding:0}
+ .hero h1{font-size:50px}
+ .section{padding:72px 20px}
+ .intro-grid,.bio-layout,.contact-grid{grid-template-columns:1fr;gap:38px}
+ .section-head{align-items:flex-start;flex-direction:column;margin-bottom:30px}
+ .concert-row{grid-template-columns:1fr 20px;gap:9px 16px;padding:20px 0}
+ .concert-date,.concert-name,.concert-place{grid-column:1}.concert-arrow{grid-column:2;grid-row:1/4;align-self:center}
+ .ensemble-row{grid-template-columns:1fr 22px;gap:8px 14px}
+ .ensemble-type,.ensemble-name{grid-column:1}.ensemble-arrow{grid-column:2;grid-row:1/3;align-self:center}
+ .bio-aside{border-left:0;border-top:1px solid var(--line);padding:26px 0 0}
+ .concert-card,.media-item{grid-template-columns:1fr;gap:10px}
+ .contact-copy{order:-1}
+ .contact-image-wrap{max-width:none}
+ .footer-inner{flex-direction:column}
 }
-})
+@media(max-width:520px){
+ .brand{font-size:17px}.brand small{font-size:7px}
+ .hero-photo{height:68vh;min-height:470px}.hero-photo img{object-position:31% top}
+ .hero h1{font-size:43px}
+ .intro-copy{font-size:29px}
+ .title{font-size:40px}
+ .contact-line a,.contact-line span{font-size:19px}
 }
-  </script>
- </body>
-</html>
+</style></head><body><header class="site-header"><div class="header-inner">
+<a class="brand" href="index.html">Merily Leotoots<small>Violinist</small></a>
+<nav class="nav" aria-label="Main navigation">
+<a href="biography.html">Biography</a><a href="concerts.html" class="active">Concerts</a><a href="media.html">Media</a><a href="contact.html">Contact</a>
+</nav>
+<div class="header-right"><a class="social" href="https://www.youtube.com/@merilyleotoots2687" target="_blank" rel="noopener" aria-label="YouTube">Y</a><a class="social" href="https://www.instagram.com/merilyleotoots/" target="_blank" rel="noopener" aria-label="Instagram">I</a><button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span></button></div>
+</div></header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true"><a href="index.html">Home</a><a href="biography.html">Biography</a><a href="concerts.html">Concerts</a><a href="media.html">Media</a><a href="contact.html">Contact</a></div><main><section class="page-hero"><div class="container"><div class="kicker">Calendar</div><div class="rule"></div><h1 class="title">Concerts</h1></div></section><section class="page-body shimmer"><div class="container">
+<div class="concert-card"><div class="date">27 November 2026 · 19:00</div><div><h3>Violin &amp; Piano</h3><p>Kadriorg Palace, Tallinn · Merily Leotoots &amp; Rusudan Petviashvili</p></div></div>
+<div class="concert-card"><div class="date">December 2026</div><div><h3>Trio Callistó · Christmas Concerts</h3><p>Estonia · concert dates and venues to be announced.</p></div></div>
+<div class="concert-card"><div class="date">January 2027</div><div><h3>Trio Callistó · World Premiere</h3><p>Estonia · world premiere of a new work by Tõnis Kaumann.</p></div></div>
+<div class="concert-card"><div class="date">January 2027</div><div><h3>Trio Callistó · Bratislava Debut</h3><p>Dom hudby, Bratislava, Slovakia.</p></div></div>
+<div class="concert-card"><div class="date">March 2027</div><div><h3>Summa Quartet</h3><p>String quartet concert series in Estonia.</p></div></div>
+</div></section></main><footer><div class="container footer-inner"><span>© 2026 Merily Leotoots</span><span>Official website</span></div></footer><script>
+const btn=document.getElementById('menuBtn'),menu=document.getElementById('mobileMenu');
+if(btn&&menu){btn.addEventListener('click',()=>{const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');menu.setAttribute('aria-hidden',o?'false':'true')});document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu.classList.remove('open');btn.setAttribute('aria-expanded','false')}})}
+</script></body></html>
