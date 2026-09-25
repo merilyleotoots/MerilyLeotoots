@@ -1,11 +1,9 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
 
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <meta
@@ -14,28 +12,12 @@
 
 <title>Concerts — Merily Leotoots</title>
 
+<!-- FAVICON -->
 
-<!-- =====================================================
-     FAVICONS
-===================================================== -->
-
-<link rel="icon" href="favicon.ico?v=3" sizes="any">
-
-<link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="favicon-32.png?v=3">
-
-<link
-  rel="icon"
-  type="image/png"
-  sizes="16x16"
-  href="favicon-16.png?v=3">
-
-<link
-  rel="apple-touch-icon"
-  href="apple-touch-icon.png?v=3">
+<link rel="icon" href="favicon.ico?v=4" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=4">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
 
 <meta name="theme-color" content="#050605">
 
@@ -45,36 +27,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Montserrat:wght@300;400;500&display=swap');
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
-
 :root{
-
   --black:#050605;
-  --black-soft:#080a08;
-
   --ivory:#f2eee5;
-  --ivory-soft:#ddd7cd;
-
   --muted:#aaa499;
-
   --emerald:#0a4b3d;
   --emerald-bright:#0b755e;
-
   --gold:#c9a85f;
   --gold-soft:#e2ca8e;
-
   --line:rgba(201,168,95,.20);
-
   --max:1240px;
-
 }
 
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
   box-sizing:border-box;
@@ -85,32 +49,17 @@ html{
 }
 
 body{
-
   margin:0;
-
-  background:#050605;
-
+  background:var(--black);
   color:var(--ivory);
-
-  font-family:
-    Montserrat,
-    Arial,
-    sans-serif;
-
+  font-family:Montserrat,Arial,sans-serif;
   font-weight:300;
-
   letter-spacing:.01em;
-
 }
 
 a{
   color:inherit;
   text-decoration:none;
-}
-
-img{
-  display:block;
-  max-width:100%;
 }
 
 
@@ -119,210 +68,139 @@ img{
 ===================================================== */
 
 .site-header{
-
   position:sticky;
-
   top:0;
-
   z-index:100;
 
-  background:
-    rgba(5,6,5,.94);
+  background:rgba(5,6,5,.94);
+  backdrop-filter:blur(14px);
 
-  backdrop-filter:
-    blur(14px);
-
-  border-bottom:
-    1px solid rgba(255,255,255,.06);
-
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-
 .header-inner{
-
   max-width:var(--max);
-
   height:84px;
-
   margin:auto;
-
   padding:0 28px;
 
   display:grid;
-
-  grid-template-columns:
-    1fr auto 1fr;
-
+  grid-template-columns:1fr auto 1fr;
   align-items:center;
-
   gap:30px;
-
 }
 
-
-/* BRAND */
-
 .brand{
-
-  font-family:
-    'Bodoni Moda',
-    serif;
-
+  font-family:'Bodoni Moda',serif;
   text-transform:uppercase;
-
   letter-spacing:.14em;
-
   font-size:20px;
-
   color:var(--ivory);
-
   white-space:nowrap;
-
 }
 
 .brand small{
-
   display:block;
-
   margin-top:3px;
 
-  font-family:
-    Montserrat,
-    sans-serif;
-
+  font-family:Montserrat,sans-serif;
   font-size:8px;
-
   font-weight:400;
 
   letter-spacing:.34em;
-
   color:var(--gold-soft);
-
 }
 
 
-/* NAVIGATION */
+/* NAV */
 
 .nav{
-
   display:flex;
-
   align-items:center;
-
   gap:34px;
-
 }
 
 .nav a{
-
   position:relative;
-
   padding:31px 0;
 
   font-size:10px;
-
   letter-spacing:.22em;
-
   text-transform:uppercase;
 
   color:#ddd7cd;
-
 }
 
 .nav a::after{
-
   content:'';
 
   position:absolute;
-
   left:50%;
   right:50%;
-
   bottom:22px;
 
   height:1px;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--emerald-bright),
-      var(--gold),
-      var(--emerald-bright)
-    );
+  background:linear-gradient(
+    90deg,
+    var(--emerald-bright),
+    var(--gold),
+    var(--emerald-bright)
+  );
 
   transition:.25s;
-
 }
 
 .nav a:hover::after,
 .nav a.active::after{
-
   left:0;
   right:0;
-
 }
 
 
 /* SOCIAL */
 
 .header-right{
-
   justify-self:end;
 
   display:flex;
-
   align-items:center;
-
   gap:18px;
-
 }
 
 .social{
-
-  font-family:
-    'Bodoni Moda',
-    serif;
-
+  font-family:'Bodoni Moda',serif;
   font-size:13px;
-
   color:var(--gold-soft);
 
   opacity:.85;
 
   transition:.2s;
-
 }
 
 .social:hover{
-
   color:#fff;
-
   opacity:1;
-
 }
 
 
-/* MOBILE BUTTON */
+/* MOBILE MENU BUTTON */
 
 .menu-btn{
-
   display:none;
 
   width:42px;
   height:42px;
 
   border:0;
-
   background:transparent;
 
   position:relative;
-
 }
 
 .menu-btn::before,
 .menu-btn::after,
 .menu-btn span{
-
   content:'';
 
   position:absolute;
@@ -332,9 +210,7 @@ img{
 
   height:1px;
 
-  background:
-    var(--gold-soft);
-
+  background:var(--gold-soft);
 }
 
 .menu-btn::before{
@@ -349,41 +225,73 @@ img{
   top:28px;
 }
 
-
 .mobile-menu{
   display:none;
 }
 
 
 /* =====================================================
-   PAGE
+   MAIN BACKGROUND
 ===================================================== */
 
 main{
-
   min-height:80vh;
 
   background:
-
     radial-gradient(
       circle at 80% 13%,
       rgba(11,117,94,.10),
       transparent 25%
     ),
-
     radial-gradient(
       circle at 15% 65%,
       rgba(10,75,61,.07),
       transparent 30%
     ),
-
     linear-gradient(
       180deg,
       #050605 0%,
       #070907 48%,
       #050605 100%
     );
+}
 
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+.container{
+  position:relative;
+  z-index:2;
+
+  max-width:var(--max);
+  margin:auto;
+}
+
+.kicker{
+  margin-bottom:14px;
+
+  font-size:9px;
+
+  letter-spacing:.34em;
+  text-transform:uppercase;
+
+  color:var(--gold-soft);
+}
+
+.rule{
+  width:72px;
+  height:1px;
+
+  margin:18px 0 30px;
+
+  background:linear-gradient(
+    90deg,
+    var(--gold),
+    var(--emerald-bright),
+    transparent
+  );
 }
 
 
@@ -392,192 +300,96 @@ main{
 ===================================================== */
 
 .page-hero{
-
   position:relative;
 
-  padding:
-    100px 28px 76px;
+  padding:100px 28px 76px;
 
   overflow:hidden;
-
 }
 
 .page-hero::after{
-
   content:'';
 
   position:absolute;
 
   left:28px;
   right:28px;
-
   bottom:0;
 
   max-width:1184px;
-
   height:1px;
-
   margin:auto;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(201,168,95,.25),
-      rgba(11,117,94,.18),
-      transparent
-    );
-
+  background:linear-gradient(
+    90deg,
+    rgba(201,168,95,.25),
+    rgba(11,117,94,.18),
+    transparent
+  );
 }
-
-
-.container{
-
-  position:relative;
-
-  z-index:2;
-
-  max-width:var(--max);
-
-  margin:auto;
-
-}
-
-
-.kicker{
-
-  margin-bottom:14px;
-
-  font-size:9px;
-
-  letter-spacing:.34em;
-
-  text-transform:uppercase;
-
-  color:var(--gold-soft);
-
-}
-
-
-.rule{
-
-  width:72px;
-
-  height:1px;
-
-  margin:
-    18px 0 30px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      var(--emerald-bright),
-      transparent
-    );
-
-}
-
 
 .title{
-
   margin:0;
 
-  font-family:
-    'Bodoni Moda',
-    serif;
-
+  font-family:'Bodoni Moda',serif;
   font-weight:400;
 
-  font-size:
-    clamp(
-      48px,
-      5.5vw,
-      78px
-    );
-
+  font-size:clamp(48px,5.5vw,78px);
   line-height:1;
 
   color:var(--ivory);
-
 }
 
 
 /* =====================================================
-   CONCERT PAGE BODY
+   BODY
 ===================================================== */
 
 .page-body{
-
-  padding:
-    95px 28px 130px;
-
+  padding:95px 28px 130px;
 }
 
 
 /* =====================================================
-   GROUP HEADINGS
+   GROUPS
 ===================================================== */
 
 .concert-group{
-
   margin-bottom:130px;
-
 }
 
 .concert-group:last-child{
-
   margin-bottom:0;
-
 }
-
 
 .concert-group-heading{
-
   margin-bottom:45px;
-
 }
 
-
 .concert-group-heading h2{
-
   margin:0;
 
-  font-family:
-    'Bodoni Moda',
-    serif;
-
-  font-size:
-    clamp(
-      34px,
-      4vw,
-      54px
-    );
-
+  font-family:'Bodoni Moda',serif;
+  font-size:clamp(34px,4vw,54px);
   font-weight:400;
 
   line-height:1.05;
 
   color:var(--ivory);
-
 }
 
-
 .heading-line{
-
   width:72px;
-
   height:1px;
 
   margin-top:20px;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      var(--emerald-bright),
-      transparent
-    );
-
+  background:linear-gradient(
+    90deg,
+    var(--gold),
+    var(--emerald-bright),
+    transparent
+  );
 }
 
 
@@ -586,174 +398,138 @@ main{
 ===================================================== */
 
 .concert-list{
-
-  border-top:
-    1px solid var(--line);
-
+  border-top:1px solid var(--line);
 }
 
-
 .concert-card{
-
   display:grid;
 
-  grid-template-columns:
-    190px minmax(0,1fr);
+  grid-template-columns:190px minmax(0,1fr);
 
   gap:48px;
 
-  padding:
-    31px 0;
+  padding:31px 0;
 
-  border-bottom:
-    1px solid
-    rgba(201,168,95,.16);
+  border-bottom:1px solid rgba(201,168,95,.16);
 
   transition:
     padding .25s ease,
     opacity .25s ease,
     background .25s ease;
-
 }
 
-
 .concert-card:hover{
-
   padding-left:8px;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(11,117,94,.045),
-      transparent 50%
-    );
-
+  background:linear-gradient(
+    90deg,
+    rgba(11,117,94,.045),
+    transparent 50%
+  );
 }
 
 
 /* DATE */
 
 .concert-card .date{
-
   padding-top:7px;
 
   font-size:9px;
-
   line-height:1.7;
 
   text-transform:uppercase;
-
   letter-spacing:.19em;
 
   color:var(--gold-soft);
-
 }
 
 
 /* TITLE */
 
 .concert-card h3{
+  margin:0 0 8px;
 
-  margin:
-    0 0 8px;
+  font-family:'Bodoni Moda',serif;
 
-  font-family:
-    'Bodoni Moda',
-    serif;
-
-  font-size:
-    clamp(
-      25px,
-      2.5vw,
-      32px
-    );
+  font-size:clamp(25px,2.5vw,32px);
 
   font-weight:400;
 
   line-height:1.15;
 
   color:var(--ivory);
-
 }
 
 
-/* GENERAL INFO */
+/* LOCATION / INFO */
 
 .concert-card p{
-
   margin:0;
 
-  max-width:780px;
+  max-width:800px;
 
   line-height:1.75;
 
   font-size:12px;
 
   color:var(--muted);
-
 }
-
 
 .concert-card p + p{
-
   margin-top:5px;
-
 }
 
 
-/* PROGRAMME */
+/* COMPOSERS */
 
-.concert-programme{
+.concert-composers{
+  margin-top:9px !important;
 
   color:#d8d1c5 !important;
 
+  font-family:'Bodoni Moda',serif;
+
+  font-size:15px !important;
+
+  letter-spacing:.015em;
 }
 
 
-/* ARTISTS / DETAILS */
+/* ARTISTS */
 
 .concert-details{
+  margin-top:7px !important;
 
   font-size:11px !important;
 
   color:#8f8a81 !important;
-
 }
 
 
-/* MULTIPLE VENUES */
+/* TOUR DATES */
 
 .tour-dates{
-
-  margin-top:12px;
-
+  margin:10px 0 9px;
 }
 
 .tour-date{
-
   display:grid;
 
-  grid-template-columns:
-    105px 1fr;
+  grid-template-columns:105px 1fr;
 
   gap:16px;
 
   padding:3px 0;
 
   font-size:11px;
-
   line-height:1.6;
 
   color:var(--muted);
-
 }
 
 .tour-date strong{
-
   font-weight:400;
-
   color:#d5cec2;
-
 }
 
 
@@ -762,40 +538,15 @@ main{
 ===================================================== */
 
 .past-group{
-
   margin-top:20px;
-
 }
-
 
 .past-group .concert-card{
-
-  opacity:.64;
-
+  opacity:.66;
 }
-
 
 .past-group .concert-card:hover{
-
   opacity:1;
-
-}
-
-
-/* =====================================================
-   EMPTY STATE
-===================================================== */
-
-.empty-message{
-
-  color:var(--muted);
-
-  font-family:
-    'Bodoni Moda',
-    serif;
-
-  font-size:22px;
-
 }
 
 
@@ -804,256 +555,160 @@ main{
 ===================================================== */
 
 footer{
-
-  position:relative;
-
   background:#050605;
 
-  border-top:
-    1px solid
-    rgba(201,168,95,.14);
+  border-top:1px solid rgba(201,168,95,.14);
 
-  padding:
-    24px 28px;
+  padding:24px 28px;
 
   color:#817c73;
 
   font-size:9px;
 
   letter-spacing:.14em;
-
   text-transform:uppercase;
-
 }
 
-
 .footer-inner{
-
   display:flex;
 
-  justify-content:
-    space-between;
+  justify-content:space-between;
 
   gap:20px;
-
 }
 
 
 /* =====================================================
-   MOBILE / TABLET
+   MOBILE
 ===================================================== */
 
 @media(max-width:900px){
 
-
   .header-inner{
-
     height:74px;
 
-    grid-template-columns:
-      1fr auto;
+    grid-template-columns:1fr auto;
 
-    padding:
-      0 20px;
-
+    padding:0 20px;
   }
-
 
   .nav,
   .header-right .social{
-
     display:none;
-
   }
-
 
   .header-right{
-
     display:block;
-
   }
-
 
   .menu-btn{
-
     display:block;
-
   }
 
 
-  /* MOBILE MENU */
-
   .mobile-menu{
-
     position:fixed;
 
     z-index:95;
 
     top:74px;
-
     left:0;
     right:0;
 
-    background:
-      rgba(5,6,5,.985);
+    background:rgba(5,6,5,.985);
 
-    border-bottom:
-      1px solid var(--line);
+    border-bottom:1px solid var(--line);
 
-    padding:
-      18px 20px 24px;
+    padding:18px 20px 24px;
 
     flex-direction:column;
-
   }
-
 
   .mobile-menu.open{
-
     display:flex;
-
   }
 
-
   .mobile-menu a{
+    padding:15px 0;
 
-    padding:
-      15px 0;
-
-    border-bottom:
-      1px solid
-      rgba(201,168,95,.12);
+    border-bottom:1px solid rgba(201,168,95,.12);
 
     font-size:10px;
 
     letter-spacing:.22em;
-
     text-transform:uppercase;
-
   }
 
-
-  /* PAGE */
 
   .page-hero{
-
-    padding:
-      75px 20px 58px;
-
+    padding:75px 20px 58px;
   }
-
 
   .page-body{
-
-    padding:
-      72px 20px 95px;
-
+    padding:72px 20px 95px;
   }
-
 
   .concert-group{
-
     margin-bottom:90px;
-
   }
-
 
   .concert-group-heading{
-
     margin-bottom:30px;
-
   }
 
 
-  /* CARDS */
-
   .concert-card{
-
     grid-template-columns:1fr;
 
     gap:8px;
 
-    padding:
-      24px 0;
-
+    padding:24px 0;
   }
-
 
   .concert-card .date{
-
     padding-top:0;
-
   }
-
 
   .concert-card:hover{
-
     padding-left:0;
-
   }
 
-
   .tour-date{
-
     grid-template-columns:1fr;
 
     gap:0;
 
     margin-bottom:8px;
-
   }
 
 
-  /* FOOTER */
-
   .footer-inner{
-
     flex-direction:column;
-
   }
 
 }
 
 
-/* =====================================================
-   SMALL PHONE
-===================================================== */
-
 @media(max-width:520px){
 
-
   .brand{
-
     font-size:17px;
-
   }
-
 
   .brand small{
-
     font-size:7px;
-
   }
-
 
   .title{
-
     font-size:48px;
-
   }
-
 
   .concert-group-heading h2{
-
     font-size:37px;
-
   }
 
-
   .concert-card h3{
-
     font-size:25px;
-
   }
 
 }
@@ -1061,7 +716,6 @@ footer{
 </style>
 
 </head>
-
 
 
 <body>
@@ -1075,35 +729,23 @@ footer{
 
   <div class="header-inner">
 
-
-    <a
-      class="brand"
-      href="index.html">
+    <a class="brand" href="index.html">
 
       Merily Leotoots
 
-      <small>
-        Violinist
-      </small>
+      <small>Violinist</small>
 
     </a>
 
 
-
-    <nav
-      class="nav"
-      aria-label="Main navigation">
+    <nav class="nav" aria-label="Main navigation">
 
       <a href="biography.html">
         Biography
       </a>
 
-      <a
-        href="concerts.html"
-        class="active">
-
+      <a href="concerts.html" class="active">
         Concerts
-
       </a>
 
       <a href="media.html">
@@ -1117,9 +759,7 @@ footer{
     </nav>
 
 
-
     <div class="header-right">
-
 
       <a
         class="social"
@@ -1127,11 +767,8 @@ footer{
         target="_blank"
         rel="noopener"
         aria-label="YouTube">
-
         Y
-
       </a>
-
 
       <a
         class="social"
@@ -1139,11 +776,8 @@ footer{
         target="_blank"
         rel="noopener"
         aria-label="Instagram">
-
         I
-
       </a>
-
 
       <button
         class="menu-btn"
@@ -1155,7 +789,6 @@ footer{
 
       </button>
 
-
     </div>
 
   </div>
@@ -1163,35 +796,18 @@ footer{
 </header>
 
 
-
-<!-- =====================================================
-     MOBILE MENU
-===================================================== -->
+<!-- MOBILE MENU -->
 
 <div
   class="mobile-menu"
   id="mobileMenu"
   aria-hidden="true">
 
-  <a href="index.html">
-    Home
-  </a>
-
-  <a href="biography.html">
-    Biography
-  </a>
-
-  <a href="concerts.html">
-    Concerts
-  </a>
-
-  <a href="media.html">
-    Media
-  </a>
-
-  <a href="contact.html">
-    Contact
-  </a>
+  <a href="index.html">Home</a>
+  <a href="biography.html">Biography</a>
+  <a href="concerts.html">Concerts</a>
+  <a href="media.html">Media</a>
+  <a href="contact.html">Contact</a>
 
 </div>
 
@@ -1230,491 +846,80 @@ footer{
 
 <section class="page-body">
 
-  <div class="container">
+<div class="container">
 
 
-    <!-- =================================================
-         UPCOMING
-    ================================================== -->
+<!-- UPCOMING -->
 
-    <section
-      class="concert-group"
-      id="upcomingSection">
+<section
+  class="concert-group"
+  id="upcomingSection">
 
-      <div class="concert-group-heading">
+  <div class="concert-group-heading">
 
-        <div class="kicker">
-          Calendar
-        </div>
+    <div class="kicker">
+      Calendar
+    </div>
 
-        <h2>
-          Upcoming Concerts
-        </h2>
+    <h2>
+      Upcoming Concerts
+    </h2>
 
-        <div class="heading-line"></div>
+    <div class="heading-line"></div>
 
-      </div>
+  </div>
 
+  <div
+    class="concert-list"
+    id="upcomingConcerts">
+  </div>
 
-      <div
-        class="concert-list"
-        id="upcomingConcerts">
-      </div>
+</section>
 
-    </section>
 
 
+<!-- PAST -->
 
-    <!-- =================================================
-         PAST
-    ================================================== -->
+<section
+  class="concert-group past-group"
+  id="pastSection">
 
-    <section
-      class="concert-group past-group"
-      id="pastSection">
+  <div class="concert-group-heading">
 
-      <div class="concert-group-heading">
+    <div class="kicker">
+      Archive
+    </div>
 
-        <div class="kicker">
-          Archive
-        </div>
+    <h2>
+      Past Concerts
+    </h2>
 
-        <h2>
-          Past Concerts
-        </h2>
+    <div class="heading-line"></div>
 
-        <div class="heading-line"></div>
+  </div>
 
-      </div>
+  <div
+    class="concert-list"
+    id="pastConcerts">
+  </div>
 
+</section>
 
-      <div
-        class="concert-list"
-        id="pastConcerts">
-      </div>
 
-    </section>
 
+<!-- =====================================================
+     ALL CONCERTS
 
+     Lisa kõik uued kontserdid ainult siia.
+     JavaScript sorteerib need automaatselt.
+===================================================== -->
 
-    <!-- =================================================
-         MASTER CONCERT LIST
+<div id="allConcerts" hidden>
 
-         Kõik kontserdid sisestatakse ainult siia.
 
-         JavaScript paigutab need automaatselt:
-         Upcoming Concerts
-         või
-         Past Concerts
 
-         data-start = kontserdi alguskuupäev
-         data-end   = ainult mitmepäevase sündmuse puhul
-    ================================================== -->
-
-    <div
-      id="allConcerts"
-      hidden>
-
-
-
-      <!-- =================================================
-           SUMMA QUARTET — KULTUURIÖÖ
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2026-08-28">
-
-        <div class="date">
-
-          28 August 2026
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Summa Quartet · KultuuriÖÖ
-
-          </h3>
-
-          <p>
-
-            Laagna Aed · Tallinn
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           ERSO — SOUTH KOREA TOUR
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2026-09-19"
-        data-end="2026-09-22">
-
-        <div class="date">
-
-          19–22 September 2026
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            ERSO · South Korea Tour
-
-          </h3>
-
-
-          <div class="tour-dates">
-
-            <div class="tour-date">
-
-              <strong>
-                19 Sep · 19:30
-              </strong>
-
-              <span>
-                Daegu Concert House · Daegu
-              </span>
-
-            </div>
-
-
-            <div class="tour-date">
-
-              <strong>
-                20 Sep · 17:00
-              </strong>
-
-              <span>
-                Bucheon Art Center · Bucheon
-              </span>
-
-            </div>
-
-
-            <div class="tour-date">
-
-              <strong>
-                22 Sep · 19:30
-              </strong>
-
-              <span>
-                Seoul Arts Center · Seoul
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <p class="concert-programme">
-
-            Tõnu Kõrvits · Robert Schumann ·
-            Ludwig van Beethoven
-
-          </p>
-
-
-          <p class="concert-details">
-
-            Yekwon Sunwoo, piano ·
-            Estonian National Symphony Orchestra ·
-            Olari Elts, conductor
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           SUMMA QUARTET — POSTIMEES
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2026-11-25">
-
-        <div class="date">
-
-          25 November 2026
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Summa Quartet
-
-          </h3>
-
-          <p>
-
-            Postimees
-
-          </p>
-
-          <p class="concert-programme">
-
-            Programme: Dvořák
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           TRIO CALLISTÓ — KURESSAARE
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2026-12-28">
-
-        <div class="date">
-
-          28 December 2026 · 19:00
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Trio Callistó · Christmas Concert
-
-          </h3>
-
-          <p>
-
-            Kuressaare Music School ·
-            Saaremaa
-
-          </p>
-
-          <p class="concert-programme">
-
-            Mozart · Beethoven · Brahms
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           MERILY + RUSUDAN
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2026-11-29">
-
-        <div class="date">
-
-          29 November 2026 · 19:00
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Soirée française
-
-          </h3>
-
-          <p>
-
-            Kadriorg Palace · Tallinn
-
-          </p>
-
-          <p class="concert-details">
-
-            Merily Leotoots, violin ·
-            Rusudan Chuntishvili, piano
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           TRIO CALLISTÓ — NARVA
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2026-12-30">
-
-        <div class="date">
-
-          30 December 2026 · 19:00
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Trio Callistó
-
-          </h3>
-
-          <p>
-
-            Narva Town Hall · Narva
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           TRIO CALLISTÓ — KAUMANN PREMIERE
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2027-01-17">
-
-        <div class="date">
-
-          17 January 2027 · 18:00
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Trio Callistó · World Premiere
-
-          </h3>
-
-          <p>
-
-            Mustpeade Maja · Tallinn
-
-          </p>
-
-          <p class="concert-programme">
-
-            World premiere of a new work
-            by Tõnis Kaumann
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           TRIO CALLISTÓ — BRATISLAVA
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2027-01-30">
-
-        <div class="date">
-
-          30 January 2027 · 19:00
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Trio Callistó · Bratislava Debut
-
-          </h3>
-
-          <p>
-
-            Dom hudby ·
-            Bratislava, Slovakia
-
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- =================================================
-           SUMMA QUARTET — MUSICA SACRA
-      ================================================== -->
-
-      <article
-        class="concert-card"
-        data-start="2027-03-20">
-
-        <div class="date">
-
-          20 March 2027
-
-        </div>
-
-
-        <div>
-
-          <h3>
-
-            Musica Sacra · Summa Quartet
-
-          </h3>
-
-          <p>
-
-            Pärnu Eliisabeth Church ·
-            Pärnu
-
-          </p>
-
-        </div>
-
-      </article>
 <!-- =================================================
-     DUO ENPASSANT — RISTI
+     9 JULY 2025
 ================================================== -->
 
 <article
@@ -1740,8 +945,9 @@ footer{
 </article>
 
 
+
 <!-- =================================================
-     DUO ENPASSANT — PADISE
+     13 SEPTEMBER 2025
 ================================================== -->
 
 <article
@@ -1762,7 +968,7 @@ footer{
       Padise Monastery · Estonia
     </p>
 
-    <p class="concert-programme">
+    <p class="concert-composers">
       Handel · Haydn · Glière · Schulhoff · Halvorsen
     </p>
 
@@ -1771,8 +977,9 @@ footer{
 </article>
 
 
+
 <!-- =================================================
-     TRIO CALLISTÓ — TARTU
+     19 DECEMBER 2025
 ================================================== -->
 
 <article
@@ -1786,11 +993,15 @@ footer{
   <div>
 
     <h3>
-      Trio Callistó
+      Trio Callistó · Advent Concert
     </h3>
 
     <p>
       Tartu Jaani Church · Tartu
+    </p>
+
+    <p class="concert-composers">
+      Mozart · Clara Schumann
     </p>
 
   </div>
@@ -1798,8 +1009,9 @@ footer{
 </article>
 
 
+
 <!-- =================================================
-     TRIO CALLISTÓ — TALLINN
+     20 DECEMBER 2025
 ================================================== -->
 
 <article
@@ -1813,7 +1025,7 @@ footer{
   <div>
 
     <h3>
-      Trio Callistó
+      Trio Callistó · Advent Concert
     </h3>
 
     <p>
@@ -1825,8 +1037,9 @@ footer{
 </article>
 
 
+
 <!-- =================================================
-     DUO ENPASSANT — FEBRUARY CONCERT
+     26 FEBRUARY 2026
 ================================================== -->
 
 <article
@@ -1843,17 +1056,14 @@ footer{
       Duo EnPassant
     </h3>
 
-    <p>
-      Concert
-    </p>
-
   </div>
 
 </article>
 
 
+
 <!-- =================================================
-     TRIO CALLISTÓ — POSTIMEES
+     11 MARCH 2026
 ================================================== -->
 
 <article
@@ -1879,8 +1089,9 @@ footer{
 </article>
 
 
+
 <!-- =================================================
-     TRIO CALLISTÓ — ROOTSI-MIHKLI
+     13 MARCH 2026
 ================================================== -->
 
 <article
@@ -1901,13 +1112,18 @@ footer{
       St Michael's Swedish Church · Tallinn
     </p>
 
+    <p class="concert-composers">
+      Mozart · Schubert
+    </p>
+
   </div>
 
 </article>
 
 
+
 <!-- =================================================
-     DUO ENPASSANT — ELBE REITER MEMORIAL
+     24 MARCH 2026
 ================================================== -->
 
 <article
@@ -1928,12 +1144,12 @@ footer{
       EMTA Chamber Hall · Tallinn
     </p>
 
-    <p class="concert-details">
-      Duo EnPassant
+    <p class="concert-composers">
+      Schulhoff
     </p>
 
-    <p class="concert-programme">
-      Schulhoff
+    <p class="concert-details">
+      Duo EnPassant
     </p>
 
   </div>
@@ -1941,8 +1157,9 @@ footer{
 </article>
 
 
+
 <!-- =================================================
-     DUO ENPASSANT — CHILDREN'S CONCERT
+     16 APRIL 2026
 ================================================== -->
 
 <article
@@ -1963,7 +1180,7 @@ footer{
       Tallinn International Kindergarten · Tallinn
     </p>
 
-    <p class="concert-programme">
+    <p class="concert-composers">
       Glière
     </p>
 
@@ -1972,8 +1189,9 @@ footer{
 </article>
 
 
+
 <!-- =================================================
-     DUO ENPASSANT — SUMMER CONCERT
+     10 JUNE 2026
 ================================================== -->
 
 <article
@@ -1994,7 +1212,7 @@ footer{
       Lasnamäe Community Garden · Tallinn
     </p>
 
-    <p class="concert-programme">
+    <p class="concert-composers">
       Bach · Saint-Saëns · Glière
     </p>
 
@@ -2002,12 +1220,355 @@ footer{
 
 </article>
 
-    </div>
+
+
+<!-- =================================================
+     28 AUGUST 2026
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2026-08-28">
+
+  <div class="date">
+    28 August 2026
+  </div>
+
+  <div>
+
+    <h3>
+      Summa Quartet · KultuuriÖÖ
+    </h3>
+
+    <p>
+      Laagna Aed · Tallinn
+    </p>
+
+    <p class="concert-composers">
+      Dvořák
+    </p>
 
   </div>
 
-</section>
+</article>
 
+
+
+<!-- =================================================
+     19–22 SEPTEMBER 2026
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2026-09-19"
+  data-end="2026-09-22">
+
+  <div class="date">
+    19–22 September 2026
+  </div>
+
+  <div>
+
+    <h3>
+      ERSO · South Korea Tour
+    </h3>
+
+
+    <div class="tour-dates">
+
+      <div class="tour-date">
+
+        <strong>
+          19 Sep · 19:30
+        </strong>
+
+        <span>
+          Daegu Concert House · Daegu
+        </span>
+
+      </div>
+
+
+      <div class="tour-date">
+
+        <strong>
+          20 Sep · 17:00
+        </strong>
+
+        <span>
+          Bucheon Art Center · Bucheon
+        </span>
+
+      </div>
+
+
+      <div class="tour-date">
+
+        <strong>
+          22 Sep · 19:30
+        </strong>
+
+        <span>
+          Seoul Arts Center · Seoul
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <p class="concert-composers">
+      Tõnu Kõrvits · Schumann · Beethoven
+    </p>
+
+
+    <p class="concert-details">
+      Yekwon Sunwoo, piano ·
+      Estonian National Symphony Orchestra ·
+      Olari Elts, conductor
+    </p>
+
+  </div>
+
+</article>
+
+
+
+<!-- =================================================
+     25 NOVEMBER 2026
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2026-11-25">
+
+  <div class="date">
+    25 November 2026
+  </div>
+
+  <div>
+
+    <h3>
+      Summa Quartet
+    </h3>
+
+    <p>
+      Postimees · Tallinn
+    </p>
+
+    <p class="concert-composers">
+      Dvořák
+    </p>
+
+  </div>
+
+</article>
+
+
+
+<!-- =================================================
+     29 NOVEMBER 2026
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2026-11-29">
+
+  <div class="date">
+    29 November 2026 · 19:00
+  </div>
+
+  <div>
+
+    <h3>
+      Soirée française
+    </h3>
+
+    <p>
+      Kadriorg Palace · Tallinn
+    </p>
+
+    <p class="concert-composers">
+      Ravel · Viardot · Satie · Boulanger
+    </p>
+
+    <p class="concert-details">
+      Merily Leotoots, violin ·
+      Rusudan Chuntishvili, piano
+    </p>
+
+  </div>
+
+</article>
+
+
+
+<!-- =================================================
+     28 DECEMBER 2026
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2026-12-28">
+
+  <div class="date">
+    28 December 2026 · 19:00
+  </div>
+
+  <div>
+
+    <h3>
+      Trio Callistó · Christmas Concert
+    </h3>
+
+    <p>
+      Kuressaare Music School · Saaremaa
+    </p>
+
+    <p class="concert-composers">
+      Mozart · Beethoven · Brahms
+    </p>
+
+  </div>
+
+</article>
+
+
+
+<!-- =================================================
+     30 DECEMBER 2026
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2026-12-30">
+
+  <div class="date">
+    30 December 2026 · 19:00
+  </div>
+
+  <div>
+
+    <h3>
+      Trio Callistó · Christmas Concert
+    </h3>
+
+    <p>
+      Narva Town Hall · Narva
+    </p>
+
+    <p class="concert-composers">
+      Mozart · Beethoven · Brahms
+    </p>
+
+  </div>
+
+</article>
+
+
+
+<!-- =================================================
+     17 JANUARY 2027
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2027-01-17">
+
+  <div class="date">
+    17 January 2027 · 18:00
+  </div>
+
+  <div>
+
+  <h3>
+    Trio Callistó · World Premiere — Tõnis Kaumann: <em>Violetta's Album</em>
+  </h3>
+
+  <p>
+    Mustpeade Maja · Tallinn
+  </p>
+
+  <p class="concert-composers">
+    Kaumann · Rääts · Mozart · Brahms
+  </p>
+
+  <p class="concert-details">
+    World premiere of Tõnis Kaumann's new work <em>Violetta's Album</em>
+  </p>
+
+</div>
+
+</article>
+
+
+
+<!-- =================================================
+     30 JANUARY 2027
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2027-01-30">
+
+  <div class="date">
+    30 January 2027 · 19:00
+  </div>
+
+  <div>
+
+    <h3>
+      Trio Callistó · Bratislava Debut
+    </h3>
+
+    <p>
+      Dom hudby · Bratislava, Slovakia
+    </p>
+
+    <p class="concert-composers">
+      Pärt · Mozart · Kaumann · Shostakovich
+    </p>
+
+  </div>
+
+</article>
+
+
+
+<!-- =================================================
+     20 MARCH 2027
+================================================== -->
+
+<article
+  class="concert-card"
+  data-start="2027-03-20">
+
+  <div class="date">
+    20 March 2027
+  </div>
+
+  <div>
+
+    <h3>
+      Musica Sacra · Summa Quartet
+    </h3>
+
+    <p>
+      Pärnu Eliisabeth Church · Pärnu
+    </p>
+
+  </div>
+
+</article>
+
+
+</div>
+<!-- END ALL CONCERTS -->
+
+
+</div>
+
+</section>
 
 </main>
 
@@ -2022,15 +1583,11 @@ footer{
   <div class="container footer-inner">
 
     <span>
-
       © 2026 Merily Leotoots
-
     </span>
 
     <span>
-
       Official website
-
     </span>
 
   </div>
@@ -2055,48 +1612,67 @@ const menu =
 
 if(btn && menu){
 
-  btn.addEventListener(
-    'click',
-    () => {
+  btn.addEventListener('click', () => {
 
-      const open =
-        menu.classList.toggle('open');
+    const open =
+      menu.classList.toggle('open');
+
+    btn.setAttribute(
+      'aria-expanded',
+      open ? 'true' : 'false'
+    );
+
+    menu.setAttribute(
+      'aria-hidden',
+      open ? 'false' : 'true'
+    );
+
+  });
+
+
+  document.addEventListener('keydown', event => {
+
+    if(event.key === 'Escape'){
+
+      menu.classList.remove('open');
 
       btn.setAttribute(
         'aria-expanded',
-        open ? 'true' : 'false'
+        'false'
       );
 
       menu.setAttribute(
         'aria-hidden',
-        open ? 'false' : 'true'
+        'true'
       );
 
     }
-  );
+
+  });
+
+}
 
 
-  document.addEventListener(
-    'keydown',
-    event => {
 
-      if(event.key === 'Escape'){
+/* =====================================================
+   DATE HELPER
+===================================================== */
 
-        menu.classList.remove('open');
+function parseLocalDate(value){
 
-        btn.setAttribute(
-          'aria-expanded',
-          'false'
-        );
+  const [
+    year,
+    month,
+    day
+  ] = value
+      .split('-')
+      .map(Number);
 
-        menu.setAttribute(
-          'aria-hidden',
-          'true'
-        );
 
-      }
-
-    }
+  return new Date(
+    year,
+    month - 1,
+    day
   );
 
 }
@@ -2104,7 +1680,24 @@ if(btn && menu){
 
 
 /* =====================================================
-   AUTOMATIC UPCOMING / PAST CONCERTS
+   TODAY
+===================================================== */
+
+const now =
+  new Date();
+
+
+const today =
+  new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate()
+  );
+
+
+
+/* =====================================================
+   GET CONCERTS
 ===================================================== */
 
 const concertElements =
@@ -2137,208 +1730,123 @@ const pastSection =
   );
 
 
-
-/* =====================================================
-   LOCAL DATE WITHOUT TIME
-
-   Kontsert jääb "Upcoming" kategooriasse
-   kogu kontserdipäeva jooksul.
-
-   Järgmisel päeval liigub automaatselt
-   "Past Concerts" alla.
-===================================================== */
-
-const now =
-  new Date();
-
-
-const today =
-  new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate()
-  );
-
-
-
-/* =====================================================
-   HELPER: YYYY-MM-DD -> LOCAL DATE
-===================================================== */
-
-function parseLocalDate(
-  value
-){
-
-  const [
-    year,
-    month,
-    day
-  ] =
-  value
-    .split('-')
-    .map(Number);
-
-
-  return new Date(
-    year,
-    month - 1,
-    day
-  );
-
-}
-
-
-
-/* =====================================================
-   BUILD LISTS
-===================================================== */
-
 const upcoming = [];
 
 const past = [];
 
 
-concertElements.forEach(
-  concert => {
+
+/* =====================================================
+   DIVIDE INTO UPCOMING / PAST
+===================================================== */
+
+concertElements.forEach(concert => {
 
 
-    const startValue =
-      concert.dataset.start;
+  const startValue =
+    concert.dataset.start;
 
 
-    if(!startValue){
-      return;
-    }
+  if(!startValue){
+    return;
+  }
 
 
-    const endValue =
-      concert.dataset.end ||
-      startValue;
+  const endValue =
+    concert.dataset.end || startValue;
 
 
-    const startDate =
-      parseLocalDate(
-        startValue
-      );
+  const startDate =
+    parseLocalDate(startValue);
 
 
-    const endDate =
-      parseLocalDate(
-        endValue
-      );
+  const endDate =
+    parseLocalDate(endValue);
 
 
-    const concertData = {
-
-      element:
-        concert,
-
-      startDate:
-        startDate,
-
-      endDate:
-        endDate
-
-    };
+  const data = {
+    element:concert,
+    startDate:startDate,
+    endDate:endDate
+  };
 
 
-    /*
+  /*
+    A concert stays Upcoming for
+    the whole final day of the event.
+  */
 
-      Kui sündmuse lõppkuupäev
-      on täna või tulevikus,
-      on see Upcoming.
+  if(endDate >= today){
 
-    */
+    upcoming.push(data);
 
-    if(
-      endDate >= today
-    ){
+  }else{
 
-      upcoming.push(
-        concertData
-      );
-
-    }
-
-    else{
-
-      past.push(
-        concertData
-      );
-
-    }
-
+    past.push(data);
 
   }
-);
+
+
+});
 
 
 
 /* =====================================================
-   SORTING
+   SORT
+
+   Upcoming:
+   nearest first
+
+   Past:
+   newest first
 ===================================================== */
-
-
-/* Upcoming:
-   kõige lähem kontsert esimesena */
 
 upcoming.sort(
   (a,b) =>
-    a.startDate -
-    b.startDate
+    a.startDate - b.startDate
 );
 
-
-/* Past:
-   kõige hiljutisem kontsert esimesena */
 
 past.sort(
   (a,b) =>
-    b.endDate -
-    a.endDate
+    b.endDate - a.endDate
 );
 
 
 
 /* =====================================================
-   OUTPUT UPCOMING
+   DISPLAY UPCOMING
 ===================================================== */
 
-upcoming.forEach(
-  concert => {
+upcoming.forEach(item => {
 
-    upcomingContainer.appendChild(
-      concert.element
-    );
+  upcomingContainer.appendChild(
+    item.element
+  );
 
-  }
-);
+});
 
 
 
 /* =====================================================
-   OUTPUT PAST
+   DISPLAY PAST
 ===================================================== */
 
-past.forEach(
-  concert => {
+past.forEach(item => {
 
-    pastContainer.appendChild(
-      concert.element
-    );
+  pastContainer.appendChild(
+    item.element
+  );
 
-  }
-);
+});
 
 
 
 /* =====================================================
-   HIDE EMPTY SECTIONS
+   HIDE EMPTY SECTION
 ===================================================== */
 
-if(
-  upcoming.length === 0
-){
+if(upcoming.length === 0){
 
   upcomingSection.style.display =
     'none';
@@ -2346,9 +1854,7 @@ if(
 }
 
 
-if(
-  past.length === 0
-){
+if(past.length === 0){
 
   pastSection.style.display =
     'none';
@@ -2360,5 +1866,4 @@ if(
 
 
 </body>
-
 </html>
