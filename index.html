@@ -1,25 +1,57 @@
 <!doctype html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="utf-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<meta name="description" content="Official website of violinist Merily Leotoots.">
+<meta
+  name="description"
+  content="Official website of Estonian violinist Merily Leotoots.">
 
 <title>Merily Leotoots — Violinist</title>
+
+
+<!-- =====================================================
+     FAVICON
+===================================================== -->
+
+<link rel="icon" href="favicon.ico?v=4" sizes="any">
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="favicon-32.png?v=4">
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="favicon-16.png?v=4">
+
+<link
+  rel="apple-touch-icon"
+  href="apple-touch-icon.png?v=4">
+
+<meta name="theme-color" content="#050605">
+
 
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Montserrat:wght@300;400;500&display=swap');
 
 
-/* =========================================================
+/* =====================================================
    VARIABLES
-========================================================= */
+===================================================== */
 
 :root{
+
   --black:#050605;
-  --black-soft:#080a08;
 
   --ivory:#f2eee5;
   --ivory-soft:#ddd7cd;
@@ -35,12 +67,13 @@
   --line:rgba(201,168,95,.20);
 
   --max:1240px;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 *{
   box-sizing:border-box;
@@ -51,12 +84,22 @@ html{
 }
 
 body{
+
   margin:0;
+
   background:var(--black);
+
   color:var(--ivory);
-  font-family:Montserrat,Arial,sans-serif;
+
+  font-family:
+    Montserrat,
+    Arial,
+    sans-serif;
+
   font-weight:300;
+
   letter-spacing:.01em;
+
 }
 
 a{
@@ -70,121 +113,182 @@ img{
 }
 
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 .site-header{
+
   position:sticky;
+
   top:0;
+
   z-index:100;
 
-  background:rgba(5,6,5,.94);
-  backdrop-filter:blur(14px);
+  background:
+    rgba(5,6,5,.94);
 
-  border-bottom:1px solid rgba(255,255,255,.06);
+  backdrop-filter:
+    blur(14px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.06);
+
 }
 
+
 .header-inner{
+
   max-width:var(--max);
+
   height:84px;
+
   margin:auto;
-  padding:0 28px;
+
+  padding:
+    0 28px;
 
   display:grid;
-  grid-template-columns:1fr auto 1fr;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
   align-items:center;
+
   gap:30px;
+
 }
 
 
 /* BRAND */
 
 .brand{
-  font-family:'Bodoni Moda',serif;
+
+  font-family:
+    'Bodoni Moda',
+    serif;
+
   text-transform:uppercase;
+
   letter-spacing:.14em;
+
   font-size:20px;
+
   color:var(--ivory);
 
   white-space:nowrap;
+
 }
 
+
 .brand small{
+
   display:block;
 
   margin-top:3px;
 
-  font-family:Montserrat,sans-serif;
+  font-family:
+    Montserrat,
+    sans-serif;
+
   font-size:8px;
+
   font-weight:400;
 
   letter-spacing:.34em;
 
   color:var(--gold-soft);
+
 }
 
 
-/* NAV */
+/* NAVIGATION */
 
 .nav{
+
   display:flex;
+
   align-items:center;
+
   gap:34px;
+
 }
 
+
 .nav a{
+
   position:relative;
 
-  padding:31px 0;
+  padding:
+    31px 0;
 
   font-size:10px;
+
   letter-spacing:.22em;
+
   text-transform:uppercase;
 
   color:#ddd7cd;
+
 }
 
+
 .nav a::after{
+
   content:'';
 
   position:absolute;
 
   left:50%;
   right:50%;
+
   bottom:22px;
 
   height:1px;
 
-  background:linear-gradient(
-    90deg,
-    var(--emerald-bright),
-    var(--gold),
-    var(--emerald-bright)
-  );
+  background:
+    linear-gradient(
+      90deg,
+      var(--emerald-bright),
+      var(--gold),
+      var(--emerald-bright)
+    );
 
   transition:.25s;
+
 }
+
 
 .nav a:hover::after,
 .nav a.active::after{
+
   left:0;
   right:0;
+
 }
 
 
 /* SOCIAL */
 
 .header-right{
+
   justify-self:end;
 
   display:flex;
+
   align-items:center;
+
   gap:18px;
+
 }
 
+
 .social{
-  font-family:'Bodoni Moda',serif;
+
+  font-family:
+    'Bodoni Moda',
+    serif;
+
   font-size:13px;
 
   color:var(--gold-soft);
@@ -192,31 +296,41 @@ img{
   opacity:.85;
 
   transition:.2s;
+
 }
+
 
 .social:hover{
+
   color:#fff;
+
   opacity:1;
+
 }
 
 
-/* MOBILE MENU BUTTON */
+/* MOBILE BUTTON */
 
 .menu-btn{
+
   display:none;
 
   width:42px;
   height:42px;
 
   border:0;
+
   background:transparent;
 
   position:relative;
+
 }
+
 
 .menu-btn::before,
 .menu-btn::after,
 .menu-btn span{
+
   content:'';
 
   position:absolute;
@@ -226,64 +340,87 @@ img{
 
   height:1px;
 
-  background:var(--gold-soft);
+  background:
+    var(--gold-soft);
+
 }
+
 
 .menu-btn::before{
   top:14px;
 }
 
+
 .menu-btn span{
   top:21px;
 }
 
+
 .menu-btn::after{
   top:28px;
 }
+
 
 .mobile-menu{
   display:none;
 }
 
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero{
+
   position:relative;
 
-  height:min(820px,calc(100vh - 84px));
+  height:
+    min(
+      820px,
+      calc(100vh - 84px)
+    );
+
   min-height:620px;
 
   overflow:hidden;
 
   background:#050605;
+
 }
 
 
 /* PHOTO */
 
 .hero-photo{
+
   position:absolute;
+
   inset:0;
+
 }
 
+
 .hero-photo img{
+
   width:100%;
   height:100%;
 
   object-fit:cover;
-  object-position:center top;
+
+  object-position:
+    center top;
+
 }
 
 
-/* GRADIENT OVER PHOTO */
+/* PHOTO OVERLAY */
 
 .hero-photo::after{
+
   content:'';
 
   position:absolute;
+
   inset:0;
 
   background:
@@ -301,80 +438,119 @@ img{
       rgba(3,6,5,.50),
       transparent 34%
     );
+
 }
 
 
 /* HERO TEXT */
 
 .hero-inner{
+
   position:relative;
+
   z-index:2;
 
   height:100%;
 
   max-width:var(--max);
+
   margin:auto;
-  padding:0 28px;
+
+  padding:
+    0 28px;
 
   display:flex;
 
   justify-content:flex-end;
+
   align-items:center;
+
 }
+
 
 .hero-copy{
-  width:min(44%,520px);
+
+  width:
+    min(
+      44%,
+      520px
+    );
 
   padding-top:20px;
+
 }
 
+
 .hero h1{
+
   margin:0;
 
-  font-family:'Bodoni Moda',serif;
+  font-family:
+    'Bodoni Moda',
+    serif;
+
   font-weight:400;
 
-  font-size:clamp(52px,5.7vw,82px);
+  font-size:
+    clamp(
+      52px,
+      5.7vw,
+      82px
+    );
+
   line-height:.96;
 
   letter-spacing:-.025em;
 
   color:#fffaf2;
 
-  text-shadow:0 14px 40px rgba(0,0,0,.25);
+  text-shadow:
+    0 14px 40px
+    rgba(0,0,0,.25);
+
 }
 
+
 .hero-role{
+
   margin-top:22px;
 
   font-size:10px;
 
   letter-spacing:.40em;
+
   text-transform:uppercase;
 
   color:var(--gold-soft);
+
 }
 
+
 .hero-accent{
+
   width:100px;
+
   height:1px;
 
   margin-top:25px;
 
-  background:linear-gradient(
-    90deg,
-    var(--gold),
-    var(--emerald-bright),
-    transparent
-  );
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--emerald-bright),
+      transparent
+    );
+
 }
 
 
-/* =========================================================
-   CONTINUOUS MAIN PAGE
-========================================================= */
+/* =====================================================
+   CONTINUOUS HOME BACKGROUND
+===================================================== */
 
 .home-main{
+
   position:relative;
 
   overflow:hidden;
@@ -399,15 +575,16 @@ img{
       #070907 48%,
       #050605 100%
     );
+
 }
 
 
-/* very subtle continuous glow */
-
 .home-main::before{
+
   content:'';
 
   position:absolute;
+
   inset:0;
 
   pointer-events:none;
@@ -425,448 +602,688 @@ img{
       rgba(11,117,94,.05),
       transparent 26%
     );
+
 }
 
 
-/* GENERAL SECTION */
+/* =====================================================
+   GENERAL
+===================================================== */
 
 .section{
+
   position:relative;
 
-  padding:105px 28px;
+  padding:
+    105px 28px;
 
   background:transparent;
+
 }
 
+
 .container{
+
   position:relative;
+
   z-index:2;
 
   max-width:var(--max);
 
   margin:auto;
+
 }
 
 
-/* SMALL LABEL */
-
 .kicker{
+
   margin-bottom:14px;
 
   font-size:9px;
 
   letter-spacing:.34em;
+
   text-transform:uppercase;
 
   color:var(--gold-soft);
+
 }
 
 
-/* TITLE */
-
 .title{
+
   margin:0;
 
-  font-family:'Bodoni Moda',serif;
+  font-family:
+    'Bodoni Moda',
+    serif;
+
   font-weight:400;
 
-  font-size:clamp(40px,4.5vw,64px);
+  font-size:
+    clamp(
+      40px,
+      4.5vw,
+      64px
+    );
 
   line-height:1;
 
   color:var(--ivory);
+
 }
 
-
-/* SMALL DECORATIVE LINE */
 
 .rule{
+
   width:70px;
+
   height:1px;
 
-  margin:18px 0 30px;
+  margin:
+    18px 0 30px;
 
-  background:linear-gradient(
-    90deg,
-    var(--gold),
-    var(--emerald-bright),
-    transparent
-  );
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--emerald-bright),
+      transparent
+    );
+
 }
 
 
-/* LINKS */
-
 .text-link{
+
   display:inline-block;
 
   margin-top:28px;
 
   padding-bottom:6px;
 
-  border-bottom:1px solid rgba(201,168,95,.35);
+  border-bottom:
+    1px solid
+    rgba(201,168,95,.35);
 
   font-size:9px;
 
   letter-spacing:.24em;
+
   text-transform:uppercase;
 
   color:var(--gold-soft);
 
   transition:.2s;
+
 }
+
 
 .text-link:hover{
+
   color:#fff;
 
-  border-color:var(--emerald-bright);
+  border-color:
+    var(--emerald-bright);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    BIOGRAPHY INTRO
-========================================================= */
+===================================================== */
 
 .intro{
+
   padding-top:120px;
+
   padding-bottom:125px;
+
 }
 
+
 .intro-grid{
+
   display:grid;
 
-  grid-template-columns:.52fr 1.48fr;
+  grid-template-columns:
+    .52fr 1.48fr;
 
   gap:80px;
 
   align-items:start;
+
 }
 
+
 .intro-copy{
+
   max-width:900px;
 
   margin:0;
 
-  font-family:'Bodoni Moda',serif;
+  font-family:
+    'Bodoni Moda',
+    serif;
 
-  font-size:clamp(29px,3.1vw,44px);
+  font-size:
+    clamp(
+      29px,
+      3.1vw,
+      44px
+    );
 
   line-height:1.34;
 
   color:#eee8dd;
+
 }
 
+
 .intro-copy em{
+
   font-style:normal;
 
   color:var(--gold-soft);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    CONCERTS
-========================================================= */
+===================================================== */
 
 .home-concerts{
+
   padding-top:100px;
+
   padding-bottom:120px;
+
 }
 
+
 .section-head{
+
   display:flex;
 
-  justify-content:space-between;
+  justify-content:
+    space-between;
+
   align-items:flex-end;
 
   gap:30px;
 
   margin-bottom:48px;
+
 }
+
 
 .section-head .text-link{
+
   margin-top:0;
+
   margin-bottom:4px;
+
 }
 
-
-/* LIST */
 
 .concert-list{
-  border-top:1px solid var(--line);
+
+  border-top:
+    1px solid var(--line);
+
 }
 
+
 .concert-row{
+
   display:grid;
 
-  grid-template-columns:200px 1.4fr 1fr 24px;
+  grid-template-columns:
+    200px
+    1.4fr
+    1fr
+    24px;
 
   gap:28px;
 
   align-items:center;
 
-  padding:28px 0;
+  padding:
+    28px 0;
 
-  border-bottom:1px solid rgba(201,168,95,.16);
+  border-bottom:
+    1px solid
+    rgba(201,168,95,.16);
 
   transition:
     padding .25s ease,
     background .25s ease;
+
 }
+
 
 .concert-row:hover{
+
   padding-left:10px;
 
-  background:linear-gradient(
-    90deg,
-    rgba(11,117,94,.045),
-    transparent 52%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(11,117,94,.045),
+      transparent 52%
+    );
+
 }
 
+
 .concert-date{
+
   font-size:9px;
 
+  line-height:1.6;
+
   text-transform:uppercase;
+
   letter-spacing:.19em;
 
   color:var(--gold-soft);
+
 }
 
+
 .concert-name{
-  font-family:'Bodoni Moda',serif;
+
+  font-family:
+    'Bodoni Moda',
+    serif;
 
   font-size:25px;
 
   color:#f5efe4;
+
 }
+
 
 .concert-place{
+
   font-size:11px;
 
+  line-height:1.6;
+
   color:var(--muted);
+
 }
 
+
 .concert-arrow{
+
   font-size:16px;
 
   color:var(--emerald-bright);
+
 }
 
 
-/* =========================================================
+/* LOADING */
+
+.concert-loading{
+
+  padding:
+    26px 0;
+
+  border-bottom:
+    1px solid
+    rgba(201,168,95,.16);
+
+  font-family:
+    'Bodoni Moda',
+    serif;
+
+  font-size:20px;
+
+  color:var(--muted);
+
+}
+
+
+/* =====================================================
    ENSEMBLES
-========================================================= */
+===================================================== */
 
 .home-ensembles{
+
   padding-top:120px;
+
   padding-bottom:120px;
+
 }
+
 
 .ensemble-list{
+
   margin-top:46px;
 
-  border-top:1px solid var(--line);
+  border-top:
+    1px solid var(--line);
+
 }
 
+
 .ensemble-row{
+
   display:grid;
 
-  grid-template-columns:220px 1fr 32px;
+  grid-template-columns:
+    220px
+    1fr
+    32px;
 
   align-items:center;
 
   gap:28px;
 
-  padding:30px 0;
+  padding:
+    30px 0;
 
-  border-bottom:1px solid rgba(201,168,95,.16);
+  border-bottom:
+    1px solid
+    rgba(201,168,95,.16);
 
-  transition:padding .25s ease;
+  transition:
+    padding .25s ease;
+
 }
+
 
 a.ensemble-row:hover{
+
   padding-left:10px;
+
 }
 
+
 .ensemble-type{
+
   font-size:9px;
 
   letter-spacing:.25em;
+
   text-transform:uppercase;
 
   color:var(--gold-soft);
+
 }
+
 
 .ensemble-name{
-  font-family:'Bodoni Moda',serif;
 
-  font-size:clamp(28px,3vw,40px);
+  font-family:
+    'Bodoni Moda',
+    serif;
+
+  font-size:
+    clamp(
+      28px,
+      3vw,
+      40px
+    );
 
   color:var(--ivory);
+
 }
+
 
 .ensemble-arrow{
-  color:var(--emerald-bright);
+
+  color:
+    var(--emerald-bright);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    CONTACT
-========================================================= */
+===================================================== */
 
 .home-contact{
+
   padding-top:135px;
+
   padding-bottom:135px;
+
 }
+
 
 .home-contact-inner{
+
   max-width:880px;
+
 }
 
+
 .home-contact h2{
+
   max-width:800px;
 
-  margin:0 0 30px;
+  margin:
+    0 0 30px;
 
-  font-family:'Bodoni Moda',serif;
-  font-size:clamp(35px,3.9vw,52px);
+  font-family:
+    'Bodoni Moda',
+    serif;
+
+  font-size:
+    clamp(
+      35px,
+      3.9vw,
+      52px
+    );
+
   font-weight:400;
 
   line-height:1.12;
 
   color:#efe8dd;
+
 }
 
+
 .email{
+
   display:inline-block;
 
-  font-family:'Bodoni Moda',serif;
+  font-family:
+    'Bodoni Moda',
+    serif;
 
-  font-size:clamp(21px,2.3vw,31px);
+  font-size:
+    clamp(
+      21px,
+      2.3vw,
+      31px
+    );
 
   color:var(--gold-soft);
 
   transition:.2s;
+
 }
+
 
 .email:hover{
+
   color:#fff;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 footer{
+
   position:relative;
 
   background:#050605;
 
-  border-top:1px solid rgba(201,168,95,.14);
+  border-top:
+    1px solid
+    rgba(201,168,95,.14);
 
-  padding:24px 28px;
+  padding:
+    24px 28px;
 
   color:#817c73;
 
   font-size:9px;
 
   letter-spacing:.14em;
+
   text-transform:uppercase;
+
 }
+
 
 .footer-inner{
+
   display:flex;
 
-  justify-content:space-between;
+  justify-content:
+    space-between;
 
   gap:20px;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    TABLET / MOBILE
-========================================================= */
+===================================================== */
 
 @media(max-width:900px){
 
+
   .header-inner{
+
     height:74px;
 
-    grid-template-columns:1fr auto;
+    grid-template-columns:
+      1fr auto;
 
-    padding:0 20px;
+    padding:
+      0 20px;
+
   }
+
 
   .nav,
   .header-right .social{
+
     display:none;
+
   }
+
 
   .header-right{
+
     display:block;
+
   }
 
+
   .menu-btn{
+
     display:block;
+
   }
 
 
   /* MOBILE MENU */
 
   .mobile-menu{
+
     position:fixed;
 
     z-index:95;
 
     top:74px;
+
     left:0;
     right:0;
 
-    background:rgba(5,6,5,.985);
+    background:
+      rgba(5,6,5,.985);
 
-    border-bottom:1px solid var(--line);
+    border-bottom:
+      1px solid var(--line);
 
-    padding:18px 20px 24px;
+    padding:
+      18px 20px 24px;
 
     flex-direction:column;
+
   }
+
 
   .mobile-menu.open{
+
     display:flex;
+
   }
 
-  .mobile-menu a{
-    padding:15px 0;
 
-    border-bottom:1px solid rgba(201,168,95,.12);
+  .mobile-menu a{
+
+    padding:
+      15px 0;
+
+    border-bottom:
+      1px solid
+      rgba(201,168,95,.12);
 
     font-size:10px;
 
     letter-spacing:.22em;
+
     text-transform:uppercase;
+
   }
 
 
   /* HERO */
 
   .hero{
+
     height:auto;
+
     min-height:0;
+
   }
 
+
   .hero-photo{
+
     position:relative;
 
     height:72vh;
+
     min-height:520px;
+
   }
+
 
   .hero-photo img{
-    object-position:34% top;
+
+    object-position:
+      34% top;
+
   }
 
+
   .hero-photo::after{
+
     background:
 
       linear-gradient(
@@ -875,165 +1292,259 @@ footer{
         rgba(2,5,3,.15) 42%,
         rgba(2,5,3,.02) 65%
       );
+
   }
 
+
   .hero-inner{
+
     position:absolute;
+
     inset:0;
 
     justify-content:flex-start;
+
     align-items:flex-end;
 
-    padding:0 20px 48px;
+    padding:
+      0 20px 48px;
+
   }
 
+
   .hero-copy{
+
     width:100%;
 
     padding:0;
+
   }
 
+
   .hero h1{
+
     font-size:52px;
+
   }
 
 
   /* SECTIONS */
 
   .section{
-    padding:82px 20px;
+
+    padding:
+      82px 20px;
+
   }
+
 
   .intro{
+
     padding-top:90px;
+
   }
 
+
   .intro-grid{
+
     grid-template-columns:1fr;
 
     gap:28px;
+
   }
+
 
   .intro-copy{
+
     font-size:31px;
+
   }
 
+
   .section-head{
+
     align-items:flex-start;
+
     flex-direction:column;
 
     gap:15px;
 
     margin-bottom:34px;
+
   }
 
 
   /* CONCERTS */
 
   .concert-row{
-    grid-template-columns:1fr 20px;
 
-    gap:9px 16px;
+    grid-template-columns:
+      1fr 20px;
 
-    padding:22px 0;
+    gap:
+      9px 16px;
+
+    padding:
+      22px 0;
+
   }
+
 
   .concert-date,
   .concert-name,
   .concert-place{
+
     grid-column:1;
+
   }
 
+
   .concert-arrow{
+
     grid-column:2;
-    grid-row:1 / 4;
+
+    grid-row:
+      1 / 4;
 
     align-self:center;
+
   }
 
 
   /* ENSEMBLES */
 
   .ensemble-row{
-    grid-template-columns:1fr 22px;
 
-    gap:8px 14px;
+    grid-template-columns:
+      1fr 22px;
 
-    padding:25px 0;
+    gap:
+      8px 14px;
+
+    padding:
+      25px 0;
+
   }
+
 
   .ensemble-type,
   .ensemble-name{
+
     grid-column:1;
+
   }
 
+
   .ensemble-arrow{
+
     grid-column:2;
-    grid-row:1 / 3;
+
+    grid-row:
+      1 / 3;
 
     align-self:center;
+
   }
 
 
   /* FOOTER */
 
   .footer-inner{
+
     flex-direction:column;
+
   }
+
 }
 
 
-/* =========================================================
+/* =====================================================
    SMALL PHONE
-========================================================= */
+===================================================== */
 
 @media(max-width:520px){
 
+
   .brand{
+
     font-size:17px;
+
   }
+
 
   .brand small{
+
     font-size:7px;
+
   }
+
 
   .hero-photo{
+
     height:68vh;
+
     min-height:470px;
+
   }
+
 
   .hero-photo img{
-    object-position:31% top;
+
+    object-position:
+      31% top;
+
   }
+
 
   .hero h1{
+
     font-size:44px;
+
   }
+
 
   .hero-role{
+
     font-size:9px;
+
   }
+
 
   .intro-copy{
+
     font-size:29px;
+
   }
+
 
   .title{
+
     font-size:41px;
+
   }
+
 
   .concert-name{
+
     font-size:23px;
+
   }
 
+
   .home-contact{
+
     padding-top:95px;
+
     padding-bottom:100px;
+
   }
+
 }
 
 </style>
+
 </head>
+
 
 
 <body>
@@ -1047,26 +1558,45 @@ footer{
 
   <div class="header-inner">
 
-    <a class="brand" href="index.html">
+
+    <a
+      class="brand"
+      href="index.html">
+
       Merily Leotoots
-      <small>Violinist</small>
+
+      <small>
+        Violinist
+      </small>
+
     </a>
 
 
-    <nav class="nav" aria-label="Main navigation">
+    <nav
+      class="nav"
+      aria-label="Main navigation">
 
-      <a href="biography.html">Biography</a>
+      <a href="biography.html">
+        Biography
+      </a>
 
-      <a href="concerts.html">Concerts</a>
+      <a href="concerts.html">
+        Concerts
+      </a>
 
-      <a href="media.html">Media</a>
+      <a href="media.html">
+        Media
+      </a>
 
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">
+        Contact
+      </a>
 
     </nav>
 
 
     <div class="header-right">
+
 
       <a
         class="social"
@@ -1074,8 +1604,11 @@ footer{
         target="_blank"
         rel="noopener"
         aria-label="YouTube">
+
         Y
+
       </a>
+
 
       <a
         class="social"
@@ -1083,16 +1616,22 @@ footer{
         target="_blank"
         rel="noopener"
         aria-label="Instagram">
+
         I
+
       </a>
+
 
       <button
         class="menu-btn"
         id="menuBtn"
         aria-label="Menu"
         aria-expanded="false">
+
         <span></span>
+
       </button>
+
 
     </div>
 
@@ -1101,22 +1640,35 @@ footer{
 </header>
 
 
-<!-- MOBILE MENU -->
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
 
 <div
   class="mobile-menu"
   id="mobileMenu"
   aria-hidden="true">
 
-  <a href="index.html">Home</a>
+  <a href="index.html">
+    Home
+  </a>
 
-  <a href="biography.html">Biography</a>
+  <a href="biography.html">
+    Biography
+  </a>
 
-  <a href="concerts.html">Concerts</a>
+  <a href="concerts.html">
+    Concerts
+  </a>
 
-  <a href="media.html">Media</a>
+  <a href="media.html">
+    Media
+  </a>
 
-  <a href="contact.html">Contact</a>
+  <a href="contact.html">
+    Contact
+  </a>
 
 </div>
 
@@ -1129,6 +1681,7 @@ footer{
 <section
   class="hero"
   aria-label="Merily Leotoots">
+
 
   <div class="hero-photo">
 
@@ -1163,17 +1716,21 @@ footer{
 
 
 <!-- =====================================================
-     CONTINUOUS HOME PAGE
+     MAIN
 ===================================================== -->
 
 <main class="home-main">
 
 
-<!-- BIOGRAPHY -->
+
+<!-- =====================================================
+     BIOGRAPHY
+===================================================== -->
 
 <section
   class="section intro"
   id="intro">
+
 
   <div class="container intro-grid">
 
@@ -1190,6 +1747,7 @@ footer{
 
 
     <div>
+
 
       <p class="intro-copy">
 
@@ -1214,6 +1772,7 @@ footer{
 
       </a>
 
+
     </div>
 
   </div>
@@ -1222,14 +1781,18 @@ footer{
 
 
 
-<!-- CONCERTS -->
+<!-- =====================================================
+     UPCOMING CONCERTS
+===================================================== -->
 
 <section class="section home-concerts">
+
 
   <div class="container">
 
 
     <div class="section-head">
+
 
       <div>
 
@@ -1254,85 +1817,30 @@ footer{
 
       </a>
 
-    </div>
-
-
-
-    <div class="concert-list">
-
-
-      <a
-        class="concert-row"
-        href="concerts.html">
-
-        <div class="concert-date">
-          27 Nov 2026 · 19:00
-        </div>
-
-        <div class="concert-name">
-          Violin &amp; Piano
-        </div>
-
-        <div class="concert-place">
-          Kadriorg Palace · Tallinn
-        </div>
-
-        <div class="concert-arrow">
-          ↗
-        </div>
-
-      </a>
-
-
-
-      <a
-        class="concert-row"
-        href="concerts.html">
-
-        <div class="concert-date">
-          December 2026
-        </div>
-
-        <div class="concert-name">
-          Trio Callistó · Christmas Concerts
-        </div>
-
-        <div class="concert-place">
-          Estonia
-        </div>
-
-        <div class="concert-arrow">
-          ↗
-        </div>
-
-      </a>
-
-
-
-      <a
-        class="concert-row"
-        href="concerts.html">
-
-        <div class="concert-date">
-          January 2027
-        </div>
-
-        <div class="concert-name">
-          Trio Callistó · Bratislava Debut
-        </div>
-
-        <div class="concert-place">
-          Dom hudby · Bratislava
-        </div>
-
-        <div class="concert-arrow">
-          ↗
-        </div>
-
-      </a>
-
 
     </div>
+
+
+
+    <!--
+      THESE CONCERTS ARE LOADED
+      AUTOMATICALLY FROM concerts.html
+    -->
+
+    <div
+      class="concert-list"
+      id="homeConcerts">
+
+      <div
+        class="concert-loading"
+        id="concertLoading">
+
+        Loading upcoming concerts…
+
+      </div>
+
+    </div>
+
 
   </div>
 
@@ -1340,9 +1848,12 @@ footer{
 
 
 
-<!-- ENSEMBLES -->
+<!-- =====================================================
+     ENSEMBLES
+===================================================== -->
 
 <section class="section home-ensembles">
+
 
   <div class="container">
 
@@ -1352,6 +1863,7 @@ footer{
     </div>
 
     <div class="rule"></div>
+
 
     <h2 class="title">
       Ensembles
@@ -1431,11 +1943,15 @@ footer{
 
 
 
-<!-- CONTACT -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section class="section home-contact">
 
+
   <div class="container">
+
 
     <div class="home-contact-inner">
 
@@ -1444,11 +1960,14 @@ footer{
         Contact
       </div>
 
+
       <div class="rule"></div>
 
 
       <h2>
+
         For concerts, projects and artistic collaborations.
+
       </h2>
 
 
@@ -1490,30 +2009,37 @@ footer{
 
 <footer>
 
+
   <div class="container footer-inner">
+
 
     <span>
       © 2026 Merily Leotoots
     </span>
 
+
     <span>
       Official website
     </span>
 
+
   </div>
+
 
 </footer>
 
 
 
-<!-- =====================================================
-     MOBILE MENU SCRIPT
-===================================================== -->
-
 <script>
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
 const btn =
   document.getElementById('menuBtn');
+
 
 const menu =
   document.getElementById('mobileMenu');
@@ -1521,48 +2047,539 @@ const menu =
 
 if(btn && menu){
 
-  btn.addEventListener('click',()=>{
 
-    const open =
-      menu.classList.toggle('open');
-
-    btn.setAttribute(
-      'aria-expanded',
-      open ? 'true' : 'false'
-    );
-
-    menu.setAttribute(
-      'aria-hidden',
-      open ? 'false' : 'true'
-    );
-
-  });
+  btn.addEventListener(
+    'click',
+    () => {
 
 
-  document.addEventListener('keydown',e=>{
+      const open =
+        menu.classList.toggle('open');
 
-    if(e.key === 'Escape'){
-
-      menu.classList.remove('open');
 
       btn.setAttribute(
         'aria-expanded',
-        'false'
+        open ? 'true' : 'false'
       );
+
 
       menu.setAttribute(
         'aria-hidden',
-        'true'
+        open ? 'false' : 'true'
+      );
+
+
+    }
+  );
+
+
+  document.addEventListener(
+    'keydown',
+    event => {
+
+
+      if(event.key === 'Escape'){
+
+
+        menu.classList.remove('open');
+
+
+        btn.setAttribute(
+          'aria-expanded',
+          'false'
+        );
+
+
+        menu.setAttribute(
+          'aria-hidden',
+          'true'
+        );
+
+
+      }
+
+
+    }
+  );
+
+
+}
+
+
+
+/* =====================================================
+   DATE HELPER
+===================================================== */
+
+function parseLocalDate(value){
+
+
+  const [
+    year,
+    month,
+    day
+  ] =
+  value
+    .split('-')
+    .map(Number);
+
+
+  return new Date(
+    year,
+    month - 1,
+    day
+  );
+
+
+}
+
+
+
+/* =====================================================
+   AUTOMATIC HOME CONCERTS
+
+   Reads concerts.html
+   Shows the next 3 upcoming concerts.
+===================================================== */
+
+async function loadHomeConcerts(){
+
+
+  const container =
+    document.getElementById(
+      'homeConcerts'
+    );
+
+
+  if(!container){
+    return;
+  }
+
+
+  try{
+
+
+    /* Load concerts.html */
+
+    const response =
+      await fetch(
+        'concerts.html',
+        {
+          cache:'no-store'
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        'Could not load concerts.html'
       );
 
     }
 
-  });
+
+    const html =
+      await response.text();
+
+
+    /* Convert HTML text into DOM */
+
+    const parser =
+      new DOMParser();
+
+
+    const documentFromConcerts =
+      parser.parseFromString(
+        html,
+        'text/html'
+      );
+
+
+    /* Find master concert list */
+
+    const concertElements =
+      documentFromConcerts
+        .querySelectorAll(
+          '#allConcerts .concert-card'
+        );
+
+
+    const now =
+      new Date();
+
+
+    const today =
+      new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate()
+      );
+
+
+    const upcoming = [];
+
+
+    concertElements.forEach(
+      concert => {
+
+
+        const startValue =
+          concert.dataset.start;
+
+
+        if(!startValue){
+          return;
+        }
+
+
+        const endValue =
+          concert.dataset.end ||
+          startValue;
+
+
+        const startDate =
+          parseLocalDate(
+            startValue
+          );
+
+
+        const endDate =
+          parseLocalDate(
+            endValue
+          );
+
+
+        /*
+          Keep event upcoming through
+          its final event day.
+        */
+
+        if(endDate >= today){
+
+
+          upcoming.push({
+
+            element:concert,
+
+            startDate:startDate,
+
+            endDate:endDate
+
+          });
+
+
+        }
+
+
+      }
+    );
+
+
+    /* Nearest concert first */
+
+    upcoming.sort(
+      (a,b) =>
+        a.startDate -
+        b.startDate
+    );
+
+
+    /* Only next 3 */
+
+    const nextThree =
+      upcoming.slice(0,3);
+
+
+    /* Clear loading text */
+
+    container.innerHTML = '';
+
+
+    /*
+      If there are no upcoming concerts,
+      display a quiet fallback.
+    */
+
+    if(nextThree.length === 0){
+
+
+      container.innerHTML = `
+
+        <a
+          class="concert-row"
+          href="concerts.html">
+
+          <div class="concert-date">
+            Calendar
+          </div>
+
+          <div class="concert-name">
+            View concert archive
+          </div>
+
+          <div class="concert-place">
+            Past performances and projects
+          </div>
+
+          <div class="concert-arrow">
+            ↗
+          </div>
+
+        </a>
+
+      `;
+
+
+      return;
+
+
+    }
+
+
+    /*
+      Build homepage row from
+      each concerts.html entry.
+    */
+
+    nextThree.forEach(
+      item => {
+
+
+        const concert =
+          item.element;
+
+
+        const dateElement =
+          concert.querySelector(
+            '.date'
+          );
+
+
+        const titleElement =
+          concert.querySelector(
+            'h3'
+          );
+
+
+        /*
+          First normal <p> is treated
+          as the venue / location.
+
+          Composer and detail rows use
+          their own classes and are ignored.
+        */
+
+        const paragraphs =
+          Array.from(
+            concert.querySelectorAll(
+              'p'
+            )
+          );
+
+
+        const placeElement =
+          paragraphs.find(
+            paragraph =>
+
+              !paragraph.classList.contains(
+                'concert-composers'
+              )
+
+              &&
+
+              !paragraph.classList.contains(
+                'concert-details'
+              )
+
+              &&
+
+              !paragraph.classList.contains(
+                'concert-programme'
+              )
+
+          );
+
+
+        const date =
+          dateElement
+            ? dateElement.textContent.trim()
+            : '';
+
+
+        const title =
+          titleElement
+            ? titleElement.textContent.trim()
+            : 'Concert';
+
+
+        let place =
+          placeElement
+            ? placeElement.textContent.trim()
+            : '';
+
+
+        /*
+          Multi-city tours may not have
+          a normal venue paragraph.
+
+          In that case use a neutral label.
+        */
+
+        if(
+          !place &&
+          concert.querySelector(
+            '.tour-dates'
+          )
+        ){
+
+          place =
+            'Tour';
+
+        }
+
+
+        const row =
+          document.createElement(
+            'a'
+          );
+
+
+        row.className =
+          'concert-row';
+
+
+        row.href =
+          'concerts.html';
+
+
+        row.innerHTML = `
+
+          <div class="concert-date">
+            ${escapeHTML(date)}
+          </div>
+
+          <div class="concert-name">
+            ${escapeHTML(title)}
+          </div>
+
+          <div class="concert-place">
+            ${escapeHTML(place)}
+          </div>
+
+          <div class="concert-arrow">
+            ↗
+          </div>
+
+        `;
+
+
+        container.appendChild(
+          row
+        );
+
+
+      }
+    );
+
+
+  }
+
+  catch(error){
+
+
+    /*
+      If concerts.html cannot be loaded,
+      do not leave a broken section.
+    */
+
+    container.innerHTML = `
+
+      <a
+        class="concert-row"
+        href="concerts.html">
+
+        <div class="concert-date">
+          Calendar
+        </div>
+
+        <div class="concert-name">
+          View concerts
+        </div>
+
+        <div class="concert-place">
+          Concert dates and performances
+        </div>
+
+        <div class="concert-arrow">
+          ↗
+        </div>
+
+      </a>
+
+    `;
+
+
+    console.error(
+      'Concert loading failed:',
+      error
+    );
+
+
+  }
+
 
 }
+
+
+
+/* =====================================================
+   SAFE TEXT OUTPUT
+
+   Prevents HTML inside a concert title
+   from being inserted as executable HTML.
+===================================================== */
+
+function escapeHTML(value){
+
+
+  return String(value)
+    .replaceAll(
+      '&',
+      '&amp;'
+    )
+    .replaceAll(
+      '<',
+      '&lt;'
+    )
+    .replaceAll(
+      '>',
+      '&gt;'
+    )
+    .replaceAll(
+      '"',
+      '&quot;'
+    )
+    .replaceAll(
+      "'",
+      '&#039;'
+    );
+
+
+}
+
+
+
+/* =====================================================
+   LOAD CONCERTS
+===================================================== */
+
+loadHomeConcerts();
+
 
 </script>
 
 
 </body>
+
 </html>
