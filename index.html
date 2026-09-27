@@ -376,68 +376,154 @@ img{
 
   height:
     min(
-      820px,
+      840px,
       calc(100vh - 84px)
     );
 
-  min-height:620px;
+  min-height:640px;
 
   overflow:hidden;
 
-  background:#050605;
+  isolation:isolate;
+
+  background:
+    radial-gradient(
+      circle at 19% 42%,
+      rgba(11,117,94,.20) 0%,
+      rgba(10,75,61,.09) 24%,
+      transparent 48%
+    ),
+
+    radial-gradient(
+      circle at 78% 22%,
+      rgba(201,168,95,.10) 0%,
+      transparent 30%
+    ),
+
+    linear-gradient(
+      118deg,
+      #050605 0%,
+      #07100c 43%,
+      #050605 100%
+    );
 
 }
 
 
-/* PHOTO */
+/* SOFT LIGHT BEHIND THE PORTRAIT */
+
+.hero::before{
+
+  content:'';
+
+  position:absolute;
+
+  z-index:0;
+
+  width:640px;
+  height:640px;
+
+  left:
+    max(
+      -170px,
+      calc(50% - 850px)
+    );
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(15,126,102,.17) 0%,
+      rgba(10,75,61,.08) 34%,
+      transparent 68%
+    );
+
+  filter:blur(6px);
+
+  pointer-events:none;
+
+}
+
+
+/* CINEMATIC VEIL */
+
+.hero::after{
+
+  content:'';
+
+  position:absolute;
+
+  z-index:2;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,6,5,0) 0%,
+      rgba(5,6,5,0) 34%,
+      rgba(5,6,5,.10) 49%,
+      rgba(5,6,5,.48) 72%,
+      rgba(5,6,5,.82) 100%
+    ),
+
+    linear-gradient(
+      0deg,
+      rgba(5,6,5,.70) 0%,
+      rgba(5,6,5,.14) 24%,
+      transparent 46%
+    );
+
+}
+
+
+/* TRANSPARENT PORTRAIT */
 
 .hero-photo{
 
   position:absolute;
 
+  z-index:1;
+
   inset:0;
+
+  pointer-events:none;
 
 }
 
 
 .hero-photo img{
 
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-
-  object-position:
-    center top;
-
-}
-
-
-/* PHOTO OVERLAY */
-
-.hero-photo::after{
-
-  content:'';
-
   position:absolute;
 
-  inset:0;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      rgba(0,0,0,.02) 0%,
-      rgba(0,0,0,.01) 35%,
-      rgba(3,7,5,.20) 55%,
-      rgba(3,7,5,.78) 100%
-    ),
-
-    linear-gradient(
-      0deg,
-      rgba(3,6,5,.50),
-      transparent 34%
+  left:
+    max(
+      -8px,
+      calc(50% - 700px)
     );
+
+  bottom:-2%;
+
+  height:106%;
+
+  width:auto;
+
+  max-width:none;
+
+  object-fit:contain;
+
+  object-position:left bottom;
+
+  filter:
+    drop-shadow(0 30px 42px rgba(0,0,0,.34))
+    drop-shadow(18px 0 36px rgba(0,0,0,.18));
 
 }
 
@@ -448,7 +534,7 @@ img{
 
   position:relative;
 
-  z-index:2;
+  z-index:3;
 
   height:100%;
 
@@ -470,13 +556,48 @@ img{
 
 .hero-copy{
 
+  position:relative;
+
   width:
     min(
-      44%,
+      43%,
       520px
     );
 
-  padding-top:20px;
+  padding:
+    18px 0 18px 38px;
+
+  border-left:
+    1px solid
+    rgba(201,168,95,.24);
+
+}
+
+
+.hero-copy::before{
+
+  content:'';
+
+  position:absolute;
+
+  left:-1px;
+
+  top:18px;
+
+  width:1px;
+
+  height:68px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--gold-soft),
+      var(--emerald-bright)
+    );
+
+  box-shadow:
+    0 0 24px
+    rgba(201,168,95,.18);
 
 }
 
@@ -493,31 +614,33 @@ img{
 
   font-size:
     clamp(
-      52px,
-      5.7vw,
-      82px
+      56px,
+      5.9vw,
+      86px
     );
 
-  line-height:.96;
+  line-height:.94;
 
-  letter-spacing:-.025em;
+  letter-spacing:-.032em;
 
   color:#fffaf2;
 
   text-shadow:
-    0 14px 40px
-    rgba(0,0,0,.25);
+    0 16px 44px
+    rgba(0,0,0,.34);
 
 }
 
 
 .hero-role{
 
-  margin-top:22px;
+  margin-top:24px;
 
-  font-size:10px;
+  font-size:9px;
 
-  letter-spacing:.40em;
+  font-weight:400;
+
+  letter-spacing:.46em;
 
   text-transform:uppercase;
 
@@ -528,17 +651,17 @@ img{
 
 .hero-accent{
 
-  width:100px;
+  width:122px;
 
   height:1px;
 
-  margin-top:25px;
+  margin-top:26px;
 
   background:
     linear-gradient(
       90deg,
       var(--gold),
-      var(--emerald-bright),
+      var(--emerald-bright) 58%,
       transparent
     );
 
@@ -1256,42 +1379,73 @@ footer{
 
   .hero{
 
-    height:auto;
+    height:calc(100svh - 74px);
 
-    min-height:0;
+    min-height:620px;
+
+    max-height:820px;
+
+  }
+
+
+  .hero::before{
+
+    width:520px;
+    height:520px;
+
+    left:-185px;
+
+    top:38%;
+
+  }
+
+
+  .hero::after{
+
+    background:
+      linear-gradient(
+        0deg,
+        rgba(5,6,5,.96) 0%,
+        rgba(5,6,5,.72) 18%,
+        rgba(5,6,5,.20) 42%,
+        rgba(5,6,5,.02) 68%
+      ),
+
+      linear-gradient(
+        90deg,
+        rgba(5,6,5,.08),
+        transparent 68%
+      );
 
   }
 
 
   .hero-photo{
 
-    position:relative;
+    position:absolute;
 
-    height:72vh;
+    inset:0;
 
-    min-height:520px;
+    height:100%;
 
   }
 
 
   .hero-photo img{
 
-    object-position:
-      34% top;
+    left:50%;
 
-  }
+    bottom:0;
 
+    height:92%;
 
-  .hero-photo::after{
+    width:auto;
 
-    background:
+    max-width:none;
 
-      linear-gradient(
-        0deg,
-        rgba(2,5,3,.88) 0%,
-        rgba(2,5,3,.15) 42%,
-        rgba(2,5,3,.02) 65%
-      );
+    transform:translateX(-50%);
+
+    object-position:center bottom;
 
   }
 
@@ -1302,12 +1456,14 @@ footer{
 
     inset:0;
 
+    height:100%;
+
     justify-content:flex-start;
 
     align-items:flex-end;
 
     padding:
-      0 20px 48px;
+      0 20px 42px;
 
   }
 
@@ -1316,7 +1472,21 @@ footer{
 
     width:100%;
 
-    padding:0;
+    padding:
+      0 0 0 20px;
+
+    border-left:
+      1px solid
+      rgba(201,168,95,.30);
+
+  }
+
+
+  .hero-copy::before{
+
+    top:0;
+
+    height:54px;
 
   }
 
@@ -1479,19 +1649,33 @@ footer{
   }
 
 
-  .hero-photo{
+  .hero{
 
-    height:68vh;
-
-    min-height:470px;
+    min-height:560px;
 
   }
 
 
   .hero-photo img{
 
-    object-position:
-      31% top;
+    height:88%;
+
+    left:47%;
+
+  }
+
+
+  .hero-inner{
+
+    padding:
+      0 18px 34px;
+
+  }
+
+
+  .hero-copy{
+
+    padding-left:17px;
 
   }
 
@@ -1686,7 +1870,7 @@ footer{
   <div class="hero-photo">
 
     <img
-      src="MerilyHero.jpg"
+      src="Merily.png"
       alt="Merily Leotoots with violin">
 
   </div>
