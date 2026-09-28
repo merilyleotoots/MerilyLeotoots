@@ -12,12 +12,15 @@
 
 <title>Concerts — Merily Leotoots</title>
 
-<!-- FAVICON -->
+<!-- =====================================================
+     FAVICON
+===================================================== -->
 
-<link rel="icon" href="favicon.ico?v=4" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=4">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="shortcut icon" href="/favicon.ico?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=5">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
 
 <meta name="theme-color" content="#050605">
 
@@ -141,12 +144,7 @@ a{
 
   height:1px;
 
-  background:linear-gradient(
-    90deg,
-    var(--emerald-bright),
-    var(--gold),
-    var(--emerald-bright)
-  );
+  background:var(--gold);
 
   transition:.25s;
 }
@@ -289,7 +287,7 @@ main{
   background:linear-gradient(
     90deg,
     var(--gold),
-    var(--emerald-bright),
+    rgba(201,168,95,.35),
     transparent
   );
 }
@@ -322,8 +320,8 @@ main{
 
   background:linear-gradient(
     90deg,
-    rgba(201,168,95,.25),
-    rgba(11,117,94,.18),
+    rgba(201,168,95,.28),
+    rgba(201,168,95,.10),
     transparent
   );
 }
@@ -387,7 +385,7 @@ main{
   background:linear-gradient(
     90deg,
     var(--gold),
-    var(--emerald-bright),
+    rgba(201,168,95,.35),
     transparent
   );
 }
@@ -423,7 +421,7 @@ main{
 
   background:linear-gradient(
     90deg,
-    rgba(11,117,94,.045),
+    rgba(201,168,95,.035),
     transparent 50%
   );
 }
@@ -530,6 +528,40 @@ main{
 .tour-date strong{
   font-weight:400;
   color:#d5cec2;
+}
+
+
+
+
+/* TICKETS */
+
+.ticket-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-top:16px;
+  padding:9px 14px;
+
+  border:1px solid rgba(201,168,95,.42);
+
+  font-size:8px;
+  font-weight:400;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+
+  color:var(--gold-soft);
+
+  transition:
+    color .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.ticket-link:hover{
+  color:var(--ivory);
+  border-color:var(--gold);
+  background:rgba(201,168,95,.06);
 }
 
 
@@ -1396,6 +1428,14 @@ footer{
       Merily Leotoots, violin ·
       Rusudan Chuntishvili, piano
     </p>
+
+    <a
+      class="ticket-link"
+      href="https://sviby.com/et/e/phj7qg"
+      target="_blank"
+      rel="noopener">
+      Tickets
+    </a>
 
   </div>
 
