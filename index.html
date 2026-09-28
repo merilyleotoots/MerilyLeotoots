@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="en" class="loading">
 
 <head>
 
@@ -38,6 +38,12 @@
   href="apple-touch-icon.png?v=4">
 
 <meta name="theme-color" content="#050605">
+
+<link
+  rel="preload"
+  as="image"
+  href="Merily.png"
+  fetchpriority="high">
 
 
 <style>
@@ -81,6 +87,15 @@
 
 html{
   scroll-behavior:smooth;
+  background:#050605;
+}
+
+html.loading body{
+  opacity:0;
+}
+
+html.ready body{
+  opacity:1;
 }
 
 body{
@@ -99,6 +114,8 @@ body{
   font-weight:300;
 
   letter-spacing:.01em;
+
+  transition:opacity .55s ease;
 
 }
 
@@ -1683,6 +1700,14 @@ footer{
 
 </style>
 
+<noscript>
+  <style>
+    html.loading body{
+      opacity:1 !important;
+    }
+  </style>
+</noscript>
+
 </head>
 
 
@@ -1826,8 +1851,13 @@ footer{
   <div class="hero-photo">
 
     <img
+      id="heroImage"
       src="Merily.png"
-      alt="Merily Leotoots with violin">
+      alt="Merily Leotoots with violin"
+      width="1536"
+      height="1024"
+      fetchpriority="high"
+      decoding="async">
 
   </div>
 
@@ -2245,6 +2275,133 @@ if(btn && menu){
 
 }
 
+
+
+/* =====================================================
+   PAGE REVEAL
+
+   Keep the page hidden until the hero portrait and
+   web fonts are ready, then fade everything in together.
+===================================================== */
+
+const heroImage =
+  document.getElementById('heroImage');
+
+
+function waitForHeroImage(){
+
+
+  if(!heroImage){
+    return Promise.resolve();
+  }
+
+
+  if(heroImage.complete && heroImage.naturalWidth > 0){
+
+
+    if(heroImage.decode){
+      return heroImage.decode().catch(() => {});
+    }
+
+
+    return Promise.resolve();
+
+  }
+
+
+  return new Promise(resolve => {
+
+
+    heroImage.addEventListener(
+      'load',
+      async () => {
+
+
+        if(heroImage.decode){
+
+          try{
+            await heroImage.decode();
+          }
+          catch(error){}
+
+        }
+
+
+        resolve();
+
+      },
+      { once:true }
+    );
+
+
+    heroImage.addEventListener(
+      'error',
+      resolve,
+      { once:true }
+    );
+
+
+  });
+
+}
+
+
+function waitForFonts(){
+
+
+  if(document.fonts && document.fonts.ready){
+    return document.fonts.ready.catch(() => {});
+  }
+
+
+  return Promise.resolve();
+
+}
+
+
+let pageRevealed = false;
+
+
+function revealPage(){
+
+
+  if(pageRevealed){
+    return;
+  }
+
+
+  pageRevealed = true;
+
+
+  requestAnimationFrame(() => {
+
+
+    document.documentElement
+      .classList.remove('loading');
+
+
+    document.documentElement
+      .classList.add('ready');
+
+
+  });
+
+}
+
+
+Promise.all([
+  waitForHeroImage(),
+  waitForFonts()
+])
+  .then(revealPage);
+
+
+/* Safety fallback: never leave the site hidden forever. */
+
+setTimeout(
+  revealPage,
+  5000
+);
 
 
 /* =====================================================
