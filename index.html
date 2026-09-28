@@ -263,13 +263,7 @@ img{
 
   height:1px;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--emerald-bright),
-      var(--gold),
-      var(--emerald-bright)
-    );
+  background:var(--gold);
 
   transition:.25s;
 
@@ -641,13 +635,13 @@ img{
 
   height:1px;
 
-  margin-top:26px;
+  margin-top:20px;
 
   background:
     linear-gradient(
       90deg,
       var(--gold),
-      var(--emerald-bright) 58%,
+      rgba(201,168,95,.45) 58%,
       transparent
     );
 
@@ -796,7 +790,7 @@ img{
     linear-gradient(
       90deg,
       var(--gold),
-      var(--emerald-bright),
+      rgba(201,168,95,.35),
       transparent
     );
 
@@ -833,7 +827,7 @@ img{
   color:#fff;
 
   border-color:
-    var(--emerald-bright);
+    var(--gold);
 
 }
 
@@ -979,7 +973,7 @@ img{
   background:
     linear-gradient(
       90deg,
-      rgba(11,117,94,.045),
+      rgba(201,168,95,.035),
       transparent 52%
     );
 
@@ -1029,7 +1023,7 @@ img{
 
   font-size:16px;
 
-  color:var(--emerald-bright);
+  color:var(--gold-soft);
 
 }
 
@@ -1086,7 +1080,7 @@ img{
   grid-template-columns:
     220px
     1fr
-    32px;
+    auto;
 
   align-items:center;
 
@@ -1143,10 +1137,32 @@ a.ensemble-row:hover{
 }
 
 
-.ensemble-arrow{
+.ensemble-action{
 
-  color:
-    var(--emerald-bright);
+  font-size:8px;
+
+  font-weight:400;
+
+  letter-spacing:.24em;
+
+  text-transform:uppercase;
+
+  color:var(--gold-soft);
+
+  opacity:.72;
+
+  transition:
+    opacity .2s ease,
+    color .2s ease;
+
+}
+
+
+a.ensemble-row:hover .ensemble-action{
+
+  opacity:1;
+
+  color:var(--ivory);
 
 }
 
@@ -1419,19 +1435,19 @@ footer{
 
   .hero-photo img{
 
-    left:50%;
+    left:-35px;
 
     bottom:-3%;
 
-    height:92%;
+    height:94%;
 
     width:auto;
 
     max-width:none;
 
-    transform:translateX(-50%);
+    transform:none;
 
-    object-position:center bottom;
+    object-position:left bottom;
 
   }
 
@@ -1559,7 +1575,7 @@ footer{
   .ensemble-row{
 
     grid-template-columns:
-      1fr 22px;
+      1fr auto;
 
     gap:
       8px 14px;
@@ -1578,7 +1594,7 @@ footer{
   }
 
 
-  .ensemble-arrow{
+  .ensemble-action{
 
     grid-column:2;
 
@@ -1631,9 +1647,13 @@ footer{
 
   .hero-photo img{
 
-    height:88%;
+    height:91%;
 
-    left:47%;
+    left:-55px;
+
+    bottom:-2%;
+
+    transform:none;
 
   }
 
@@ -2058,8 +2078,8 @@ footer{
           Trio Callistó
         </div>
 
-        <div class="ensemble-arrow">
-          ↗
+        <div class="ensemble-action">
+          Open
         </div>
 
       </a>
@@ -2076,9 +2096,7 @@ footer{
           Summa Quartet
         </div>
 
-        <div class="ensemble-arrow">
-          —
-        </div>
+
 
       </div>
 
@@ -2098,8 +2116,8 @@ footer{
           Duo EnPassant
         </div>
 
-        <div class="ensemble-arrow">
-          ↗
+        <div class="ensemble-action">
+          Open
         </div>
 
       </a>
