@@ -946,7 +946,7 @@ img{
     200px
     1.4fr
     1fr
-    24px;
+    auto;
 
   gap:28px;
 
@@ -1019,11 +1019,32 @@ img{
 }
 
 
-.concert-arrow{
+.concert-action{
 
-  font-size:16px;
+  font-size:8px;
+
+  font-weight:400;
+
+  letter-spacing:.24em;
+
+  text-transform:uppercase;
 
   color:var(--gold-soft);
+
+  opacity:.78;
+
+  transition:
+    opacity .2s ease,
+    color .2s ease;
+
+}
+
+
+.concert-row:hover .concert-action{
+
+  opacity:1;
+
+  color:var(--ivory);
 
 }
 
@@ -1435,7 +1456,7 @@ footer{
 
   .hero-photo img{
 
-    left:-35px;
+    left:50%;
 
     bottom:-3%;
 
@@ -1445,9 +1466,9 @@ footer{
 
     max-width:none;
 
-    transform:none;
+    transform:translateX(-50%);
 
-    object-position:left bottom;
+    object-position:center bottom;
 
   }
 
@@ -1538,7 +1559,7 @@ footer{
   .concert-row{
 
     grid-template-columns:
-      1fr 20px;
+      1fr auto;
 
     gap:
       9px 16px;
@@ -1558,7 +1579,7 @@ footer{
   }
 
 
-  .concert-arrow{
+  .concert-action{
 
     grid-column:2;
 
@@ -1649,11 +1670,11 @@ footer{
 
     height:91%;
 
-    left:-55px;
+    left:50%;
 
     bottom:-2%;
 
-    transform:none;
+    transform:translateX(-50%);
 
   }
 
@@ -2637,8 +2658,8 @@ async function loadHomeConcerts(){
             Past performances and projects
           </div>
 
-          <div class="concert-arrow">
-            ↗
+          <div class="concert-action">
+            View
           </div>
 
         </a>
@@ -2782,8 +2803,8 @@ async function loadHomeConcerts(){
             ${escapeHTML(place)}
           </div>
 
-          <div class="concert-arrow">
-            ↗
+          <div class="concert-action">
+            View
           </div>
 
         `;
@@ -2826,8 +2847,8 @@ async function loadHomeConcerts(){
           Concert dates and performances
         </div>
 
-        <div class="concert-arrow">
-          ↗
+        <div class="concert-action">
+          View
         </div>
 
       </a>
