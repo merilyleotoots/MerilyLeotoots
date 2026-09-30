@@ -565,6 +565,113 @@ main{
 }
 
 
+
+/* =====================================================
+   CONCERT POSTER
+===================================================== */
+
+.concert-content-with-poster{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 185px;
+  gap:38px;
+  align-items:start;
+}
+
+.concert-poster-link{
+  display:block;
+  width:100%;
+  max-width:185px;
+  justify-self:end;
+  overflow:hidden;
+  border:1px solid rgba(201,168,95,.24);
+  background:#0a0b0a;
+  cursor:zoom-in;
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.concert-poster-link:hover{
+  transform:translateY(-3px);
+  border-color:rgba(201,168,95,.65);
+  box-shadow:0 16px 34px rgba(0,0,0,.32);
+}
+
+.concert-poster{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* LIGHTBOX */
+
+.poster-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:28px;
+
+  background:rgba(0,0,0,.91);
+  backdrop-filter:blur(8px);
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+
+  transition:
+    opacity .2s ease,
+    visibility .2s ease;
+}
+
+.poster-lightbox.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.poster-lightbox img{
+  display:block;
+  max-width:min(92vw,900px);
+  max-height:90vh;
+  width:auto;
+  height:auto;
+
+  box-shadow:0 22px 70px rgba(0,0,0,.55);
+}
+
+.poster-lightbox-close{
+  position:absolute;
+  top:18px;
+  right:22px;
+
+  width:44px;
+  height:44px;
+
+  border:1px solid rgba(201,168,95,.42);
+  background:rgba(5,6,5,.78);
+
+  color:var(--ivory);
+
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:26px;
+  font-weight:300;
+  line-height:1;
+
+  cursor:pointer;
+}
+
+.poster-lightbox-close:hover{
+  border-color:var(--gold);
+  color:var(--gold-soft);
+}
+
+
 /* =====================================================
    PAST CONCERTS
 ===================================================== */
@@ -713,6 +820,16 @@ footer{
     margin-bottom:8px;
   }
 
+
+  .concert-content-with-poster{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .concert-poster-link{
+    justify-self:start;
+    max-width:220px;
+  }
 
   .footer-inner{
     flex-direction:column;
@@ -1410,31 +1527,49 @@ footer{
     29 November 2026 · 19:00
   </div>
 
-  <div>
+  <div class="concert-content-with-poster">
 
-    <h3>
-      Soirée française
-    </h3>
+    <div>
 
-    <p>
-      Kadriorg Palace · Tallinn
-    </p>
+      <h3>
+        Soirée française
+      </h3>
 
-    <p class="concert-composers">
-      Ravel · Viardot · Satie · Boulanger
-    </p>
+      <p>
+        Kadriorg Palace · Tallinn
+      </p>
 
-    <p class="concert-details">
-      Merily Leotoots, violin ·
-      Rusudan Chuntishvili, piano
-    </p>
+      <p class="concert-composers">
+        Ravel · Viardot · Satie · Boulanger
+      </p>
+
+      <p class="concert-details">
+        Merily Leotoots, violin ·
+        Rusudan Chuntishvili, piano
+      </p>
+
+      <a
+        class="ticket-link"
+        href="https://sviby.com/et/e/phj7qg"
+        target="_blank"
+        rel="noopener">
+        Tickets
+      </a>
+
+    </div>
 
     <a
-      class="ticket-link"
-      href="https://sviby.com/et/e/phj7qg"
-      target="_blank"
-      rel="noopener">
-      Tickets
+      class="concert-poster-link"
+      href="Prantsusemuusika.jpg"
+      aria-label="View Soirée française poster larger"
+      data-poster="Prantsusemuusika.jpg">
+
+      <img
+        class="concert-poster"
+        src="Prantsusemuusika.jpg"
+        alt="Soirée française concert poster"
+        loading="lazy">
+
     </a>
 
   </div>
@@ -1622,6 +1757,31 @@ footer{
 
 </main>
 
+
+
+<!-- =====================================================
+     POSTER LIGHTBOX
+===================================================== -->
+
+<div
+  class="poster-lightbox"
+  id="posterLightbox"
+  aria-hidden="true">
+
+  <button
+    class="poster-lightbox-close"
+    id="posterLightboxClose"
+    type="button"
+    aria-label="Close poster">
+    ×
+  </button>
+
+  <img
+    id="posterLightboxImage"
+    src=""
+    alt="">
+
+</div>
 
 
 <!-- =====================================================
@@ -1910,6 +2070,116 @@ if(past.length === 0){
     'none';
 
 }
+
+
+/* =====================================================
+   POSTER LIGHTBOX
+===================================================== */
+
+const posterLightbox =
+  document.getElementById('posterLightbox');
+
+const posterLightboxImage =
+  document.getElementById('posterLightboxImage');
+
+const posterLightboxClose =
+  document.getElementById('posterLightboxClose');
+
+const posterLinks =
+  document.querySelectorAll('[data-poster]');
+
+
+function closePosterLightbox(){
+
+  if(!posterLightbox){
+    return;
+  }
+
+  posterLightbox.classList.remove('open');
+
+  posterLightbox.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body.style.overflow = '';
+
+}
+
+
+posterLinks.forEach(link => {
+
+  link.addEventListener('click', event => {
+
+    event.preventDefault();
+
+    if(
+      !posterLightbox ||
+      !posterLightboxImage
+    ){
+      return;
+    }
+
+    posterLightboxImage.src =
+      link.dataset.poster;
+
+    const thumbnail =
+      link.querySelector('img');
+
+    posterLightboxImage.alt =
+      thumbnail?.alt || 'Concert poster';
+
+    posterLightbox.classList.add('open');
+
+    posterLightbox.setAttribute(
+      'aria-hidden',
+      'false'
+    );
+
+    document.body.style.overflow =
+      'hidden';
+
+  });
+
+});
+
+
+if(posterLightboxClose){
+
+  posterLightboxClose.addEventListener(
+    'click',
+    closePosterLightbox
+  );
+
+}
+
+
+if(posterLightbox){
+
+  posterLightbox.addEventListener(
+    'click',
+    event => {
+
+      if(event.target === posterLightbox){
+        closePosterLightbox();
+      }
+
+    }
+  );
+
+}
+
+
+document.addEventListener('keydown', event => {
+
+  if(
+    event.key === 'Escape' &&
+    posterLightbox?.classList.contains('open')
+  ){
+    closePosterLightbox();
+  }
+
+});
 
 
 </script>
