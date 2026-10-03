@@ -163,24 +163,27 @@ a{
 
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:9px;
 }
 
 .social{
+  width:35px;
+  height:35px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
   font-family:'Bodoni Moda',serif;
-  font-size:13px;
+  font-size:12px;
   color:var(--gold-soft);
-
-  opacity:.85;
-
   transition:.2s;
 }
 
 .social:hover{
-  color:#fff;
-  opacity:1;
+  border-color:var(--gold);
+  background:rgba(201,168,95,.06);
+  color:var(--ivory);
 }
-
 
 /* MOBILE MENU BUTTON */
 
